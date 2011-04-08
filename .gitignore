@@ -1,0 +1,26 @@
+# 全てのファイルを一度、無視する。
+/*
+# さらに、ドットから始まる設定ファイルを無視する。
+/.*
+
+# しかし、"無視したくないファイル"は以下に"![ファイル名]"で指定する。
+##### Gitで管理するファイルリスト #####
+!/.bash_aliases
+!/.bash_colour.example
+!/.bash_profile
+!/.bashrc
+!/.selected_editor
+!/.vimrc
+!/.vim
+!/.gitignore
+!/.gitconfig
+!/.gitmodules
+!/.git-completion.bash
+!/.screenrc
+!/.zshrc
+!/bin
+
+
+# 上記に"無視したくないファイル"としてリスト化した中から、さらに"無視したいファイル"を指定する。
+/tmp
+/src
