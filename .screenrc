@@ -1,0 +1,21 @@
+shell -zsh
+startup_message off
+escape ^t^t
+altscreen on
+autodetach on
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+vbell_msg ""
+vbell off
+bind n screen
+bind h prev
+bind j next
+bind l windowlist
+bind 2 split
+bind o focus
+bind 1 only
+bind 0 remove
+bind s  # reset s key
+hardstatus alwayslastline "[%02c] %`%-w%{=b kg}%n %t%{-}%+w"
+multiuser on
+acladd akira
+
