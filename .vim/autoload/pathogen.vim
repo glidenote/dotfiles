@@ -1,0 +1,1 @@
+/home/glidenote/.vim/bundle/vim-pathogen/autoload/pathogen.vim
