@@ -9,7 +9,7 @@
     interactive = auto
 
 [core]
-    editor = vim -c \"set fenc=utf-8\"
+    editor = /bin/vim -c \"set fenc=utf-8\"
 
 [alias]
     co     = checkout
