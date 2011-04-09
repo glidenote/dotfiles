@@ -12,7 +12,8 @@ bindkey -e
 PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin/
 export PATH
 export MANPATH=/opt/local/man:$MANPATH
-
+export PERL_CPANM_OPT="--local-lib=~/extlib"
+export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
 
 #=============================
 # set prompt
