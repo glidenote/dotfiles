@@ -9,8 +9,10 @@ fi
 
 # bash-completion
 if [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
+	. /etc/bash_completion
 fi
 
 # git-completion
-source ~/.git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+	source ~/.git-completion.bash
+fi
