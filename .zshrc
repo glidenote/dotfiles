@@ -86,8 +86,6 @@ alias ls='ls -G --color'
 alias la='ls -Gah --color'
 alias ll='ls -GlAh --color'
 alias lf='ls -GFAh --color'
-alias get='GET'
-alias fping='fping -t 50'
 
 
 #=============================
