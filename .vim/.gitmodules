@@ -3,13 +3,13 @@
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "bundle/unite"]
 	path = bundle/unite
-	url = https://github.com/Shougo/unite.vim.git
+	url = git://github.com/Shougo/unite.vim.git
 [submodule "bundle/vim-ref"]
 	path = bundle/vim-ref
-	url = https://github.com/thinca/vim-ref.git
+	url = git://github.com/thinca/vim-ref.git
 [submodule "bundle/vim-quickrun"]
 	path = bundle/vim-quickrun
-	url = https://github.com/thinca/vim-quickrun.git
+	url = git://github.com/thinca/vim-quickrun.git
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.git
+	url = git://github.com/Shougo/neocomplcache.git
