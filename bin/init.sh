@@ -10,19 +10,21 @@ mkdir bin tmp src
 mkdir ~/.zsh/
 touch ~/.zsh/`hostname`.rc
 
-# 既存ディレクトリ、ファイルの削除
-/bin/rm -rf ~/bin
-/bin/rm -rf ~/.vim
-/bin/rm -rf ~/.bash_profile
-/bin/rm -rf ~/.bashrc
-/bin/rm -rf ~/.git
-/bin/rm -rf ~/.git-completion.bash
-/bin/rm -rf ~/.gitconfig
-/bin/rm -rf ~/.gitignore
-/bin/rm -rf ~/.gitmodules
-/bin/rm -rf ~/.screenrc
-/bin/rm -rf ~/.vimrc
-/bin/rm -rf ~/.zshrc
+# 既存ディレクトリ、ファイルのリネーム
+if [ ! -e ~/.git-completion.bash.bak ]; then
+	mv ~/bin{,.bak}
+	mv ~/.vim{,.bak}
+	mv ~/.bash_profile{,.bak}
+	mv ~/.bashrc{,.bak}
+	mv ~/.git{,.bak}
+	mv ~/.git-completion.bash{,.bak}
+	mv ~/.gitconfig{,.bak}
+	mv ~/.gitignore{,.bak}
+	mv ~/.gitmodules{,.bak}
+	mv ~/.screenrc{,.bak}
+	mv ~/.vimrc{,.bak}
+	mv ~/.zshrc{,.bak}
+fi
 
 # submodule
 cd ~/home_config
