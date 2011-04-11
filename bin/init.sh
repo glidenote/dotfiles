@@ -10,7 +10,7 @@ mkdir bin tmp src
 mkdir ~/.zsh/
 touch ~/.zsh/`hostname`.rc
 
-# 既存ディレクトリ、ファイルのリネーム
+# 既存ディレクトリ、ファイルを待避させる
 if [ ! -e ~/old_files ]; then
 	mkdir ~/old_files
 	mv ~/bin ~/old_files 
