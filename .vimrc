@@ -288,3 +288,40 @@ highlight MatchParen guifg=Yellow guibg=DarkCyan
 highlight SignColumn guibg=#101020
 highlight CursorIM   guifg=NONE guibg=Red
 highlight CursorLine guifg=NONE guibg=#505050
+
+"-----------------------------------------------------------------------------
+
+""" Unite 
+" The prefix key.
+" https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
+nnoremap    [unite]   <Nop>
+nmap    f [unite]
+
+nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+nnoremap  [unite]f  :<C-u>Unite source<CR>
+
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()"{{{
+  " Overwrite settings.
+
+  nmap <buffer> <ESC>      <Plug>(unite_exit)
+  imap <buffer> jj      <Plug>(unite_insert_leave)
+  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+
+  " <C-l>: manual neocomplcache completion.
+  inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
+
+  " Start insert.
+  "let g:unite_enable_start_insert = 1
+endfunction"}}}
+
+let g:unite_source_file_mru_limit = 200
+let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_abbr_highlight = 'TabLine'
+
+" For optimize.
+let g:unite_source_file_mru_filename_format = ''
+"-----------------------------------------------------------------------------
