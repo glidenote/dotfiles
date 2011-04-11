@@ -280,7 +280,7 @@ augroup END
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-highlight Pmenu ctermbg=8 guibg=#606060
-highlight PmenuSel ctermbg=12 guibg=SlateBlue
-highlight PmenuSbar ctermbg=0 guibg=#404040
+"highlight Pmenu ctermbg=8 guibg=#606060
+"highlight PmenuSel ctermbg=12 guibg=SlateBlue
+"highlight PmenuSbar ctermbg=0 guibg=#404040
 
