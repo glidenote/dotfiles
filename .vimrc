@@ -33,6 +33,8 @@ let g:changelog_username = "glidenote  "
 
 """ 一般
 "
+" colorscheme
+colorscheme default
 " viとの互換をとらない
 set nocompatible
 " コマンド、検索パターンを50個まで履歴に残す
@@ -261,6 +263,7 @@ endif " has("autocmd")
 "-----------------------------------------------------------------------------
 "-----------------------------------------------------------------------------
 
+""" プラグイン関連
 " Python
 function! s:Exec()
     exe "!" . &ft . " %"        
@@ -281,5 +284,3 @@ highlight Pmenu ctermbg=8 guibg=#606060
 highlight PmenuSel ctermbg=12 guibg=SlateBlue
 highlight PmenuSbar ctermbg=0 guibg=#404040
 
-" colorscheme
-colorscheme BlackSea
