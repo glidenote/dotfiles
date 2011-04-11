@@ -34,7 +34,7 @@ let g:changelog_username = "glidenote  "
 """ 一般
 "
 " colorscheme
-colorscheme default
+"colorscheme default
 " viとの互換をとらない
 set nocompatible
 " コマンド、検索パターンを50個まで履歴に残す
