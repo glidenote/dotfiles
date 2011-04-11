@@ -275,7 +275,7 @@ augroup InsModeAu
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
-" neocomplcache
+""" neocomplcache
 let g:neocomplcache_enable_at_startup = 1
 "highlight Pmenu ctermbg=8 guibg=#606060
 "highlight PmenuSel ctermbg=12 guibg=SlateBlue
