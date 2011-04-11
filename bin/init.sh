@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # git clone git://github.com/glidenote/home_config.git 
-# の後に流し、ホームディレクトリをgit管理のものにする。
+# の後に流し、ホームディレクトリをgithubに置いてあるものに置き換える
 
 cd ~
 

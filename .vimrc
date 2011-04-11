@@ -10,7 +10,7 @@
 "  \:\__|:|__|      \::/  /   \:\  \        \:\~~\        \:\/:/  /
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
-
+"
 """ pathogen
 "
 "pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
@@ -37,7 +37,6 @@ let g:changelog_username = "glidenote  "
 set nocompatible
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
-
 "-----------------------------------------------------------------------------
 
 """ 検索関連
@@ -281,4 +280,11 @@ let g:neocomplcache_enable_at_startup = 1
 "highlight Pmenu ctermbg=8 guibg=#606060
 "highlight PmenuSel ctermbg=12 guibg=SlateBlue
 "highlight PmenuSbar ctermbg=0 guibg=#404040
-
+highlight Pmenu ctermbg=4
+highlight PmenuSel ctermbg=1
+highlight PMenuSbar ctermbg=4
+highlight String     ctermfg=brown guifg=Orange cterm=none gui=none
+highlight MatchParen guifg=Yellow guibg=DarkCyan
+highlight SignColumn guibg=#101020
+highlight CursorIM   guifg=NONE guibg=Red
+highlight CursorLine guifg=NONE guibg=#505050
