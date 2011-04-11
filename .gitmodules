@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/align.git"]
 	path = .vim/bundle/align.git
 	url = git://github.com/tsaleh/vim-align.git
+[submodule ".vim/bundle/puppet"]
+	path = .vim/bundle/puppet
+	url = git://github.com/rodjek/vim-puppet.git
