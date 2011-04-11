@@ -17,4 +17,4 @@ bind 0 remove
 bind s  # reset s key
 hardstatus alwayslastline "[%02c] %`%-w%{=b kg}%n %t%{-}%+w"
 multiuser on
-acladd akira
+acladd akira glidenote
