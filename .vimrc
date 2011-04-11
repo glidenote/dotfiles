@@ -261,17 +261,25 @@ endif " has("autocmd")
 "-----------------------------------------------------------------------------
 "-----------------------------------------------------------------------------
 
-"Python
+" Python
 function! s:Exec()
     exe "!" . &ft . " %"        
 :endfunction         
 command! Exec call <SID>Exec() 
 map <silent> <C-P> :call <SID>Exec()<CR>
 
-"notime
+" notime
 augroup InsModeAu
     autocmd!
     autocmd InsertEnter,CmdwinEnter * set noimdisable
     autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+highlight Pmenu ctermbg=8 guibg=#606060
+highlight PmenuSel ctermbg=12 guibg=SlateBlue
+highlight PmenuSbar ctermbg=0 guibg=#404040
+
+" colorscheme
+colorscheme BlackSea
