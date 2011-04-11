@@ -11,19 +11,20 @@ mkdir ~/.zsh/
 touch ~/.zsh/`hostname`.rc
 
 # 既存ディレクトリ、ファイルのリネーム
-if [ ! -e ~/.git-completion.bash.bak ]; then
-	mv ~/bin{,.bak}
-	mv ~/.vim{,.bak}
-	mv ~/.bash_profile{,.bak}
-	mv ~/.bashrc{,.bak}
-	mv ~/.git{,.bak}
-	mv ~/.git-completion.bash{,.bak}
-	mv ~/.gitconfig{,.bak}
-	mv ~/.gitignore{,.bak}
-	mv ~/.gitmodules{,.bak}
-	mv ~/.screenrc{,.bak}
-	mv ~/.vimrc{,.bak}
-	mv ~/.zshrc{,.bak}
+if [ ! -e ~/old_files ]; then
+	mkdir ~/old_files
+	mv ~/bin ~/old_files 
+	mv ~/.vim~/old_files
+	mv ~/.bash_profile ~/old_files
+	mv ~/.bashrc ~/old_files 
+	mv ~/.git ~/old_files 
+	mv ~/.git-completion.bash ~/old_files 
+	mv ~/.gitconfig ~/old_files 
+	mv ~/.gitignore ~/old_files
+	mv ~/.gitmodules ~/old_files 
+	mv ~/.screenrc ~/old_files 
+	mv ~/.vimrc ~/old_files  
+	mv ~/.zshrc ~/old_files  
 fi
 
 # submodule
