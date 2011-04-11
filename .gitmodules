@@ -13,3 +13,15 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule ".vim/bundle/eregex"]
+	path = .vim/bundle/eregex
+	url = git://github.com/vim-scripts/eregex.vim.git
+[submodule ".vim/bundle/sudo"]
+	path = .vim/bundle/sudo
+	url = git://github.com/vim-scripts/sudo.vim.git
+[submodule ".vim/bundle/yanktmp"]
+	path = .vim/bundle/yanktmp
+	url = git://github.com/vim-scripts/yanktmp.vim.git
+[submodule ".vim/bundle/align.git"]
+	path = .vim/bundle/align.git
+	url = git://github.com/tsaleh/vim-align.git

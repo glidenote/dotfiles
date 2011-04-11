@@ -1,18 +1,18 @@
 [user]
-    name   = glidenote
-    email  = glidenote@gmail.com
+	name        = glidenote
+	email       = glidenote@gmail.com
 
 [color]
-    diff   = auto
-    status = auto
-    brach  = auto
-    interactive = auto
+	diff        = auto
+	status      = auto
+	brach       = auto
+	interactive = auto
 
 [core]
-    editor = vim -c \"set fenc=utf-8\"
+	editor      = vim -c \"set fenc=utf-8\"
 
 [alias]
-    co     = checkout
-    ci     = commit -a
-    st     = status
-    up     = pull --rebase
+	co          = checkout
+	ci          = commit -a
+	st          = status
+	up          = pull --rebase
