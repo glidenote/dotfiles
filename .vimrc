@@ -212,8 +212,10 @@ endif
 
 """ マップ定義
 "
-" 今は何もなし
-
+""" yanktmp
+map <silent> sy :call YanktmpYank()<CR>
+map <silent> sp :call YanktmpPaste_p()<CR>
+map <silent> sP :call YanktmpPaste_P()<CR>"
 "-----------------------------------------------------------------------------
 
 """ オートコマンド
@@ -325,8 +327,3 @@ let g:unite_abbr_highlight = 'TabLine'
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
-""" yanktmp
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>"
-"-----------------------------------------------------------------------------"
