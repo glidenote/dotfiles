@@ -40,7 +40,7 @@ set history=50
 " 256色化
 set t_Co=256
 " colorscheme
-"colorscheme desert
+colorscheme my_desert
 "-----------------------------------------------------------------------------
 
 """ 検索関連
