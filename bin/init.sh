@@ -33,9 +33,9 @@ git submodule init
 git submodule update
 
 # linkを貼る
+ln -s ~/home_config/.vim ~/
+ln -s ~/home_config/bin ~/
 ln -s ~/home_config/.bash_profile ~/.bash_profile
-ln -s ~/home_config/bin ~/bin
-ln -s ~/home_config/.vim ~/.vim
 ln -s ~/home_config/.git-completion.bash ~/.git-completion.bash
 ln -s ~/home_config/.gitignore ~/.gitignore
 ln -s ~/home_config/.screenrc ~/.screenrc
