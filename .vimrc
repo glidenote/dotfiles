@@ -37,6 +37,10 @@ let g:changelog_username = "glidenote  "
 set nocompatible
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
+" 256色化
+set t_Co=256
+" colorscheme
+"colorscheme desert
 "-----------------------------------------------------------------------------
 
 """ 検索関連
