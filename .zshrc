@@ -77,16 +77,36 @@ setopt auto_pushd
 #=============================
 # Alias
 #=============================
+setopt complete_aliases     #エイリアスを設定したコマンドでも補完機能を使えるようにする
 alias vi='vim'
 alias cp='cp -i'
 alias mv='mv -i'
 alias h='history 25'
 alias j='jobs -l'
-alias ls='ls -G --color'
-alias la='ls -Gah --color'
-alias ll='ls -GlAh --color'
-alias lf='ls -GFAh --color'
 
+#OSによる切り替えを行う
+alias where="command -v"
+
+#ls
+case "${OSTYPE}" in
+	freebsd*|darwin*)
+	alias ls="ls -G -w"
+	;;
+	linux*)
+	alias ls="ls --color"
+	;;
+	solaris*)
+	alias ls='gls -F --color=auto ' 
+esac
+
+alias la="ls -a"
+alias lf="ls -F"
+alias ll="ls -l"
+
+alias du="du -h"
+alias df="df -h"
+
+alias su="su -l"
 
 #=============================
 # SSH
