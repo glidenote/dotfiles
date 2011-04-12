@@ -27,8 +27,9 @@ filetype plugin on
 
 """ changelog
 "
+let changelog_user = system("echo -n ${USER} @ ${HOSTNAME}")
 let g:changelog_timeformat = "%Y-%m-%d"
-let g:changelog_username = "glidenote  "
+let g:changelog_username = changelog_user
 "-----------------------------------------------------------------------------
 
 """ 一般
