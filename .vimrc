@@ -27,7 +27,7 @@ filetype plugin on
 
 """ changelog
 "
-let changelog_user = system("echo -n ${USER} @ ${HOSTNAME}")
+let changelog_user = system("echo -n ${USER} @ `hostname -s`")
 let g:changelog_timeformat = "%Y-%m-%d"
 let g:changelog_username = changelog_user
 "-----------------------------------------------------------------------------
