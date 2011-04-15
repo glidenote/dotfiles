@@ -16,3 +16,8 @@ fi
 if [ -f ~/.git-completion.bash ]; then
 	source ~/.git-completion.bash
 fi
+
+# ログイン時にscreen 自動起動
+if [ "$TERM" = 'xterm' -o "$TERM" = 'linux' ]; then
+  screen -rx || screen -D -RR
+fi
