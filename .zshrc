@@ -30,10 +30,10 @@ RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 #=============================
 case "${TERM}" in
 	kterm*|xterm*)
-	precmd() {
-		echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-	}
-	;;
+		precmd() {
+			echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+		}
+		;;
 esac 
 
 
@@ -90,13 +90,13 @@ alias where="command -v"
 #ls
 case "${OSTYPE}" in
 	freebsd*|darwin*)
-	alias ls="ls -G -w"
-	;;
+		alias ls="ls -G -w"
+		;;
 	linux*)
-	alias ls="ls --color"
-	;;
+		alias ls="ls --color"
+		;;
 	solaris*)
-	alias ls='gls -F --color=auto ' 
+		alias ls='gls -F --color=auto ' 
 esac
 
 alias la="ls -a"
@@ -111,10 +111,23 @@ alias su="su -l"
 #=============================
 # SSH
 #=============================
-function ssh_screen(){
-eval server=\${$#}
-screen -t $server ssh "$@"
+
+#HOSTNAMEによって切り替えを行う 
+case "${HOSTNAME}" in
+	manage*)
+		function ssh_screen(){
+		eval server=\${$#}
+		screen -t $server sudo ssh "$@"
+	}
+	;;
+	*)
+	function ssh_screen(){
+	eval server=\${$#}
+	screen -t $server ssh "$@"
+	;;
 }
+esac
+
 if [ x$TERM = xscreen ]; then
 	alias ssh=ssh_screen
 fi
@@ -128,24 +141,24 @@ if [ "$TERM" = "screen" ]; then
 		local -a cmd; cmd=(${(z)2})
 		case $cmd[1] in
 			fg)
-			if (( $#cmd == 1 )); then
-				cmd=(builtin jobs -l %+)
-			else
-				cmd=(builtin jobs -l $cmd[2])
-			fi
-			;;
+				if (( $#cmd == 1 )); then
+					cmd=(builtin jobs -l %+)
+				else
+					cmd=(builtin jobs -l $cmd[2])
+				fi
+				;;
 			%*)
-			cmd=(builtin jobs -l $cmd[1])
-			;;
+				cmd=(builtin jobs -l $cmd[1])
+				;;
 			cd)
-			if (( $#cmd == 2)); then
-				cmd[1]=$cmd[2]
-			fi
-			;&
+				if (( $#cmd == 2)); then
+					cmd[1]=$cmd[2]
+				fi
+				;&
 			*)
-			echo -n "k$cmd[1]:t\\"
-			return
-			;;
+				echo -n "k$cmd[1]:t\\"
+				return
+				;;
 		esac
 
 		local -A jt; jt=(${(kv)jobtexts})
