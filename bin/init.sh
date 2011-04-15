@@ -18,7 +18,7 @@ if [ ! -e ~/old_files ]; then
 	mv ~/.bash_profile ~/old_files
 	mv ~/.bashrc ~/old_files 
 	mv ~/.git ~/old_files 
-	mv ~/.git-completion.bash ~/old_files 
+	mv ~/git-completion.bash ~/old_files 
 	mv ~/.gitconfig ~/old_files 
 	mv ~/.gitignore ~/old_files
 	mv ~/.gitmodules ~/old_files 

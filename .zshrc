@@ -173,8 +173,8 @@ fi
 #=============================
 # git 
 #=============================
-if [ -f ~/git-completion.bash ]; then
+if [ -f ~/.git-completion.bash ]; then
 	autoload bashcompinit
 	bashcompinit
-	source ~/git-completion.bash
+	source ~/.git-completion.bash
 fi
