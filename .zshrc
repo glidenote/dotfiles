@@ -177,10 +177,6 @@ fi
 # SCREEN
 #=============================
 # [ ${STY} ] || screen -rx || screen -D -RR
-if [ $TERM != "screen" ]; then
-    exec screen -S main -xRR
-fi
-
 
 #=============================
 # source zsh
