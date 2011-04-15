@@ -114,18 +114,19 @@ alias su="su -l"
 
 #HOSTNAMEによって切り替えを行う 
 case "${HOSTNAME}" in
-	manage*)
+	manage* )
 		function ssh_screen(){
 		eval server=\${$#}
 		screen -t $server sudo ssh "$@"
 	}
 	;;
-	*)
-	function ssh_screen(){
-	eval server=\${$#}
-	screen -t $server ssh "$@"
+
+	* )
+		function ssh_screen(){
+		eval server=\${$#}
+		screen -t $server ssh "$@"
+	}
 	;;
-}
 esac
 
 if [ x$TERM = xscreen ]; then
