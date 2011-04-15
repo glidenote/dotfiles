@@ -55,7 +55,6 @@ set wrapscan
 " 検索文字列入力時に順次対象文字列にヒットさせない
 set noincsearch
 " Esc連打で検索時にハイライトを消す
-set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "-----------------------------------------------------------------------------
 
