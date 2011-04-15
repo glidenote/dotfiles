@@ -84,10 +84,10 @@ alias mv='mv -i'
 alias h='history 25'
 alias j='jobs -l'
 
-#OSによる切り替えを行う
+# OSによる切り替えを行う
 alias where="command -v"
 
-#ls
+# ls
 case "${OSTYPE}" in
 	freebsd*|darwin*)
 		alias ls="ls -G -w"
@@ -112,7 +112,7 @@ alias su="su -l"
 # SSH
 #=============================
 
-#HOSTNAMEによって切り替えを行う 
+# HOSTNAMEによって切り替えを行う 
 case "${HOSTNAME}" in
 	manage* )
 		function ssh_screen(){
@@ -133,6 +133,7 @@ if [ x$TERM = xscreen ]; then
 	alias ssh=ssh_screen
 fi
 
+# 最後に打ったコマンドをステータス行に表示する
 if [ "$TERM" = "screen" ]; then
 	chpwd () { echo -n "_`dirs`\\" }
 	preexec() {
@@ -176,6 +177,10 @@ fi
 # SCREEN
 #=============================
 # [ ${STY} ] || screen -rx || screen -D -RR
+if [ $TERM != "screen" ]; then
+    exec screen -S main -xRR
+fi
+
 
 #=============================
 # source zsh
