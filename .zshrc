@@ -114,7 +114,7 @@ alias su="su -l"
 
 # HOSTNAMEによって切り替えを行う 
 case "${HOSTNAME}" in
-	manage* )
+	manage*.jp )
 		function ssh_screen(){
 		eval server=\${$#}
 		screen -t $server sudo ssh "$@"
