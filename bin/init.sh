@@ -14,7 +14,7 @@ touch ~/.zsh/`hostname`.rc
 if [ ! -e ~/old_files ]; then
 	mkdir ~/old_files
 	mv ~/bin ~/old_files 
-	mv ~/.vim~/old_files
+	mv ~/.vim~ /old_files
 	mv ~/.bash_profile ~/old_files
 	mv ~/.bashrc ~/old_files 
 	mv ~/.git ~/old_files 
