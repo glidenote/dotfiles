@@ -83,6 +83,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias h='history 25'
 alias j='jobs -l'
+alias grep='grep --color=auto'
 
 # OSによる切り替えを行う
 alias where="command -v"
@@ -114,14 +115,14 @@ alias su="su -l"
 
 # HOSTNAMEによって切り替えを行う 
 case "${HOSTNAME}" in
-	manage*.jp )
+	manage*.jp)
 		function ssh_screen(){
 		eval server=\${$#}
 		screen -t $server sudo ssh "$@"
 	}
 	;;
 
-	* )
+	*)
 		function ssh_screen(){
 		eval server=\${$#}
 		screen -t $server ssh "$@"
