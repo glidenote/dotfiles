@@ -40,7 +40,7 @@ ln -s ~/home_config/.bash_profile ~/.bash_profile
 ln -s ~/home_config/.git-completion.bash ~/.git-completion.bash
 ln -s ~/home_config/.gitignore ~/.gitignore
 ln -s ~/home_config/.screenrc ~/.screenrc
-ln -s ~/home_config/.tscreenrc ~/.screenrc
+ln -s ~/home_config/.tscreenrc ~/.tscreenrc
 ln -s ~/home_config/.vimrc ~/.vimrc
 ln -s ~/home_config/.zshrc ~/.zshrc
 ln -s ~/home_config/.bashrc ~/.bashrc
