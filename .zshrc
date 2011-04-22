@@ -85,6 +85,11 @@ alias h='history 25'
 alias j='jobs -l'
 alias grep='grep --color=auto'
 
+# tscreen
+if [ -x /bin/tscreen ]; then
+   alias screen='tscreen'
+fi
+
 # OSによる切り替えを行う
 alias where="command -v"
 

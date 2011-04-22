@@ -22,7 +22,8 @@ if [ "$TERM" = 'xterm' -o "$TERM" = 'linux' ]; then
 	screen -rx || screen -D -RR
 fi
 
-# 最新のscreenがあればそちらを使う
-if [ -f ~/local/bin/screen ]; then
-	alias screen='~/local/bin/screen'
+# tscreenがあればそれを使う 
+if [ -x /bin/tscreen ]; then
+   alias screen='tscreen'
 fi
+

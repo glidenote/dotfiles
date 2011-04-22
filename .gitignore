@@ -15,6 +15,7 @@
 !/.gitmodules
 !/.git-completion.bash
 !/.screenrc
+!/.tscreenrc
 !/.zshrc
 !/bin
 
