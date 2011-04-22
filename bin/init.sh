@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# git clone git://github.com/glidenote/home_config.git 
+# git clone git://github.com/glidenote/dotfiles.git 
 # の後に流し、ホームディレクトリをgithubに置いてあるものに置き換える
 
 cd ~
@@ -29,20 +29,20 @@ if [ ! -e ~/old_files ]; then
 fi
 
 # submodule
-cd ~/home_config
+cd ~/dotfiles
 git submodule init
 git submodule update
 
 # linkを貼る
-ln -s ~/home_config/.vim ~/
-ln -s ~/home_config/bin ~/
-ln -s ~/home_config/.bash_profile ~/.bash_profile
-ln -s ~/home_config/.git-completion.bash ~/.git-completion.bash
-ln -s ~/home_config/.gitignore ~/.gitignore
-ln -s ~/home_config/.screenrc ~/.screenrc
-ln -s ~/home_config/.tscreenrc ~/.tscreenrc
-ln -s ~/home_config/.vimrc ~/.vimrc
-ln -s ~/home_config/.zshrc ~/.zshrc
-ln -s ~/home_config/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.vim ~/
+ln -s ~/dotfiles/bin ~/
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+ln -s ~/dotfiles/.git-completion.bash ~/.git-completion.bash
+ln -s ~/dotfiles/.gitignore ~/.gitignore
+ln -s ~/dotfiles/.screenrc ~/.screenrc
+ln -s ~/dotfiles/.tscreenrc ~/.tscreenrc
+ln -s ~/dotfiles/.vimrc ~/.vimrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.bashrc ~/.bashrc
 
-# ln -s ~/home_config/.gitconfig ~/.gitconfig
+# ln -s ~/dotfiles/.gitconfig ~/.gitconfig
