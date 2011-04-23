@@ -19,12 +19,12 @@ fi
 
 # tscreenがあればそれを使う 
 if [ -x /bin/tscreen ]; then
-   alias screen='tscreen'
+	alias screen='tscreen'
 fi
 
-# ログイン時にscreen 自動起動
-if [ "$TERM" = 'xterm' -o "$TERM" = 'linux' ]; then
-	screen -rx || screen -D -RR
+# ログイン時に自動でscreenを起動するように。（多重screen禁止)
+if [ "$TERM" != 'screen' ];then
+	if [ "$TERM"='xterm' -o "$TERM"='xterm-color' -o "$TERM"='linux' ]; then
+		screen -rx || screen -D -RR
+	fi
 fi
-
-
