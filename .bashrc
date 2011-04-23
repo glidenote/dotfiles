@@ -23,8 +23,11 @@ if [ -x /bin/tscreen ]; then
 fi
 
 # ログイン時に自動でscreenを起動するように。（多重screen禁止)
-if [ "$TERM" != 'screen' ];then
-	if [ "$TERM"='xterm' -o "$TERM"='xterm-color' -o "$TERM"='linux' ]; then
+case "$TERM" in
+    xterm*|linux*)
 		screen -rx || screen -D -RR
-	fi
-fi
+        ;;
+    screen*)
+		zsh
+        ;;
+esac
