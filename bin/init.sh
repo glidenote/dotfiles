@@ -33,7 +33,18 @@ cd ~/dotfiles
 git submodule init
 git submodule update
 
-# linkを貼る
+# linkを貼りなおし
+/bin/rm -rf ~/.vim
+/bin/rm -rf ~/bin
+/bin/rm -rf ~/.bash_profile
+/bin/rm -rf ~/.git-completion.bash
+/bin/rm -rf ~/.gitignore
+/bin/rm -rf ~/.screenrc
+/bin/rm -rf ~/.tscreenrc
+/bin/rm -rf ~/.vimrc
+/bin/rm -rf ~/.zshrc
+/bin/rm -rf ~/.bashrc
+
 ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/bin ~/
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
