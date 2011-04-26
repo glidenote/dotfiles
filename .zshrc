@@ -68,8 +68,8 @@ setopt correct #コマンド自動修正
 setopt list_packed #補完候補を詰めて表示
 setopt nolistbeep #補完表示時にビープ音を鳴らさない
 
-autoload predict-on #先方予測機能
-predict-on
+#  autoload predict-on #先方予測機能
+#  predict-on
 
 setopt auto_cd
 setopt auto_pushd
