@@ -172,27 +172,27 @@ fi
 ##   				fi
 ##   				;;
 ##   			%*)
-	##   				cmd=(builtin jobs -l $cmd[1])
-	##   				;;
+##   				cmd=(builtin jobs -l $cmd[1])
+##   				;;
 ##   			cd)
-	##   				if (( $#cmd == 2)); then
-	##   					cmd[1]=$cmd[2]
-	##   				fi
-	##   				;&
+##   				if (( $#cmd == 2)); then
+##   					cmd[1]=$cmd[2]
+##   				fi
+##   				;&
 ##   			*)
-	##   				echo -n "k$cmd[1]:t\\"
-	##   				return
-	##   				;;
-	##   		esac
-	##   
-	##   		local -A jt; jt=(${(kv)jobtexts})
-	##   
-	##   		$cmd >>(read num rest
-	##   		cmd=(${(z)${(e):-\$jt$num}})
-	##   		echo -n "k$cmd[1]:t\\") 2>/dev/null
-	##   	}
-	##   	chpwd
-	##   fi
+##   				echo -n "k$cmd[1]:t\\"
+##   				return
+##   				;;
+##   		esac
+##   
+##   		local -A jt; jt=(${(kv)jobtexts})
+##   
+##   		$cmd >>(read num rest
+##   		cmd=(${(z)${(e):-\$jt$num}})
+##   		echo -n "k$cmd[1]:t\\") 2>/dev/null
+##   	}
+##   	chpwd
+##   fi
 
 
 #=============================
