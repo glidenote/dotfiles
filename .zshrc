@@ -223,3 +223,6 @@ if [ -f ~/bash_completion_tmux.sh ]; then
 	source ~/bash_completion_tmux.sh
 fi
 
+if [ $SHLVL = 1 ]; then
+  tmux attach || tmux -f ~/.tmux.conf
+fi
