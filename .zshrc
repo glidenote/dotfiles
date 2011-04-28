@@ -129,8 +129,8 @@ case "${HOSTNAME}" in
 		screen -t $server sudo ssh "$@"
 	}
 		function ssh_tmux(){
-		server=?${$#}
-		tmux new-window -n ${@}${server} "ssh ${@}"
+		server=\${$#}
+		tmux new-window -n ${@} "sudo ssh ${@}"
 	}
 	;;
 
@@ -140,8 +140,8 @@ case "${HOSTNAME}" in
 		screen -t $server ssh "$@"
 	}
 		function ssh_tmux(){
-		server=?${$#}
-		tmux new-window -n ${@}${server} "ssh ${@}"
+		server=\${$#}
+		tmux new-window -n ${@} "ssh ${@}"
 	}
 	;;
 esac
