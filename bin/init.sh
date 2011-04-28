@@ -26,6 +26,7 @@ if [ ! -e ~/old_files ]; then
 	mv ~/.tscreenrc ~/old_files 
 	mv ~/.vimrc ~/old_files  
 	mv ~/.zshrc ~/old_files  
+	mv ~/.tmux.conf ~/old_files  
 fi
 
 # submodule
@@ -38,12 +39,15 @@ git submodule update
 /bin/rm -rf ~/bin
 /bin/rm -rf ~/.bash_profile
 /bin/rm -rf ~/.git-completion.bash
+/bin/rm -rf ~/bash_completion_tmux.sh
 /bin/rm -rf ~/.gitignore
 /bin/rm -rf ~/.screenrc
 /bin/rm -rf ~/.tscreenrc
 /bin/rm -rf ~/.vimrc
 /bin/rm -rf ~/.zshrc
 /bin/rm -rf ~/.bashrc
+/bin/rm -rf ~/bash_completion_tmux.sh
+/bin/rm -rf ~/.tmux.conf
 
 ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/bin ~/
@@ -55,5 +59,7 @@ ln -s ~/dotfiles/.tscreenrc ~/.tscreenrc
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/bash_completion_tmux.sh ~/bash_completion_tmux.sh
+ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 # ln -s ~/dotfiles/.gitconfig ~/.gitconfig

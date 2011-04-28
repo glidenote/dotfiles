@@ -14,7 +14,9 @@
 !/.gitconfig
 !/.gitmodules
 !/.git-completion.bash
+!/bash_completion_tmux.sh
 !/.screenrc
+!/.tmux.conf
 !/.tscreenrc
 !/.zshrc
 !/bin

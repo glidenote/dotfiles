@@ -5,7 +5,6 @@ export LANG=en_US.UTF-8
 #export TERM=xterm
 bindkey -e
 
-
 #=============================
 # path
 #=============================
@@ -24,6 +23,7 @@ PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}
 PROMPT2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+
 
 #=============================
 # terminal title
@@ -87,7 +87,7 @@ alias grep='grep --color=auto'
 
 # tscreen
 if [ -x /bin/tscreen ]; then
-   alias screen='tscreen'
+	alias screen='tscreen'
 fi
 
 # OSによる切り替えを行う
@@ -114,16 +114,23 @@ alias df="df -h"
 
 alias su="su -l"
 
+alias tmux="tmux -2"
+
 #=============================
 # SSH
 #=============================
 
 # HOSTNAMEによって切り替えを行う 
+# screenとtmuxの判別も行う http://genzou.ath.cx/
 case "${HOSTNAME}" in
 	manage*.jp)
 		function ssh_screen(){
 		eval server=\${$#}
 		screen -t $server sudo ssh "$@"
+	}
+		function ssh_tmux(){
+		server=?${$#}
+		tmux new-window -n ${@}${server} "ssh ${@}"
 	}
 	;;
 
@@ -132,12 +139,21 @@ case "${HOSTNAME}" in
 		eval server=\${$#}
 		screen -t $server ssh "$@"
 	}
+		function ssh_tmux(){
+		server=?${$#}
+		tmux new-window -n ${@}${server} "ssh ${@}"
+	}
 	;;
 esac
 
 if [ x$TERM = xscreen ]; then
-	alias ssh=ssh_screen
+	if [ -e $TMUX ]; then
+		alias ssh=ssh_screen
+	else
+		alias ssh=ssh_tmux
+	fi
 fi
+
 
 ##   # 最後に打ったコマンドをステータス行に表示する
 ##   if [ "$TERM" = "screen" ]; then
@@ -156,27 +172,27 @@ fi
 ##   				fi
 ##   				;;
 ##   			%*)
-##   				cmd=(builtin jobs -l $cmd[1])
-##   				;;
+	##   				cmd=(builtin jobs -l $cmd[1])
+	##   				;;
 ##   			cd)
-##   				if (( $#cmd == 2)); then
-##   					cmd[1]=$cmd[2]
-##   				fi
-##   				;&
+	##   				if (( $#cmd == 2)); then
+	##   					cmd[1]=$cmd[2]
+	##   				fi
+	##   				;&
 ##   			*)
-##   				echo -n "k$cmd[1]:t\\"
-##   				return
-##   				;;
-##   		esac
-##   
-##   		local -A jt; jt=(${(kv)jobtexts})
-##   
-##   		$cmd >>(read num rest
-##   		cmd=(${(z)${(e):-\$jt$num}})
-##   		echo -n "k$cmd[1]:t\\") 2>/dev/null
-##   	}
-##   	chpwd
-##   fi
+	##   				echo -n "k$cmd[1]:t\\"
+	##   				return
+	##   				;;
+	##   		esac
+	##   
+	##   		local -A jt; jt=(${(kv)jobtexts})
+	##   
+	##   		$cmd >>(read num rest
+	##   		cmd=(${(z)${(e):-\$jt$num}})
+	##   		echo -n "k$cmd[1]:t\\") 2>/dev/null
+	##   	}
+	##   	chpwd
+	##   fi
 
 
 #=============================
@@ -199,3 +215,11 @@ if [ -f ~/.git-completion.bash ]; then
 	bashcompinit
 	source ~/.git-completion.bash
 fi
+
+#=============================
+# tmux
+#=============================
+if [ -f ~/bash_completion_tmux.sh ]; then
+	source ~/bash_completion_tmux.sh
+fi
+
