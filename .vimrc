@@ -24,7 +24,6 @@ Bundle 'neocomplcache'
 Bundle 'quickrun.vim'
 Bundle 'sudo.vim'
 Bundle 'eregex.vim'
-Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'yanktmp.vim'
 Bundle 'Pydiction'
 
