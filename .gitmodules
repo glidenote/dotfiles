@@ -1,30 +1,3 @@
-[submodule ".vim/bundle/vim-pathogen"]
-	path = .vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/unite"]
-	path = .vim/bundle/unite
-	url = git://github.com/Shougo/unite.vim.git
-[submodule ".vim/bundle/vim-ref"]
-	path = .vim/bundle/vim-ref
-	url = git://github.com/thinca/vim-ref.git
-[submodule ".vim/bundle/vim-quickrun"]
-	path = .vim/bundle/vim-quickrun
-	url = git://github.com/thinca/vim-quickrun.git
-[submodule ".vim/bundle/eregex"]
-	path = .vim/bundle/eregex
-	url = git://github.com/vim-scripts/eregex.vim.git
-[submodule ".vim/bundle/sudo"]
-	path = .vim/bundle/sudo
-	url = git://github.com/vim-scripts/sudo.vim.git
-[submodule ".vim/bundle/yanktmp"]
-	path = .vim/bundle/yanktmp
-	url = git://github.com/vim-scripts/yanktmp.vim.git
-[submodule ".vim/bundle/puppet"]
-	path = .vim/bundle/puppet
-	url = git://github.com/rodjek/vim-puppet.git
-[submodule ".vim/bundle/align"]
-	path = .vim/bundle/align
-	url = git://github.com/tsaleh/vim-align.git
-[submodule ".vim/bundle/neocomplcache"]
-	path = .vim/bundle/neocomplcache
-	url = https://github.com/Shougo/neocomplcache.git
+[submodule ".vim/vundle.git"]
+	path = .vim/vundle.git
+	url = http://github.com/gmarik/vundle.git

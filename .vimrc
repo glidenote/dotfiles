@@ -11,20 +11,39 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 "
-""" pathogen
-"
-"pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
+""" vundle
+set nocompatible
 filetype off
 
-"pathogen.vimを使ってbundle配下のプラグインをpathに加える
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-set helpfile=$VIMRUNTIME/doc/help.txt
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
 
-"ファイルタイプ設定をonにする
-filetype plugin on
+" 
+Bundle 'unite.vim'
+Bundle 'neocomplcache'
+Bundle 'quickrun.vim'
+Bundle 'sudo.vim'
+Bundle 'eregex.vim'
+Bundle 'Align'
+Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'yanktmp.vim'
+Bundle 'Pydiction'
+
+filetype plugin indent on
 "-----------------------------------------------------------------------------
-
+"""    """ pathogen
+"""    "
+"""    "pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
+"""    filetype off
+"""    
+"""    "pathogen.vimを使ってbundle配下のプラグインをpathに加える
+"""    call pathogen#runtime_append_all_bundles()
+"""    call pathogen#helptags()
+"""    set helpfile=$VIMRUNTIME/doc/help.txt
+"""    
+"""    "ファイルタイプ設定をonにする
+"""    filetype plugin on
+"-----------------------------------------------------------------------------
 """ changelog
 "
 let changelog_user = system("echo -n ${USER} @ `hostname -s`")
@@ -34,8 +53,6 @@ let g:changelog_username = changelog_user
 
 """ 一般
 "
-" viとの互換をとらない
-set nocompatible
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
 " 256色化
@@ -259,7 +276,7 @@ if has("autocmd")
 	
 	"Python記述用
 	autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
-	autocmd FileType python let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+	autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 	autocmd FileType python setl autoindent
 	autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 	autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
