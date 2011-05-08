@@ -45,7 +45,7 @@ hi Search	guibg=peru guifg=wheat
 hi SpecialKey	guifg=yellowgreen
 "hi StatusLine	guibg=#c2bfa5 guifg=black gui=none
 "hi StatusLineNC	guibg=#c2bfa5 guifg=grey50 gui=none
-hi StatusLine guibg=#1f001f guifg=DarkSeaGreen cterm=NONE ctermfg=green ctermbg=black
+hi StatusLine guibg=#1f001f guifg=DarkSeaGreen cterm=NONE ctermfg=White ctermbg=Blue
 hi StatusLineNC guifg=Gray ctermfg=black ctermbg=White
 hi Title	guifg=indianred
 hi Visual	gui=none guifg=khaki guibg=olivedrab
