@@ -131,10 +131,10 @@ endif
 
 "set statusline=%{GetB()}
 "
-"set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
+" set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
 
 " ステータスラインの色
-hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
+" hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " ハイライト
 if &t_Co > 2 || has("gui_running")
 	" シンタックスハイライトを有効にする
@@ -142,7 +142,6 @@ if &t_Co > 2 || has("gui_running")
 	" 検索結果文字列のハイライトを有効にする
 	set hlsearch
 endif
-
 "-----------------------------------------------------------------------------
 
 """ 編集、文書整形関連
