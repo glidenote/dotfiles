@@ -31,19 +31,6 @@ Bundle 'Puppet-Syntax-Highlighting'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
-"""    """ pathogen
-"""    "
-"""    "pathogenでftdetectなどをロードさせるために一度ファイルタイプ判定をoffにする
-"""    filetype off
-"""    
-"""    "pathogen.vimを使ってbundle配下のプラグインをpathに加える
-"""    call pathogen#runtime_append_all_bundles()
-"""    call pathogen#helptags()
-"""    set helpfile=$VIMRUNTIME/doc/help.txt
-"""    
-"""    "ファイルタイプ設定をonにする
-"""    filetype plugin on
-"-----------------------------------------------------------------------------
 """ changelog
 "
 let changelog_user = system("echo -n ${USER} @ `hostname -s`")
