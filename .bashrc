@@ -39,3 +39,10 @@ alias tmux='tmux -2'
 #  		zsh
 #          ;;
 #  esac
+
+#=============================
+# source zsh
+#=============================
+if [ -f ~/.zsh/`hostname`.rc ]; then
+    source ~/.zsh/`hostname`.rc
+fi
