@@ -29,8 +29,7 @@ Bundle 'Pydiction'
 Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 "-----------------------------------------------------------------------------
 """ changelog
 "
