@@ -120,38 +120,38 @@ alias tmux="tmux -2"
 # SSH
 #=============================
 
-# HOSTNAMEによって切り替えを行う 
+# HOSTNAMEによって切り替えを行う
 # screenとtmuxの判別も行う http://genzou.ath.cx/
 case "${HOSTNAME}" in
-	manage*.jp)
-		function ssh_screen(){
-		eval server=\${$#}
-		screen -t $server sudo ssh "$@"
-	}
-		function ssh_tmux(){
-		server=\${$#}
-		tmux new-window -n ${@} "sudo ssh ${@}"
-	}
-	;;
+    manage*.jp)
+        function ssh_screen(){
+        eval server=\${$#}
+        screen -t $server sudo ssh "$@"
+    }
+        function ssh_tmux(){
+        eval server=\${$#}
+        eval tmux new-window -n "'${server}'" "'ssh $@'"
+    }
+    ;;
 
-	*)
-		function ssh_screen(){
-		eval server=\${$#}
-		screen -t $server ssh "$@"
-	}
-		function ssh_tmux(){
-		server=\${$#}
-		tmux new-window -n ${@} "ssh ${@}"
-	}
-	;;
+    *)
+        function ssh_screen(){
+        eval server=\${$#}
+        screen -t $server ssh "$@"
+    }
+        function ssh_tmux(){
+        eval server=\${$#}
+        eval tmux new-window -n "'${server}'" "'ssh $@'"
+    }
+    ;;
 esac
 
 if [ x$TERM = xscreen ]; then
-	if [ -e $TMUX ]; then
-		alias ssh=ssh_screen
-	else
-		alias ssh=ssh_tmux
-	fi
+    if [ -e $TMUX ]; then
+        alias ssh=ssh_screen
+    else
+        alias ssh=ssh_tmux
+    fi
 fi
 
 
