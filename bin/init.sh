@@ -38,7 +38,7 @@ fi
 # link張り直し
 for FILE in ${FILELIST};
 do
-	/bin/rm -rf ~/${FILE}
+	rm -rf ~/${FILE}
 	ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
 
