@@ -130,7 +130,7 @@ case "${HOSTNAME}" in
     }
         function ssh_tmux(){
         eval server=\${$#}
-        eval tmux new-window -n "'${server}'" "'ssh $@'"
+        eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
     }
     ;;
 
