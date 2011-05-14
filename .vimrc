@@ -261,7 +261,7 @@ if has("autocmd")
 	
 	"Python記述用
 	autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
-	" autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+	autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
 	autocmd FileType python setl autoindent
 	autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 	autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
