@@ -21,7 +21,7 @@ call vundle#rc()
 " 
 Bundle 'unite.vim'
 Bundle 'neocomplcache'
-Bundle 'quickrun.vim'
+Bundle 'quickrun'
 Bundle 'sudo.vim'
 Bundle 'eregex.vim'
 Bundle 'yanktmp.vim'
