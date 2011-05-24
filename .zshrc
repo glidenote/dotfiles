@@ -116,6 +116,7 @@ alias df="df -h"
 alias su="su -l"
 
 alias tmux="tmux -2"
+alias ta='tmux attach || tmux -f ~/.tmux.conf'
 
 #=============================
 # SSH
@@ -224,6 +225,6 @@ if [ -f ~/bash_completion_tmux.sh ]; then
 	source ~/bash_completion_tmux.sh
 fi
 
-if [ $SHLVL = 1 ]; then
-  tmux attach || tmux -f ~/.tmux.conf
-fi
+# if [ $SHLVL = 1 ]; then
+#   tmux attach || tmux -f ~/.tmux.conf
+# fi
