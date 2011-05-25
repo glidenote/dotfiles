@@ -27,6 +27,7 @@ Bundle 'eregex.vim'
 Bundle 'yanktmp.vim'
 Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'ref.vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
