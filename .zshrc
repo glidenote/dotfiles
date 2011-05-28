@@ -6,6 +6,11 @@ export LANG=en_US.UTF-8
 bindkey -e
 
 #=============================
+# terminal
+#=============================
+stty stop undef
+
+#=============================
 # path
 #=============================
 PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin/

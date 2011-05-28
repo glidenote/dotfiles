@@ -29,6 +29,7 @@ fi
 
 # tmuxを256色に
 alias tmux='tmux -2'
+alias ta='tmux attach || tmux -f ~/.tmux.conf'
 
 #  # ログイン時に自動でscreenを起動するように。（多重screen禁止)
 #  case "$TERM" in
