@@ -166,7 +166,7 @@ function ClosePair(char)
     else
         return a:char
     endif
-endf
+endfunction
 "-----------------------------------------------------------------------------
 
 """ ファイル関連
