@@ -151,6 +151,22 @@ set softtabstop=0
 set noexpandtab
 " コピペの際にインデントがかからないようにする
 set nopaste
+" 括弧を自動で閉じる http://d.hatena.ne.jp/babie/20110130/1296348203
+inoremap ( ()<ESC>i
+inoremap <expr> ) ClosePair(')')
+inoremap { {}<ESC>i
+inoremap <expr> } ClosePair('}')
+inoremap [ []<ESC>i
+inoremap <expr> ] ClosePair(']')
+" pair close checker.
+" from othree vimrc ( http://github.com/othree/rc/blob/master/osx/.vimrc )
+function ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "\<Right>"
+    else
+        return a:char
+    endif
+endf
 "-----------------------------------------------------------------------------
 
 """ ファイル関連
