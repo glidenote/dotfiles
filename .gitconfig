@@ -16,3 +16,6 @@
 	ci          = commit -a
 	st          = status
 	up          = pull --rebase
+
+[http]
+	sslVerify = false
