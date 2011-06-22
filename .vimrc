@@ -20,6 +20,7 @@ call vundle#rc()
 
 " 
 Bundle 'unite.vim'
+Bundle 'unite-colorscheme'
 Bundle 'neocomplcache'
 Bundle 'quickrun'
 Bundle 'sudo.vim'
