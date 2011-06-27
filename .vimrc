@@ -30,6 +30,7 @@ Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'ref.vim'
 Bundle 'ack.vim'
+Bundle 'snipMate'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
