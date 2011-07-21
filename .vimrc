@@ -31,6 +31,8 @@ Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'ref.vim'
 Bundle 'ack.vim'
 Bundle 'snipMate'
+Bundle 'rails.vim'
+Bundle 'ruby-matchit'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
