@@ -33,6 +33,7 @@ Bundle 'ack.vim'
 Bundle 'snipMate'
 Bundle 'rails.vim'
 Bundle 'ruby-matchit'
+Bundle 'surround.vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
