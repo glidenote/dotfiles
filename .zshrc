@@ -25,21 +25,10 @@ export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64in
 autoload colors
 colors
 
-# ローカル環境はプロンプトの色を変更する
-case `hostname -d | awk -F . '{print $2}'` in
-    local )
-        PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
-        PROMPT2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
-        SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
-        RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
-        ;;
-    * )
-        PROMPT="%{${fg[yellow]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
-        PROMPT2="%{${fg[yellow]}%}%_> %{${reset_color}%}"
-        SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
-        RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
-        ;;
-esac
+PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
+PROMPT2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
+SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 
 #=============================
 # terminal title
