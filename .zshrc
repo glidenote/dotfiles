@@ -89,7 +89,7 @@ alias mv='mv -i'
 alias h='history 25'
 alias j='jobs -l'
 alias grep='grep --color=auto'
-alias sudo='sudo -E '
+# alias sudo='sudo -E '
 
 # tscreen
 if [ -x /bin/tscreen ]; then
