@@ -34,6 +34,7 @@ Bundle 'ack.vim'
 Bundle 'rails.vim'
 Bundle 'ruby-matchit'
 Bundle 'surround.vim'
+Bundle 'smartchr'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -350,3 +351,5 @@ let g:unite_abbr_highlight = 'TabLine'
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
+""" smartchr
+inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
