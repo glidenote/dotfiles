@@ -30,7 +30,7 @@ Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'ref.vim'
 Bundle 'ack.vim'
-Bundle 'snipMate'
+"Bundle 'snipMate'
 Bundle 'rails.vim'
 Bundle 'ruby-matchit'
 Bundle 'surround.vim'
@@ -307,6 +307,10 @@ highlight MatchParen guifg=Yellow guibg=DarkCyan
 highlight SignColumn guibg=#101020
 highlight CursorIM   guifg=NONE guibg=Red
 highlight CursorLine guifg=NONE guibg=#505050
+
+" <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
 
 "-----------------------------------------------------------------------------
 
