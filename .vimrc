@@ -311,6 +311,8 @@ highlight CursorLine guifg=NONE guibg=#505050
 " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 "-----------------------------------------------------------------------------
 
