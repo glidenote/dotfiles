@@ -46,7 +46,10 @@ let g:changelog_username = changelog_user
 "-----------------------------------------------------------------------------
 
 """ 一般
-"
+" マシン固有の設定は.vimrc.localに用意して読み込む
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
 " 256色化
@@ -353,3 +356,5 @@ let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
 """ smartchr
 inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+"-----------------------------------------------------------------------------
+

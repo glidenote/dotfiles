@@ -26,6 +26,7 @@ cd ~
 mkdir bin tmp src
 mkdir ~/.zsh/
 touch ~/.zsh/`hostname`.rc
+touch ~/.vimrc.local
 
 # 既存ディレクトリ、ファイルを待避させる
 if [ ! -e ~/old_files ]; then
