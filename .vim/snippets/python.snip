@@ -1,0 +1,10 @@
+snippet     ifee
+abbr        if ...: elif ...: else : ...
+prev_word   '^'
+    if ${1:condition}:
+        ${2:pass}
+    elif ${3:condition}:
+        ${4:pass}
+    else :
+        ${5:pass}
+

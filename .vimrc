@@ -312,6 +312,9 @@ highlight SignColumn guibg=#101020
 highlight CursorIM   guifg=NONE guibg=Red
 highlight CursorLine guifg=NONE guibg=#505050
 
+" 自作snippets用ディレクトリを用意
+let g:NeoComplCache_SnippetsDir  =  $HOME . '/.vim/snippets'
+
 " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
