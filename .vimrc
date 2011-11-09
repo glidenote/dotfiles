@@ -35,6 +35,7 @@ Bundle 'rails.vim'
 Bundle 'ruby-matchit'
 Bundle 'surround.vim'
 Bundle 'smartchr'
+Bundle 'Markdown'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
