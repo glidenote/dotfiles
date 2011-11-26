@@ -360,6 +360,7 @@ let g:unite_abbr_highlight = 'TabLine'
 let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
 """ smartchr
-inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+autocmd FileType php,python inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 
