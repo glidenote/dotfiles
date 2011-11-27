@@ -364,6 +364,8 @@ let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
 """ smartchr
 autocmd FileType php,python inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
+autocmd FileType ruby inoremap <expr> > smartchr#one_of(' > ', ' => ', '>')
 autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 
