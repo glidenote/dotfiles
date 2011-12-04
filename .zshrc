@@ -215,18 +215,20 @@ if [ -f ~/.zsh/`hostname`.rc ]; then
 fi
 
 #=============================
-# git 
+# git completion bash
 #=============================
-if [ -f ~/.git-completion.bash ]; then
-	autoload bashcompinit
-	bashcompinit
-	source ~/.git-completion.bash
-fi
+# if [ -f ~/.git-completion.bash ]; then
+# 	autoload bashcompinit
+# 	bashcompinit
+# 	source ~/.git-completion.bash
+# fi
 
 #=============================
 # tmux
 #=============================
 if [ -f ~/bash_completion_tmux.sh ]; then
+	autoload bashcompinit
+	bashcompinit
 	source ~/bash_completion_tmux.sh
 fi
 
