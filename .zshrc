@@ -84,11 +84,12 @@ esac
 # history
 #=============================
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data 
-
+setopt extended_history
+function history-all { history -E 1 }
 
 #=============================
 # Search History
@@ -107,9 +108,9 @@ autoload -U compinit #補完機能
 compinit
 zstyle ':completion:*' list-colors ''
 
-setopt correct #コマンド自動修正
-setopt list_packed #補完候補を詰めて表示
-setopt nolistbeep #補完表示時にビープ音を鳴らさない
+setopt correct     # コマンド自動修正
+setopt list_packed # 補完候補を詰めて表示
+setopt nolistbeep  # 補完表示時にビープ音を鳴らさない
 
 #  autoload predict-on #先方予測機能
 #  predict-on
