@@ -1,1 +1,6 @@
 source ~/.screenrc
+
+defbce "on"
+term xterm-256color
+termcapinfo xterm* 'Co#256:pa#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:'
+attrcolor b ".I"
