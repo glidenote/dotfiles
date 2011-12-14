@@ -49,3 +49,5 @@ cd ~/dotfiles
 git submodule init
 git submodule update
 
+# Bundleinstall 
+vim +BundleInstall! +q
