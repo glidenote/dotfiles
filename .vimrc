@@ -31,12 +31,13 @@ Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'ref.vim'
 Bundle 'ack.vim'
-"Bundle 'snipMate'
+" Bundle 'snipMate'
 Bundle 'rails.vim'
 Bundle 'ruby-matchit'
 Bundle 'surround.vim'
 Bundle 'smartchr'
-Bundle 'Markdown'
+" Bundle 'Markdown'
+Bundle 'tangledhelix/vim-octopress'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
