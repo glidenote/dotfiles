@@ -26,7 +26,7 @@ autoload colors
 colors
 
 autoload -Uz is-at-least
-if is-at-least 4.3.5; then
+if is-at-least 4.3.10; then
     #----------
     # http://d.hatena.ne.jp/uasi/20091025/1256458798
     #----------
