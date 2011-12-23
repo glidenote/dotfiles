@@ -245,33 +245,10 @@ fi
 
 
 #=============================
-# SCREEN
-#=============================
-# [ ${STY} ] || screen -rx || screen -D -RR
-
-#=============================
 # source zsh
 #=============================
 if [ -f ~/.zsh/`hostname`.rc ]; then
 	source ~/.zsh/`hostname`.rc
-fi
-
-#=============================
-# git completion bash
-#=============================
-# if [ -f ~/.git-completion.bash ]; then
-# 	autoload bashcompinit
-# 	bashcompinit
-# 	source ~/.git-completion.bash
-# fi
-
-#=============================
-# tmux
-#=============================
-if [ -f ~/bash_completion_tmux.sh ]; then
-	autoload bashcompinit
-	bashcompinit
-	source ~/bash_completion_tmux.sh
 fi
 
 # if [ $SHLVL = 1 ]; then
