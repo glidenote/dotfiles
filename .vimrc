@@ -38,6 +38,7 @@ Bundle 'surround.vim'
 Bundle 'smartchr'
 " Bundle 'Markdown'
 Bundle 'tangledhelix/vim-octopress'
+Bundle 'matchit.zip'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -58,7 +59,9 @@ set history=50
 " 256色化
 set t_Co=256
 " colorscheme
-colorscheme my_desert
+colorscheme default
+" colorscheme my_desert
+set background=dark
 "-----------------------------------------------------------------------------
 
 """ 検索関連
