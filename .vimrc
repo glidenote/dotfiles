@@ -59,9 +59,7 @@ set history=50
 " 256色化
 set t_Co=256
 " colorscheme
-colorscheme default
-" colorscheme my_desert
-set background=dark
+colorscheme my_desert
 "-----------------------------------------------------------------------------
 
 """ 検索関連
