@@ -64,7 +64,7 @@ set history=50
 set t_Co=256
 " colorscheme
 colorscheme molokai
-set background=dark
+let g:molokai_original = 1
 "-----------------------------------------------------------------------------
 
 """ 検索関連
