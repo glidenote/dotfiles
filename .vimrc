@@ -167,7 +167,9 @@ set shiftwidth=4
 " この値が0以外の時はtabstopの設定が無効になる
 set softtabstop=0
 " Tab文字を空白に置き換えない
-set noexpandtab
+" set noexpandtab
+" タブの入力を空白文字に置き換える
+set expandtab
 " コピペの際にインデントがかからないようにする
 set nopaste
 
