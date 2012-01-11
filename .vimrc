@@ -15,8 +15,12 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
 " 
 Bundle 'unite.vim'
@@ -60,6 +64,7 @@ set history=50
 set t_Co=256
 " colorscheme
 colorscheme molokai
+set background=dark
 "-----------------------------------------------------------------------------
 
 """ 検索関連
