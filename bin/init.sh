@@ -50,5 +50,5 @@ git submodule init
 git submodule update
 
 # Bundleinstall 
-git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +q
