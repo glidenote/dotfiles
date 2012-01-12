@@ -75,11 +75,11 @@ SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 # terminal title
 #=============================
 case "${TERM}" in
-	kterm*|xterm*)
-		precmd() {
-			echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-		}
-		;;
+    kterm*|xterm*)
+        precmd() {
+            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+        }
+        ;;
 esac 
 
 
@@ -135,7 +135,7 @@ alias grep='grep --color=auto'
 
 # tscreen
 if [ -x /bin/tscreen ]; then
-	alias screen='tscreen'
+    alias screen='tscreen'
 fi
 
 # OSによる切り替えを行う
@@ -143,14 +143,14 @@ alias where="command -v"
 
 # ls
 case "${OSTYPE}" in
-	freebsd*|darwin*)
-		alias ls="ls -G -w"
-		;;
-	linux*)
-		alias ls="ls --color"
-		;;
-	solaris*)
-		alias ls='gls -F --color=auto ' 
+    freebsd*|darwin*)
+        alias ls="ls -G -w"
+        ;;
+    linux*)
+        alias ls="ls --color"
+        ;;
+    solaris*)
+        alias ls='gls -F --color=auto ' 
 esac
 
 alias la="ls -a"
@@ -206,41 +206,41 @@ fi
 
 ##   # 最後に打ったコマンドをステータス行に表示する
 ##   if [ "$TERM" = "screen" ]; then
-##   	chpwd () { echo -n "_`dirs`\\" }
-##   	preexec() {
-##   		# see [zsh-workers:13180]
-##   		# http://www.zsh.org/mla/workers/2000/msg03993.html
-##   		emulate -L zsh
-##   		local -a cmd; cmd=(${(z)2})
-##   		case $cmd[1] in
-##   			fg)
-##   				if (( $#cmd == 1 )); then
-##   					cmd=(builtin jobs -l %+)
-##   				else
-##   					cmd=(builtin jobs -l $cmd[2])
-##   				fi
-##   				;;
-##   			%*)
-##   				cmd=(builtin jobs -l $cmd[1])
-##   				;;
-##   			cd)
-##   				if (( $#cmd == 2)); then
-##   					cmd[1]=$cmd[2]
-##   				fi
-##   				;&
-##   			*)
-##   				echo -n "k$cmd[1]:t\\"
-##   				return
-##   				;;
-##   		esac
+##      chpwd () { echo -n "_`dirs`\\" }
+##      preexec() {
+##          # see [zsh-workers:13180]
+##          # http://www.zsh.org/mla/workers/2000/msg03993.html
+##          emulate -L zsh
+##          local -a cmd; cmd=(${(z)2})
+##          case $cmd[1] in
+##              fg)
+##                  if (( $#cmd == 1 )); then
+##                      cmd=(builtin jobs -l %+)
+##                  else
+##                      cmd=(builtin jobs -l $cmd[2])
+##                  fi
+##                  ;;
+##              %*)
+##                  cmd=(builtin jobs -l $cmd[1])
+##                  ;;
+##              cd)
+##                  if (( $#cmd == 2)); then
+##                      cmd[1]=$cmd[2]
+##                  fi
+##                  ;&
+##              *)
+##                  echo -n "k$cmd[1]:t\\"
+##                  return
+##                  ;;
+##          esac
 ##   
-##   		local -A jt; jt=(${(kv)jobtexts})
+##          local -A jt; jt=(${(kv)jobtexts})
 ##   
-##   		$cmd >>(read num rest
-##   		cmd=(${(z)${(e):-\$jt$num}})
-##   		echo -n "k$cmd[1]:t\\") 2>/dev/null
-##   	}
-##   	chpwd
+##          $cmd >>(read num rest
+##          cmd=(${(z)${(e):-\$jt$num}})
+##          echo -n "k$cmd[1]:t\\") 2>/dev/null
+##      }
+##      chpwd
 ##   fi
 
 
@@ -248,7 +248,7 @@ fi
 # source zsh
 #=============================
 if [ -f ~/.zsh/`hostname`.rc ]; then
-	source ~/.zsh/`hostname`.rc
+    source ~/.zsh/`hostname`.rc
 fi
 
 # if [ $SHLVL = 1 ]; then

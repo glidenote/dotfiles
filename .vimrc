@@ -100,39 +100,39 @@ set showmatch
 set laststatus=2
 " ステータスラインに表示する情報の指定
 function! GetB()
-	let c = matchstr(getline('.'), '.', col('.') - 1)
-	let c = iconv(c, &enc, &fenc)
-	return String2Hex(c)
+    let c = matchstr(getline('.'), '.', col('.') - 1)
+    let c = iconv(c, &enc, &fenc)
+    return String2Hex(c)
 endfunction
 " :help eval-examples
 " The function Nr2Hex() returns the Hex string of a number.
 func! Nr2Hex(nr)
-	let n = a:nr
-	let r = ""
-	while n
-		let r = '0123456789ABCDEF'[n % 16] . r
-		let n = n / 16
-	endwhile
-	return r
+    let n = a:nr
+    let r = ""
+    while n
+        let r = '0123456789ABCDEF'[n % 16] . r
+        let n = n / 16
+    endwhile
+    return r
 endfunc
 " The function String2Hex() converts each character in a string to a two
 " character Hex string.
 func! String2Hex(str)
-	let out = ''
-	let ix = 0
-	while ix < strlen(a:str)
-		let out = out . Nr2Hex(char2nr(a:str[ix]))
-		let ix = ix + 1
-	endwhile
-	return out
+    let out = ''
+    let ix = 0
+    while ix < strlen(a:str)
+        let out = out . Nr2Hex(char2nr(a:str[ix]))
+        let ix = ix + 1
+    endwhile
+    return out
 endfunc
 
 "ステータスラインに文字コードと改行文字を表示する
 " set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']['.&ft.']'}\ %F%=%l,%c%V%8P
 if winwidth(0) >= 120
-	set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
+    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
 else
-	set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
+    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
 endif
 
 "set statusline=%{GetB()}
@@ -143,10 +143,10 @@ endif
 " hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " ハイライト
 if &t_Co > 2 || has("gui_running")
-	" シンタックスハイライトを有効にする
-	syntax on
-	" 検索結果文字列のハイライトを有効にする
-	set hlsearch
+    " シンタックスハイライトを有効にする
+    syntax on
+    " 検索結果文字列のハイライトを有効にする
+    set hlsearch
 endif
 "-----------------------------------------------------------------------------
 
@@ -186,59 +186,59 @@ set nobackup
 """   " from ずんWiki http://www.kawaz.jp/pukiwiki/?vim#content_1_7
 """   " 文字コードの自動認識
 """   if &encoding !=# 'utf-8'
-"""   	set encoding=japan
-"""   	set fileencoding=japan
+"""     set encoding=japan
+"""     set fileencoding=japan
 """   endif
 """   if has('iconv')
-"""   	let s:enc_euc = 'euc-jp'
-"""   	let s:enc_jis = 'iso-2022-jp'
-"""   	" iconvがeucJP-msに対応しているかをチェック
-"""   	if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-"""   		let s:enc_euc = 'eucjp-ms'
-"""   		let s:enc_jis = 'iso-2022-jp-3'
-"""   		" iconvがJISX0213に対応しているかをチェック
-"""   	elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-"""   		let s:enc_euc = 'euc-jisx0213'
-"""   		let s:enc_jis = 'iso-2022-jp-3'
-"""   	endif
-"""   	" fileencodingsを構築
-"""   	if &encoding ==# 'utf-8'
-"""   		let s:fileencodings_default = &fileencodings
-"""   		let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-"""   		let &fileencodings = &fileencodings .','. s:fileencodings_default
-"""   		unlet s:fileencodings_default
-"""   	else
-"""   		let &fileencodings = &fileencodings .','. s:enc_jis
-"""   		set fileencodings+=utf-8,ucs-2le,ucs-2
-"""   		if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-"""   			set fileencodings+=cp932
-"""   			set fileencodings-=euc-jp
-"""   			set fileencodings-=euc-jisx0213
-"""   			set fileencodings-=eucjp-ms
-"""   			let &encoding = s:enc_euc
-"""   			let &fileencoding = s:enc_euc
-"""   		else
-"""   			let &fileencodings = &fileencodings .','. s:enc_euc
-"""   		endif
-"""   	endif
-"""   	" 定数を処分
-"""   	unlet s:enc_euc
-"""   	unlet s:enc_jis
+"""     let s:enc_euc = 'euc-jp'
+"""     let s:enc_jis = 'iso-2022-jp'
+"""     " iconvがeucJP-msに対応しているかをチェック
+"""     if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+"""         let s:enc_euc = 'eucjp-ms'
+"""         let s:enc_jis = 'iso-2022-jp-3'
+"""         " iconvがJISX0213に対応しているかをチェック
+"""     elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+"""         let s:enc_euc = 'euc-jisx0213'
+"""         let s:enc_jis = 'iso-2022-jp-3'
+"""     endif
+"""     " fileencodingsを構築
+"""     if &encoding ==# 'utf-8'
+"""         let s:fileencodings_default = &fileencodings
+"""         let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+"""         let &fileencodings = &fileencodings .','. s:fileencodings_default
+"""         unlet s:fileencodings_default
+"""     else
+"""         let &fileencodings = &fileencodings .','. s:enc_jis
+"""         set fileencodings+=utf-8,ucs-2le,ucs-2
+"""         if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+"""             set fileencodings+=cp932
+"""             set fileencodings-=euc-jp
+"""             set fileencodings-=euc-jisx0213
+"""             set fileencodings-=eucjp-ms
+"""             let &encoding = s:enc_euc
+"""             let &fileencoding = s:enc_euc
+"""         else
+"""             let &fileencodings = &fileencodings .','. s:enc_euc
+"""         endif
+"""     endif
+"""     " 定数を処分
+"""     unlet s:enc_euc
+"""     unlet s:enc_jis
 """   endif
 """   " 日本語を含まない場合は fileencoding に encoding を使うようにする
 """   if has('autocmd')
-"""   	function! AU_ReCheck_FENC()
-"""   		if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
-"""   			let &fileencoding=&encoding
-"""   		endif
-"""   	endfunction
-"""   	autocmd BufReadPost * call AU_ReCheck_FENC()
+"""     function! AU_ReCheck_FENC()
+"""         if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+"""             let &fileencoding=&encoding
+"""         endif
+"""     endfunction
+"""     autocmd BufReadPost * call AU_ReCheck_FENC()
 """   endif
 """   " 改行コードの自動認識
 """   set fileformats=unix,dos,mac
 """   " □とか○の文字があってもカーソル位置がずれないようにする
 """   if exists('&ambiwidth')
-"""   	set ambiwidth=double
+"""     set ambiwidth=double
 """   endif
 "-----------------------------------------------------------------------------
 
@@ -253,44 +253,44 @@ map <silent> sP :call YanktmpPaste_P()<CR>"
 """ オートコマンド
 "
 if has("autocmd")
-	" プラグインを有効
-	filetype plugin on
-	" textファイルのカラムを78に設定
-	autocmd FileType text setlocal textwidth=78
-	" カーソル位置を記憶しておく
-	autocmd BufReadPost *
-				\ if line("'\"") > 0 && line("'\"") <= line("$") |
-				\   exe "normal g`\"" |
-				\ endif
-	"そのファイルタイプにあわせたインデントを利用する
-	filetype indent on
-	" これらのftではインデントを無効に
-	"autocmd FileType php filetype indent off
+    " プラグインを有効
+    filetype plugin on
+    " textファイルのカラムを78に設定
+    autocmd FileType text setlocal textwidth=78
+    " カーソル位置を記憶しておく
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   exe "normal g`\"" |
+                \ endif
+    "そのファイルタイプにあわせたインデントを利用する
+    filetype indent on
+    " これらのftではインデントを無効に
+    "autocmd FileType php filetype indent off
 
-	" autocmd FileType php :set indentexpr=
-	autocmd FileType html :set indentexpr=
-	autocmd FileType xhtml :set indentexpr=
+    " autocmd FileType php :set indentexpr=
+    autocmd FileType html :set indentexpr=
+    autocmd FileType xhtml :set indentexpr=
 
-	"html記述用
-	autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
-	
-	"Perl記述用
-	autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
-	"perl コンパイラの指定
-	autocmd FileType perl,cgi :compiler perl
-	
-	"sh記述用
-	autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
-	
-	"Python記述用
-	autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
-	autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-	autocmd FileType python setl autoindent
-	autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-	autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+    "html記述用
+    autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
+    
+    "Perl記述用
+    autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
+    "perl コンパイラの指定
+    autocmd FileType perl,cgi :compiler perl
+    
+    "sh記述用
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
+    
+    "Python記述用
+    autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
+    autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+    autocmd FileType python setl autoindent
+    autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
-	"Ruby記述用
-	autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
+    "Ruby記述用
+    autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
 
 endif " has("autocmd")
 
