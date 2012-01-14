@@ -33,38 +33,38 @@ if is-at-least 4.3.10; then
     autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
     function rprompt-git-current-branch {
-            local name st color gitdir action
-            if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
-                    return
-            fi
-            name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
-            if [[ -z $name ]]; then
-                    return
-            fi
+    local name st color gitdir action
+    if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
+        return
+    fi
+    name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
+    if [[ -z $name ]]; then
+        return
+    fi
 
-            gitdir=`git rev-parse --git-dir 2> /dev/null`
-            action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+    gitdir=`git rev-parse --git-dir 2> /dev/null`
+    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
 
-            st=`git status 2> /dev/null`
-            if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-                    color=%F{green}
-            elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-                    color=%F{yellow}
-            elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-                    color=%B%F{red}
-            else
-                    color=%F{red}
-            fi
+    st=`git status 2> /dev/null`
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+        color=%F{green}
+    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+        color=%F{yellow}
+    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+        color=%B%F{red}
+    else
+        color=%F{red}
+    fi
 
-            echo "$color$name$action%f%b"
-    }
+    echo "$color$name$action%f%b"
+}
 
-    # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-    setopt prompt_subst
-    RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[cyan]}%}][%~]%{${reset_color}%}'
-    #---------
+# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
+setopt prompt_subst
+RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[cyan]}%}][%~]%{${reset_color}%}'
+#---------
 else
-     RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+    RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 fi
 
 PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
@@ -103,26 +103,62 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end 
 
-
 #=============================
 # setopt
 #=============================
 autoload -U compinit #補完機能
 compinit
-zstyle ':completion:*' list-colors ''
 
 setopt correct     # コマンド自動修正
 setopt list_packed # 補完候補を詰めて表示
 setopt nolistbeep  # 補完表示時にビープ音を鳴らさない
 
-#  autoload predict-on #先方予測機能
-#  predict-on
+# autoload -U predict-on # 先方予測機能
+# predict-on
 
 setopt auto_cd
 setopt auto_pushd
 
+# --prefix=~/localというように「=」の後でも
+#「~」や「=コマンド」などのファイル名展開を行う。
+setopt magic_equal_subst
+
+setopt transient_rprompt # コピペしやすいようにコマンド実行後は右プロンプトを消す。
+setopt long_list_jobs    # 内部コマンド jobs の出力をデフォルトで jobs -l にする
+setopt list_types        # 補完候補一覧でファイルの種別をマーク表示
+setopt complete_in_word  # カーソル位置で補完する。
+setopt glob_complete     # globを展開しないで候補の一覧から補完する。
+setopt hist_expand       # 補完時にヒストリを自動的に展開する。
+setopt no_beep           # 補完候補がないときなどにビープ音を鳴らさない。
+setopt numeric_glob_sort # 辞書順ではなく数字順に並べる。
+
 #=============================
-# Alias
+# zstyle
+#=============================
+
+#  補完のグループ化
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*:default' menu select=2                # 補完メニューの表示
+zstyle ':completion:*:default' list-colors ""               # 補完候補の色分け
+zstyle ':completion:*' use-cache yes                        # 補完候補をキャッシュする。
+zstyle ':completion:*' verbose yes                          # 詳細な情報を使う。
+zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH" # sudo時にはsudo用のパスも使う。
+
+#=============================
+# misc
+#=============================
+
+# 実行したプロセスの消費時間が3秒以上かかったら
+# 自動的に消費時間の統計情報を表示する。
+REPORTTIME=3
+
+chpwd_functions=($chpwd_functions dirs) # ディレクトリが変わったらディレクトリスタックを表示。
+WORDCHARS=${WORDCHARS:s,/,,}            # 「/」も単語区切りとみなす。
+
+#=============================
+# alias
 #=============================
 setopt complete_aliases     #エイリアスを設定したコマンドでも補完機能を使えるようにする
 alias vi='vim'
@@ -156,12 +192,9 @@ esac
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
-
 alias du="du -h"
 alias df="df -h"
-
 alias su="su -l"
-
 alias tmux="tmux -2"
 alias ta='tmux attach || tmux -f ~/.tmux.conf'
 
@@ -177,22 +210,22 @@ case "${HOSTNAME}" in
         eval server=\${$#}
         screen -t $server sudo ssh "$@"
     }
-        function ssh_tmux(){
-        eval server=\${$#}
-        eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
-    }
-    ;;
+    function ssh_tmux(){
+    eval server=\${$#}
+    eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
+}
+;;
 
     *)
         function ssh_screen(){
         eval server=\${$#}
         screen -t $server ssh "$@"
     }
-        function ssh_tmux(){
-        eval server=\${$#}
-        eval tmux new-window -n "'${server}'" "'ssh $@'"
-    }
-    ;;
+    function ssh_tmux(){
+    eval server=\${$#}
+    eval tmux new-window -n "'${server}'" "'ssh $@'"
+}
+;;
 esac
 
 if [ x$TERM = xscreen ]; then
@@ -203,47 +236,6 @@ if [ x$TERM = xscreen ]; then
     fi
 fi
 
-
-##   # 最後に打ったコマンドをステータス行に表示する
-##   if [ "$TERM" = "screen" ]; then
-##      chpwd () { echo -n "_`dirs`\\" }
-##      preexec() {
-##          # see [zsh-workers:13180]
-##          # http://www.zsh.org/mla/workers/2000/msg03993.html
-##          emulate -L zsh
-##          local -a cmd; cmd=(${(z)2})
-##          case $cmd[1] in
-##              fg)
-##                  if (( $#cmd == 1 )); then
-##                      cmd=(builtin jobs -l %+)
-##                  else
-##                      cmd=(builtin jobs -l $cmd[2])
-##                  fi
-##                  ;;
-##              %*)
-##                  cmd=(builtin jobs -l $cmd[1])
-##                  ;;
-##              cd)
-##                  if (( $#cmd == 2)); then
-##                      cmd[1]=$cmd[2]
-##                  fi
-##                  ;&
-##              *)
-##                  echo -n "k$cmd[1]:t\\"
-##                  return
-##                  ;;
-##          esac
-##   
-##          local -A jt; jt=(${(kv)jobtexts})
-##   
-##          $cmd >>(read num rest
-##          cmd=(${(z)${(e):-\$jt$num}})
-##          echo -n "k$cmd[1]:t\\") 2>/dev/null
-##      }
-##      chpwd
-##   fi
-
-
 #=============================
 # source zsh
 #=============================
@@ -251,6 +243,3 @@ if [ -f ~/.zsh/`hostname`.rc ]; then
     source ~/.zsh/`hostname`.rc
 fi
 
-# if [ $SHLVL = 1 ]; then
-#   tmux attach || tmux -f ~/.tmux.conf
-# fi
