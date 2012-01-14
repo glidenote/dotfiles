@@ -43,6 +43,7 @@ Bundle 'smartchr'
 " Bundle 'Markdown'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'matchit.zip'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
