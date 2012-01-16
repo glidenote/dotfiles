@@ -131,6 +131,11 @@ setopt glob_complete     # globを展開しないで候補の一覧から補完�
 setopt hist_expand       # 補完時にヒストリを自動的に展開する。
 setopt no_beep           # 補完候補がないときなどにビープ音を鳴らさない。
 setopt numeric_glob_sort # 辞書順ではなく数字順に並べる。
+setopt rm_star_wait      # rm * を実行する前に確認
+setopt hist_no_store     # history コマンドを history に保存しない
+setopt mark_dirs         # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
+setopt no_flow_control   # disable C-q, C-s
+
 
 #=============================
 # zstyle
