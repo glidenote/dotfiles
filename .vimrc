@@ -44,6 +44,8 @@ Bundle 'smartchr'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'matchit.zip'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -96,6 +98,8 @@ set nolist
 set showcmd
 " 括弧入力時の対応する括弧を表示
 set showmatch
+" 補完候補をリスト表示
+set wildmenu
 
 " ステータスラインを常に表示
 set laststatus=2
