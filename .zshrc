@@ -147,9 +147,10 @@ zstyle ':completion:*' group-name ''
 
 zstyle ':completion:*:default' menu select=2                # 補完メニューの表示
 zstyle ':completion:*:default' list-colors ""               # 補完候補の色分け
-zstyle ':completion:*' use-cache yes                        # 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache true                       # 補完候補をキャッシュする。
 zstyle ':completion:*' verbose yes                          # 詳細な情報を使う。
 zstyle ':completion:sudo:*' environ PATH="$SUDO_PATH:$PATH" # sudo時にはsudo用のパスも使う。
+zstyle ':vcs_info:*' enable git # svn hg bzr                # git以外ではvcs_infoを利用しない
 
 #=============================
 # misc
