@@ -16,7 +16,6 @@ bash_completion_tmux.sh
 .tscreenrc
 .vimrc
 .zshrc
-.zshenv
 .bashrc
 bash_completion_tmux.sh
 .tmux.conf
