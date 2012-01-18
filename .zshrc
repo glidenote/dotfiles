@@ -135,7 +135,8 @@ setopt rm_star_wait      # rm * を実行する前に確認
 setopt hist_no_store     # history コマンドを history に保存しない
 setopt mark_dirs         # ファイル名の展開でディレクトリにマッチした場合 末尾に / を付加
 setopt no_flow_control   # disable C-q, C-s
-
+setopt auto_param_slash  # ディレクトリ名の補完で末尾の / を自動的に付加し、次の補完に備える
+setopt brace_ccl         # {a-c} を a b c に展開する機能を使えるようにする
 
 #=============================
 # zstyle
