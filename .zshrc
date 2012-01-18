@@ -109,10 +109,6 @@ bindkey "^N" history-beginning-search-forward-end
 autoload -U compinit #補完機能
 compinit
 
-setopt correct     # コマンド自動修正
-setopt list_packed # 補完候補を詰めて表示
-setopt nolistbeep  # 補完表示時にビープ音を鳴らさない
-
 # autoload -U predict-on # 先方予測機能
 # predict-on
 
@@ -123,6 +119,10 @@ setopt auto_pushd
 #「~」や「=コマンド」などのファイル名展開を行う。
 setopt magic_equal_subst
 
+setopt correct           # コマンド自動修正
+setopt list_packed       # 補完候補を詰めて表示
+setopt nolistbeep        # 補完表示時にビープ音を鳴らさない
+setopt complete_aliases  # エイリアスを設定したコマンドでも補完機能を使えるようにする
 setopt transient_rprompt # コピペしやすいようにコマンド実行後は右プロンプトを消す。
 setopt long_list_jobs    # 内部コマンド jobs の出力をデフォルトで jobs -l にする
 setopt list_types        # 補完候補一覧でファイルの種別をマーク表示
@@ -145,7 +145,6 @@ setopt brace_ccl         # {a-c} を a b c に展開する機能を使えるよ�
 #  補完のグループ化
 zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*' group-name ''
-
 zstyle ':completion:*:default' menu select=2                # 補完メニューの表示
 zstyle ':completion:*:default' list-colors ""               # 補完候補の色分け
 zstyle ':completion:*' use-cache true                       # 補完候補をキャッシュする。
@@ -167,7 +166,6 @@ WORDCHARS=${WORDCHARS:s,/,,}            # 「/」も単語区切りとみなす�
 #=============================
 # alias
 #=============================
-setopt complete_aliases     #エイリアスを設定したコマンドでも補完機能を使えるようにする
 alias vi='vim'
 alias cp='cp -i'
 alias mv='mv -i'
