@@ -288,6 +288,7 @@ nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer 
 nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]l  :<C-u>Unite colorscheme<CR>
 nnoremap  [unite]f  :<C-u>Unite source<CR>
 
 autocmd FileType unite call s:unite_my_settings()
