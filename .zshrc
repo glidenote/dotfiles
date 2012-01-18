@@ -174,6 +174,8 @@ alias h='history 25'
 alias j='jobs -l'
 alias grep='grep --color=auto'
 # alias sudo='sudo -E '
+alias cd="pushd"
+alias bd="popd"
 
 # tscreen
 if [ -x /bin/tscreen ]; then
