@@ -1,7 +1,8 @@
 if exists("did_load_filetypes")
-	finish
+    finish
 endif
 augroup filetypedetect
-	autocmd BufRead,BufNewFile *.markdown       setfiletype octopress
+    autocmd BufRead,BufNewFile *.markdown setfiletype octopress
+    autocmd BufRead,BufNewFile *.md       setfiletype octopress
 augroup END
 
