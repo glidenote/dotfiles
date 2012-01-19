@@ -175,7 +175,7 @@ alias j='jobs -l'
 alias grep='grep --color=auto'
 # alias sudo='sudo -E '
 alias cd="pushd"
-alias bd="popd"
+alias p="popd"
 
 # tscreen
 if [ -x /bin/tscreen ]; then
