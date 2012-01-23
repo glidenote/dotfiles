@@ -285,7 +285,8 @@ nnoremap    [unite]   <Nop>
 nmap    f [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]u  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]l  :<C-u>Unite colorscheme<CR>
