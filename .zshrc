@@ -174,8 +174,6 @@ alias h='history 25'
 alias j='jobs -l'
 alias grep='grep --color=auto'
 # alias sudo='sudo -E '
-alias cd="pushd"
-alias p="popd"
 
 # tscreen
 if [ -x /bin/tscreen ]; then
@@ -243,6 +241,15 @@ if [ x$TERM = xscreen ]; then
         alias ssh=ssh_tmux
     fi
 fi
+
+#=============================
+# use cdd on tmux
+#=============================
+# http://m4i.hatenablog.com/entry/2012/01/26/064329
+. ~/bin/cdd
+chpwd() {
+    _cdd_chpwd
+}
 
 #=============================
 # source zsh
