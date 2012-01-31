@@ -46,6 +46,7 @@ Bundle 'matchit.zip'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'Shougo/vimfiler'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
