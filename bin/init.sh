@@ -30,18 +30,18 @@ touch ~/.vimrc.local
 
 # 既存ディレクトリ、ファイルを待避させる
 if [ ! -e ~/old_files ]; then
-	mkdir ~/old_files
-	for FILE in ${FILELIST};
-	do
-		mv ~/${FILE} ~/old_files/
-	done
+    mkdir ~/old_files
+    for FILE in ${FILELIST};
+    do
+        mv ~/${FILE} ~/old_files/
+    done
 fi
 
 # link張り直し
 for FILE in ${FILELIST};
 do
-	rm -rf ~/${FILE}
-	ln -s ~/dotfiles/${FILE} ~/${FILE}
+    rm -rf ~/${FILE}
+    ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
 
 # git submodule init & update
