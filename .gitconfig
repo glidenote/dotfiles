@@ -12,7 +12,6 @@
 
 [core]
     editor        = vim -c \"set fenc=utf-8\"
-    excludesfile  = ~/.gitignore          # globalな.gitignoreの指定
     autocrlf      = input                 # CRLFを自動変換
 
 [http]
