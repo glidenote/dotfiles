@@ -19,6 +19,7 @@ export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
 export PERL_CPANM_OPT="--local-lib=~/extlib"
 export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
 export EDITOR=vim
+export LESS='-R'
 
 #=============================
 # set prompt
