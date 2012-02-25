@@ -1,3 +1,7 @@
 [submodule ".vim/vundle.git"]
 	path = .vim/vundle.git
 	url = http://github.com/gmarik/vundle.git
+
+[submodule ".zsh/zsh-completions"]
+	path = .zsh/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git

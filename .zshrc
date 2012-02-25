@@ -21,6 +21,13 @@ export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64in
 export EDITOR=vim
 export LESS='-R'
 
+
+#=============================
+# fpath (zsh completion)
+#=============================
+
+fpath=(~/.zsh/zsh-completions $fpath)
+
 #=============================
 # set prompt
 #=============================
