@@ -270,7 +270,7 @@ fi
 # source z
 #=============================
 if [ -f ~/.zsh/z.sh ]; then
-    _Z_CMD=j
+    _Z_CMD=z
     source ~/.zsh/z.sh
     precmd() {
       _z --add "$(pwd -P)"
