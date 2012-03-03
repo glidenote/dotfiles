@@ -266,3 +266,13 @@ if [ -f ~/.zsh/`hostname`.rc ]; then
     source ~/.zsh/`hostname`.rc
 fi
 
+#=============================
+# source z
+#=============================
+if [ -f ~/.zsh/z.sh ]; then
+    _Z_CMD=j
+    source ~/.zsh/z.sh
+    precmd() {
+      _z --add "$(pwd -P)"
+    }
+fi
