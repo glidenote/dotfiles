@@ -35,18 +35,17 @@ Bundle 'Align'
 Bundle 'Puppet-Syntax-Highlighting'
 Bundle 'ref.vim'
 Bundle 'ack.vim'
-" Bundle 'snipMate'
 Bundle 'tpope/vim-rails'
 Bundle 'ruby-matchit'
 Bundle 'surround.vim'
 Bundle 'smartchr'
-" Bundle 'Markdown'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'matchit.zip'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/vimfiler'
+Bundle 'fuenor/qfixgrep.git'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -321,4 +320,5 @@ autocmd FileType php,python inoremap <expr> = smartchr#one_of(' = ', ' == ', ' =
 autocmd FileType ruby inoremap <expr> > smartchr#one_of(' > ', ' => ', '>')
 autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
-
+" For yankring.vim
+let g:yankring_manual_clipboard_check = 0
