@@ -46,6 +46,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/vimfiler'
 Bundle 'fuenor/qfixgrep.git'
+Bundle 'glidenote/memolist.vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -322,3 +323,9 @@ autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 " For yankring.vim
 let g:yankring_manual_clipboard_check = 0
+
+" For memolist.vim
+let g:memolist_qfixgrep = "true"
+map <Leader>ml  :MemoList<CR>
+map <Leader>mn  :MemoNew<CR>
+map <Leader>mg  :MemoGrep<CR>
