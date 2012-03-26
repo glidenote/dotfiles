@@ -47,8 +47,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/vimfiler'
 Bundle 'fuenor/qfixgrep.git'
 Bundle 'glidenote/memolist.vim'
-Bundle 'L9'                                                                                                                                                                                                     
-Bundle 'FuzzyFinder'                                                                                                                                                                                            
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
