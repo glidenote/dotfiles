@@ -47,6 +47,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/vimfiler'
 Bundle 'fuenor/qfixgrep.git'
 Bundle 'glidenote/memolist.vim'
+Bundle 'L9'                                                                                                                                                                                                     
+Bundle 'FuzzyFinder'                                                                                                                                                                                            
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -329,3 +331,6 @@ let g:memolist_qfixgrep = "true"
 map <Leader>ml  :MemoList<CR>
 map <Leader>mn  :MemoNew<CR>
 map <Leader>mg  :MemoGrep<CR>
+
+" For FuzzyFinder
+nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
