@@ -338,7 +338,9 @@ nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
 
 " For ctrlp
 nmap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
+let g:ctrlp_by_filename         = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_highlight_match     = [1, 'IncSearch']
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.neocon$',
     \ 'file': '\.exe$\|\.so$\|\.dll$',
