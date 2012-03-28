@@ -49,7 +49,7 @@ Bundle 'fuenor/qfixgrep.git'
 Bundle 'glidenote/memolist.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
-
+Bundle 'ctrlp.vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -335,3 +335,12 @@ map <Leader>mg  :MemoGrep<CR>
 
 " For FuzzyFinder
 nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
+
+" For ctrlp
+nmap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.neocon$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$',
+    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+    \ }
