@@ -195,7 +195,7 @@ map <silent> sp :call YanktmpPaste_p()<CR>
 map <silent> sP :call YanktmpPaste_P()<CR>"
 "-----------------------------------------------------------------------------
 
-""" オートコマンド
+""" autocmd
 "
 if has("autocmd")
     " プラグインを有効
@@ -237,6 +237,35 @@ if has("autocmd")
     "Ruby記述用
     autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
 
+    " Indent
+    autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
+    autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+    autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+    autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 endif " has("autocmd")
 
 "-----------------------------------------------------------------------------
