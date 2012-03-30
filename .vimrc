@@ -357,7 +357,7 @@ autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 let g:yankring_manual_clipboard_check = 0
 
 " For memolist.vim
-let g:memolist_qfixgrep = "true"
+let g:memolist_qfixgrep = 1
 map <Leader>ml  :MemoList<CR>
 map <Leader>mn  :MemoNew<CR>
 map <Leader>mg  :MemoGrep<CR>
