@@ -50,6 +50,7 @@ Bundle 'glidenote/memolist.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'ctrlp.vim'
+Bundle 'mattn/webapi-vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
