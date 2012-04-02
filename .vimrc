@@ -52,6 +52,7 @@ Bundle 'FuzzyFinder'
 Bundle 'ctrlp.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'glidenote/octoeditor.vim'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -349,26 +350,28 @@ let g:unite_abbr_highlight = 'TabLine'
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
+
 """ smartchr
 autocmd FileType php,python inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 "autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
 autocmd FileType ruby inoremap <expr> > smartchr#one_of(' > ', ' => ', '>')
 autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
-" For yankring.vim
-let g:yankring_manual_clipboard_check = 0
 
-" For memolist.vim
+""" For yankring.vim
+let g:yankring_manual_clipboard_check = 0
+"-----------------------------------------------------------------------------
+
+""" For memolist.vim
 let g:memolist_qfixgrep = 1
 map <Leader>ml  :MemoList<CR>
 map <Leader>mn  :MemoNew<CR>
 map <Leader>mg  :MemoGrep<CR>
-
-" For FuzzyFinder
 nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
-
-" For ctrlp
 nmap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
+"-----------------------------------------------------------------------------
+
+""" For ctrlp
 let g:ctrlp_by_filename         = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_highlight_match     = [1, 'IncSearch']
@@ -377,3 +380,21 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\.exe$\|\.so$\|\.dll$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
     \ }
+"-----------------------------------------------------------------------------
+
+""" For ocotoeditor.vim
+let g:octopress_path = '~/octopress'
+let g:octopress_prompt_categories = 1
+let g:octopress_qfixgrep = 1
+map <Leader>on  :OctopressNew<CR>
+map <Leader>ol  :OctopressList<CR>
+map <Leader>og  :OctopressGrep<CR>
+nmap ,og  :OctopressGenerate<CR>
+nmap ,od  :OctopressDeploy<CR>
+nmap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
+nmap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
+"-----------------------------------------------------------------------------
+
+""" For Gist.vim
+let g:gist_detect_filetype = 1                                                                                                                                                                                  
+"-----------------------------------------------------------------------------
