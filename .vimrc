@@ -215,6 +215,9 @@ if has("autocmd")
     " これらのftではインデントを無効に
     "autocmd FileType php filetype indent off
 
+    " 自動でコメントアウトされないように
+    autocmd FileType * setlocal formatoptions-=ro
+
     " autocmd FileType php :set indentexpr=
     autocmd FileType html :set indentexpr=
     autocmd FileType xhtml :set indentexpr=
