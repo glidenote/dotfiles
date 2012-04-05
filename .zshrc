@@ -198,6 +198,11 @@ case "${OSTYPE}" in
         ;;
     linux*)
         alias ls="ls --color"
+        alias dstat-full='dstat -Tclmdrn'
+        alias dstat-mem='dstat -Tclm'
+        alias dstat-cpu='dstat -Tclr'
+        alias dstat-net='dstat -Tclnd'
+        alias dstat-disk='dstat -Tcldr'
         ;;
     solaris*)
         alias ls='gls -F --color=auto ' 
