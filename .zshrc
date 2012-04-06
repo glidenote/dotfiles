@@ -283,6 +283,17 @@ if [ -f ~/.zsh/z.sh ]; then
 fi
 
 #=============================
+# source auto-fu.zsh
+#=============================
+if [ -f ~/.zsh/auto-fu.zsh ]; then
+    source ~/.zsh/auto-fu.zsh
+    function zle-line-init () {
+        auto-fu-init
+    }
+    zle -N zle-line-init
+fi
+
+#=============================
 # sudo.vim   http://blog.monoweb.info/article/2011120320.html
 #=============================
 sudo() {
