@@ -291,6 +291,7 @@ if [ -f ~/.zsh/auto-fu.zsh ]; then
         auto-fu-init
     }
     zle -N zle-line-init
+    zstyle ':completion:*' completer _oldlist _complete
 fi
 
 #=============================
