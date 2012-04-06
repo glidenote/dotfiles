@@ -19,12 +19,12 @@ bash_completion_tmux.sh
 .bashrc
 bash_completion_tmux.sh
 .tmux.conf
+.zsh
 "
 
 # 必要ディレクトリの作成
 cd ~
 mkdir bin tmp src
-mkdir ~/.zsh/
 touch ~/.zsh/`hostname`.rc
 touch ~/.vimrc.local
 
