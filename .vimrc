@@ -372,6 +372,7 @@ map <Leader>mn  :MemoNew<CR>
 map <Leader>mg  :MemoGrep<CR>
 nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
 nmap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
+nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
 "-----------------------------------------------------------------------------
 
 """ For ctrlp
