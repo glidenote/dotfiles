@@ -21,8 +21,6 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
-" 
 Bundle 'unite.vim'
 Bundle 'unite-colorscheme'
 Bundle 'neocomplcache'
@@ -112,53 +110,39 @@ set wildmenu
 set laststatus=2
 " ステータスラインに表示する情報の指定
 function! GetB()
-    let c = matchstr(getline('.'), '.', col('.') - 1)
-    let c = iconv(c, &enc, &fenc)
-    return String2Hex(c)
+  let c = matchstr(getline('.'), '.', col('.') - 1)
+  let c = iconv(c, &enc, &fenc)
+  return String2Hex(c)
 endfunction
 " :help eval-examples
 " The function Nr2Hex() returns the Hex string of a number.
 func! Nr2Hex(nr)
-    let n = a:nr
-    let r = ""
-    while n
-        let r = '0123456789ABCDEF'[n % 16] . r
-        let n = n / 16
-    endwhile
-    return r
+  let n = a:nr
+  let r = ""
+  while n
+    let r = '0123456789ABCDEF'[n % 16] . r
+    let n = n / 16
+  endwhile
+  return r
 endfunc
 " The function String2Hex() converts each character in a string to a two
 " character Hex string.
 func! String2Hex(str)
-    let out = ''
-    let ix = 0
-    while ix < strlen(a:str)
-        let out = out . Nr2Hex(char2nr(a:str[ix]))
-        let ix = ix + 1
-    endwhile
-    return out
+  let out = ''
+  let ix = 0
+  while ix < strlen(a:str)
+    let out = out . Nr2Hex(char2nr(a:str[ix]))
+    let ix = ix + 1
+  endwhile
+  return out
 endfunc
 
-"ステータスラインに文字コードと改行文字を表示する
-" set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']['.&ft.']'}\ %F%=%l,%c%V%8P
-if winwidth(0) >= 120
-    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
-else
-    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
-endif
-
-"set statusline=%{GetB()}
-"
-" set statusline=[%n]%1*%m%*%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%<%{fnamemodify(getcwd(),':~')}]%-8([%{GetB()}]%)\ %-11(%l,%c%V%)\ %4P
-
-" ステータスラインの色
-" hi StatusLine   term=NONE cterm=NONE ctermfg=black ctermbg=white
 " ハイライト
 if &t_Co > 2 || has("gui_running")
-    " シンタックスハイライトを有効にする
-    syntax on
-    " 検索結果文字列のハイライトを有効にする
-    set hlsearch
+  " シンタックスハイライトを有効にする
+  syntax on
+  " 検索結果文字列のハイライトを有効にする
+  set hlsearch
 endif
 "-----------------------------------------------------------------------------
 
@@ -201,77 +185,75 @@ map <silent> sP :call YanktmpPaste_P()<CR>"
 """ autocmd
 "
 if has("autocmd")
-    " プラグインを有効
-    filetype plugin on
-    " textファイルのカラムを78に設定
-    autocmd FileType text setlocal textwidth=78
-    " カーソル位置を記憶しておく
-    autocmd BufReadPost *
-                \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                \   exe "normal g`\"" |
-                \ endif
-    "そのファイルタイプにあわせたインデントを利用する
-    filetype indent on
-    " これらのftではインデントを無効に
-    "autocmd FileType php filetype indent off
+  " プラグインを有効
+  filetype plugin on
+  " textファイルのカラムを78に設定
+  autocmd FileType text setlocal textwidth=78
+  " カーソル位置を記憶しておく
+  autocmd BufReadPost *
+              \ if line("'\"") > 0 && line("'\"") <= line("$") |
+              \   exe "normal g`\"" |
+              \ endif
+  "そのファイルタイプにあわせたインデントを利用する
+  filetype indent on
+  " これらのftではインデントを無効に
+  "autocmd FileType php filetype indent off
 
-    " 自動でコメントアウトされないように
-    autocmd FileType * setlocal formatoptions-=ro
+  " 自動でコメントアウトされないように
+  autocmd FileType * setlocal formatoptions-=ro
 
-    " autocmd FileType php :set indentexpr=
-    autocmd FileType html :set indentexpr=
-    autocmd FileType xhtml :set indentexpr=
+  " autocmd FileType php :set indentexpr=
+  autocmd FileType html :set indentexpr=
+  autocmd FileType xhtml :set indentexpr=
 
-    "html記述用
-    autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
-    
-    "Perl記述用
-    autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
-    "perl コンパイラの指定
-    autocmd FileType perl,cgi :compiler perl
-    
-    "sh記述用
-    autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
-    
-    "Python記述用
-    autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
-    autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-    autocmd FileType python setl autoindent
-    autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  "html記述用
+  autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
 
-    "Ruby記述用
-    autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
+  "Perl記述用
+  autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
+  "perl コンパイラの指定
+  autocmd FileType perl,cgi :compiler perl
 
-    " Indent
-    autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
-    autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
-    autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
-    autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+  "sh記述用
+  autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
+
+  "Python記述用
+  autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
+  autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
+  autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+  "Ruby記述用
+  autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
+
+  " Indent
+  autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType zsh        setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 endif " has("autocmd")
 
 "-----------------------------------------------------------------------------
@@ -280,23 +262,20 @@ endif " has("autocmd")
 """ プラグイン関連
 " Python
 function! s:Exec()
-    exe "!" . &ft . " %"        
+  exe "!" . &ft . " %"        
 :endfunction         
 command! Exec call <SID>Exec() 
 map <silent> <C-P> :call <SID>Exec()<CR>
 
 " notime
 augroup InsModeAu
-    autocmd!
-    autocmd InsertEnter,CmdwinEnter * set noimdisable
-    autocmd InsertLeave,CmdwinLeave * set imdisable
+  autocmd!
+  autocmd InsertEnter,CmdwinEnter * set noimdisable
+  autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
 """ neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-"highlight Pmenu ctermbg=8 guibg=#606060
-"highlight PmenuSel ctermbg=12 guibg=SlateBlue
-"highlight PmenuSbar ctermbg=0 guibg=#404040
 highlight Pmenu ctermbg=4
 highlight PmenuSel ctermbg=1
 highlight PMenuSbar ctermbg=4
@@ -307,7 +286,7 @@ highlight CursorIM   guifg=NONE guibg=Red
 highlight CursorLine guifg=NONE guibg=#505050
 
 " 自作snippets用ディレクトリを用意
-let g:NeoComplCache_SnippetsDir  =  $HOME . '/.vim/snippets'
+let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
 
 " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
@@ -400,5 +379,5 @@ nmap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
 "-----------------------------------------------------------------------------
 
 """ For Gist.vim
-let g:gist_detect_filetype = 1                                                                                                                                                                                  
+let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
