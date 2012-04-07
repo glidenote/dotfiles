@@ -283,6 +283,14 @@ if [ -f ~/.zsh/z.sh ]; then
 fi
 
 #=============================
+# source zaw.zsh
+#=============================
+if [ -f ~/.zsh/zaw/zaw.zsh ]; then
+    source ~/.zsh/zaw/zaw.zsh
+    bindkey '^Xh' zaw-history
+fi
+
+#=============================
 # source auto-fu.zsh
 #=============================
 if [ -f ~/.zsh/auto-fu.zsh ]; then
@@ -317,3 +325,5 @@ sudo() {
       ;;
   esac
 }
+
+
