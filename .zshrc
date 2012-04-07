@@ -116,7 +116,7 @@ bindkey "^N" history-beginning-search-forward-end
 # setopt
 #=============================
 autoload -U compinit #補完機能
-compinit
+compinit -u
 
 # autoload -U predict-on # 先方予測機能
 # predict-on
