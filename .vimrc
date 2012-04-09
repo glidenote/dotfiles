@@ -52,6 +52,10 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'glidenote/octoeditor.vim'
 
+nmap bi   :BundleInstall<CR>
+nmap ,bi  :BundleInstall!<CR>
+nmap bc   :BundleClean<CR>
+
 filetype plugin indent on
 "-----------------------------------------------------------------------------
 """ changelog
