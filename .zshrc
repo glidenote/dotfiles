@@ -245,6 +245,11 @@ case "${HOSTNAME}" in
     eval server=\${$#}
     eval tmux new-window -n "'${server}'" "'ssh $@'"
 }
+    function mosh_tmux() {
+    eval server=\${$#}
+    tmux new-window -n $@ "exec ssh $@"
+}
+
 ;;
 esac
 
@@ -253,6 +258,7 @@ if [ x$TERM = xscreen ]; then
         alias ssh=ssh_screen
     else
         alias ssh=ssh_tmux
+        alias mosh=mosh_tmux
     fi
 fi
 
