@@ -25,7 +25,7 @@ bash_completion_tmux.sh
 # 必要ディレクトリの作成
 cd ~
 mkdir bin tmp src
-touch ~/.zsh/`hostname`.rc
+touch ~/.zsh/`hostname`.zsh
 touch ~/.vimrc.local
 
 # 既存ディレクトリ、ファイルを待避させる

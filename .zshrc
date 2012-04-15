@@ -274,8 +274,8 @@ chpwd() {
 #=============================
 # source zsh
 #=============================
-if [ -f ~/.zsh/`hostname`.rc ]; then
-    source ~/.zsh/`hostname`.rc
+if [ -f ~/.zsh/`hostname`.zsh ]; then
+    source ~/.zsh/`hostname`.zsh
 fi
 
 #=============================
