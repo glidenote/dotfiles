@@ -102,6 +102,8 @@ setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data 
 setopt extended_history
 function history-all { history -E 1 }
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
 
 #=============================
 # Search History
@@ -294,7 +296,8 @@ fi
 #=============================
 if [ -f ~/.zsh/zaw/zaw.zsh ]; then
     source ~/.zsh/zaw/zaw.zsh
-    bindkey '^Xh' zaw-history
+    # bindkey '^Xh' zaw-history
+    bindkey '^R' zaw-history
 fi
 
 #=============================
