@@ -267,10 +267,10 @@ fi
 #=============================
 # use cdd on tmux
 #=============================
-# http://m4i.hatenablog.com/entry/2012/01/26/064329
-. ~/bin/cdd
-chpwd() {
-    _cdd_chpwd
+# http://blog.livedoor.jp/xaicron/archives/51301218.html
+source ~/bin/cdd
+function chpwd() {
+    _reg_pwd_screennum
 }
 
 #=============================
