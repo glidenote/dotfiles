@@ -361,12 +361,10 @@ nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
 """ For ctrlp
 let g:ctrlp_by_filename         = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_working_path_mode   = 2
 let g:ctrlp_highlight_match     = [1, 'IncSearch']
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$|\.neocon$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$',
-    \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-    \ }
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\.git$\|\.svn$\|\.neocon$'
 "-----------------------------------------------------------------------------
 
 """ For ocotoeditor.vim
