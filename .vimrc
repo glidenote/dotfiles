@@ -51,6 +51,7 @@ Bundle 'ctrlp.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'glidenote/octoeditor.vim'
+Bundle 'sgur/ctrlp-extensions.vim'
 
 nmap bi   :BundleInstall<CR>
 nmap ,bi  :BundleInstall!<CR>
@@ -365,6 +366,7 @@ let g:ctrlp_working_path_mode   = 2
 let g:ctrlp_highlight_match     = [1, 'IncSearch']
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\.git$\|\.svn$\|\.neocon$'
+let g:ctrlp_extensions = ['cmdline', 'yankring', 'menu']
 "-----------------------------------------------------------------------------
 
 """ For ocotoeditor.vim
