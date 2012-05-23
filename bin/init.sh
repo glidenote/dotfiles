@@ -17,6 +17,7 @@ bash_completion_tmux.sh
 .vimrc
 .zshrc
 .bashrc
+.pryrc
 bash_completion_tmux.sh
 .tmux.conf
 .zsh
