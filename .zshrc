@@ -36,36 +36,36 @@ colors
 
 autoload -Uz is-at-least
 if is-at-least 4.3.10; then
-    #----------
-    # http://d.hatena.ne.jp/uasi/20091025/1256458798
-    #----------
-    autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+  #----------
+  # http://d.hatena.ne.jp/uasi/20091025/1256458798
+  #----------
+  autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
-    function rprompt-git-current-branch {
-    local name st color gitdir action
-    if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
-    if [[ -z $name ]]; then
-        return
-    fi
+  function rprompt-git-current-branch {
+  local name st color gitdir action
+  if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
+    return
+  fi
+  name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
+  if [[ -z $name ]]; then
+    return
+  fi
 
-    gitdir=`git rev-parse --git-dir 2> /dev/null`
-    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+  gitdir=`git rev-parse --git-dir 2> /dev/null`
+  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
 
-    st=`git status 2> /dev/null`
-    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-        color=%F{green}
-    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-        color=%F{yellow}
-    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-        color=%B%F{red}
-    else
-        color=%F{red}
-    fi
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=%F{green}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=%F{yellow}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=%B%F{red}
+  else
+    color=%F{red}
+  fi
 
-    echo "$color$name$action%f%b"
+  echo "$color$name$action%f%b"
 }
 
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
@@ -73,7 +73,7 @@ setopt prompt_subst
 RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[cyan]}%}][%~]%{${reset_color}%}'
 #---------
 else
-    RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
+  RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
 fi
 
 PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
@@ -84,12 +84,12 @@ SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
 # terminal title
 #=============================
 case "${TERM}" in
-    kterm*|xterm*)
-        precmd() {
-            echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-        }
-        ;;
-esac 
+  kterm*|xterm*)
+    precmd() {
+      echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+    }
+    ;;
+esac
 
 
 #=============================
@@ -99,7 +99,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data 
+setopt share_history        # share command history data
 setopt extended_history
 function history-all { history -E 1 }
 setopt hist_ignore_all_dups
@@ -112,7 +112,7 @@ autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end 
+bindkey "^N" history-beginning-search-forward-end
 
 #=============================
 # setopt
@@ -188,7 +188,7 @@ alias grep='grep --color=auto'
 
 # tscreen
 if [ -x /bin/tscreen ]; then
-    alias screen='tscreen'
+  alias screen='tscreen'
 fi
 
 # OSによる切り替えを行う
@@ -196,19 +196,19 @@ alias where="command -v"
 
 # ls
 case "${OSTYPE}" in
-    freebsd*|darwin*)
-        alias ls="ls -G -w"
-        ;;
-    linux*)
-        alias ls="ls --color"
-        alias dstat-full='dstat -Tclmdrn'
-        alias dstat-mem='dstat -Tclm'
-        alias dstat-cpu='dstat -Tclr'
-        alias dstat-net='dstat -Tclnd'
-        alias dstat-disk='dstat -Tcldr'
-        ;;
-    solaris*)
-        alias ls='gls -F --color=auto ' 
+  freebsd*|darwin*)
+    alias ls="ls -G -w"
+    ;;
+  linux*)
+    alias ls="ls --color"
+    alias dstat-full='dstat -Tclmdrn'
+    alias dstat-mem='dstat -Tclm'
+    alias dstat-cpu='dstat -Tclr'
+    alias dstat-net='dstat -Tclnd'
+    alias dstat-disk='dstat -Tcldr'
+    ;;
+  solaris*)
+    alias ls='gls -F --color=auto '
 esac
 
 alias la="ls -a"
@@ -220,6 +220,14 @@ alias su="su -l"
 alias tmux="tmux -2"
 alias ta='tmux attach || tmux -f ~/.tmux.conf'
 
+if [  -x "`which hub 2> /dev/null`" ]; then
+  alias git="hub"
+fi
+
+if [  -x "`which pry 2> /dev/null`" ]; then
+  alias p="pry"
+fi
+
 #=============================
 # SSH
 #=============================
@@ -227,41 +235,41 @@ alias ta='tmux attach || tmux -f ~/.tmux.conf'
 # HOSTNAMEによって切り替えを行う
 # screenとtmuxの判別も行う http://genzou.ath.cx/
 case "${HOSTNAME}" in
-    manage*.jp)
-        function ssh_screen(){
-        eval server=\${$#}
-        screen -t $server sudo ssh "$@"
-    }
-    function ssh_tmux(){
+  manage*.jp)
+    function ssh_screen(){
     eval server=\${$#}
-    eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
+    screen -t $server sudo ssh "$@"
+  }
+  function ssh_tmux(){
+  eval server=\${$#}
+  eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
 }
 ;;
 
     *)
-        function ssh_screen(){
-        eval server=\${$#}
-        screen -t $server ssh "$@"
+      function ssh_screen(){
+      eval server=\${$#}
+      screen -t $server ssh "$@"
     }
     function ssh_tmux(){
     eval server=\${$#}
     eval tmux new-window -n "'${server}'" "'ssh $@'"
-}
-    function mosh_tmux() {
-    eval server=\${$#}
-    tmux new-window -n $@ "exec ssh $@"
+  }
+  function mosh_tmux() {
+  eval server=\${$#}
+  tmux new-window -n $@ "exec ssh $@"
 }
 
 ;;
 esac
 
 if [ x$TERM = xscreen ]; then
-    if [ -e $TMUX ]; then
-        alias ssh=ssh_screen
-    else
-        alias ssh=ssh_tmux
-        alias mosh=mosh_tmux
-    fi
+  if [ -e $TMUX ]; then
+    alias ssh=ssh_screen
+  else
+    alias ssh=ssh_tmux
+    alias mosh=mosh_tmux
+  fi
 fi
 
 #=============================
@@ -270,46 +278,46 @@ fi
 # http://m4i.hatenablog.com/entry/2012/01/26/064329
 . ~/bin/cdd
 chpwd() {
-    _cdd_chpwd
+  _cdd_chpwd
 }
 
 #=============================
 # source zsh
 #=============================
 if [ -f ~/.zsh/`hostname`.zsh ]; then
-    source ~/.zsh/`hostname`.zsh
+  source ~/.zsh/`hostname`.zsh
 fi
 
 #=============================
 # source z
 #=============================
 if [ -f ~/.zsh/z.sh ]; then
-    _Z_CMD=z
-    source ~/.zsh/z.sh
-    precmd() {
-      _z --add "$(pwd -P)"
-    }
+  _Z_CMD=z
+  source ~/.zsh/z.sh
+  precmd() {
+    _z --add "$(pwd -P)"
+  }
 fi
 
 #=============================
 # source zaw.zsh
 #=============================
 if [ -f ~/.zsh/zaw/zaw.zsh ]; then
-    source ~/.zsh/zaw/zaw.zsh
-    # bindkey '^Xh' zaw-history
-    bindkey '^R' zaw-history
+  source ~/.zsh/zaw/zaw.zsh
+  # bindkey '^Xh' zaw-history
+  bindkey '^R' zaw-history
 fi
 
 #=============================
 # source auto-fu.zsh
 #=============================
 if [ -f ~/.zsh/auto-fu.zsh ]; then
-    source ~/.zsh/auto-fu.zsh
-    function zle-line-init () {
-        auto-fu-init
-    }
-    zle -N zle-line-init
-    zstyle ':completion:*' completer _oldlist _complete
+  source ~/.zsh/auto-fu.zsh
+  function zle-line-init () {
+  auto-fu-init
+}
+zle -N zle-line-init
+zstyle ':completion:*' completer _oldlist _complete
 fi
 
 #=============================
@@ -346,7 +354,7 @@ compdef mosh=ssh
 # rbenv
 #=============================
 if [ -d ${HOME}/.rbenv  ] ; then
-    PATH=${HOME}/.rbenv/bin:${PATH}
-    export PATH
-    eval "$(rbenv init -)"
+  PATH=${HOME}/.rbenv/bin:${PATH}
+  export PATH
+  eval "$(rbenv init -)"
 fi
