@@ -56,6 +56,6 @@ vim +BundleInstall! +q
 
 # vimproc make task
 cd ~/.vim/bundle/vimproc/.git/hooks/
-wget https://raw.github.com/gist/1261116/b1fac4ff6ea192eb90d6744d21fc6fd482206bc9/post-merge
+wget https://raw.github.com/gist/2823168/55efc9c72bd9bda4ea6a6af3a37daf253957753f/post-merge
 chmod 755 post-merge
 ./post-merge
