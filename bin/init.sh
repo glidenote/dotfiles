@@ -53,3 +53,9 @@ git submodule update
 # Bundleinstall 
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall! +q
+
+cd ~/.vim/bundle/vimproc/.git/hooks/
+wget https://raw.github.com/gist/1261116/b1fac4ff6ea192eb90d6744d21fc6fd482206bc9/post-merge
+chmod 755 post-merge
+cd ~
+vim +BundleInstall! +q
