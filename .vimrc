@@ -336,6 +336,11 @@ let g:unite_source_file_mru_limit = 200
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
 
+" For vimfiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
+
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------

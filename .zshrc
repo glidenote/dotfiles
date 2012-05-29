@@ -219,6 +219,7 @@ alias df="df -h"
 alias su="su -l"
 alias tmux="tmux -2"
 alias ta='tmux attach || tmux -f ~/.tmux.conf'
+alias vf='vim +VimFiler'
 
 if [  -x "`which hub 2> /dev/null`" ]; then
   alias git="hub"
