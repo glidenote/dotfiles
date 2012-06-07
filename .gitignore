@@ -17,6 +17,7 @@
 !/bash_completion_tmux.sh
 !/.screenrc
 !/.pryrc
+!/.gemrc
 !/.tmux.conf
 !/.tscreenrc
 !/.zshrc
