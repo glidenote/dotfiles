@@ -18,6 +18,7 @@ bash_completion_tmux.sh
 .zshrc
 .bashrc
 .pryrc
+.gemrc
 bash_completion_tmux.sh
 .tmux.conf
 .zsh

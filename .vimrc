@@ -21,12 +21,12 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-Bundle 'unite.vim'
+Bundle 'Shougo/unite.vim'
 Bundle 'unite-colorscheme'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplcache-snippets-complete'
 Bundle 'Shougo/vimproc'
-Bundle 'quickrun.vim'
+Bundle 'thinca/vim-quickrun'
 Bundle 'sudo.vim'
 Bundle 'eregex.vim'
 Bundle 'yanktmp.vim'
