@@ -21,6 +21,7 @@
 !/.tmux.conf
 !/.tscreenrc
 !/.zshrc
+!/.zshenv
 !/bin
 !/.zsh
 
