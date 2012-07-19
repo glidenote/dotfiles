@@ -30,6 +30,7 @@ cd ~
 mkdir bin tmp src
 touch ~/.zsh/`hostname`.zsh
 touch ~/.vimrc.local
+touch ~/.gitconfig.local
 
 # 既存ディレクトリ、ファイルを待避させる
 if [ ! -e ~/old_files ]; then

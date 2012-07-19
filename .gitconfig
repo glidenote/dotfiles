@@ -2,6 +2,9 @@
     name          = Akira Maeda
     email         = glidenote@gmail.com
 
+[include]
+    path          = .gitconfig.local
+
 [color]
     diff          = auto
     status        = auto
