@@ -151,6 +151,16 @@ if &t_Co > 2 || has("gui_running")
   " 検索結果文字列のハイライトを有効にする
   set hlsearch
 endif
+
+" 80文字以上をハイライトhttp://vim-users.jp/2011/05/hack217/
+set textwidth=0
+if exists('&colorcolumn')
+    set colorcolumn=+1
+    " sh,perl,vim,...の部分は自分が使う
+    " プログラミング言語のfiletypeに合わせてください
+    autocmd FileType sh,perl,vim,ruby,python setlocal textwidth=80
+endif
+
 "-----------------------------------------------------------------------------
 
 """ 編集、文書整形関連
