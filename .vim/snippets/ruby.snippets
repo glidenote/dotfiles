@@ -12,7 +12,7 @@ snippet rb
 	#!/usr/bin/env ruby -wKU
 	
 snippet req
-	require "${1}"${2}
+	require '${1}'${2}
 snippet #
 	# =>
 snippet end
@@ -319,7 +319,7 @@ snippet unif
 	end
 # option_parse {}
 snippet optp
-	require "optparse"
+	require 'optparse'
 	
 	options = {${1:default => "args"}}
 	
