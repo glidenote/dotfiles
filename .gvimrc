@@ -14,3 +14,12 @@ set clipboard=unnamed,autoselect
 
 " leader key setting
 map ¥ <leader>
+
+" font 
+set guifont=Ricty:h15
+
+" window size
+set lines=90 columns=200
+
+" hide toolbar
+set guioptions-=T
