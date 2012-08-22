@@ -271,6 +271,7 @@ if has("autocmd")
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 endif " has("autocmd")
 
 "-----------------------------------------------------------------------------
