@@ -54,6 +54,7 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'glidenote/octoeditor.vim'
 Bundle 'sgur/ctrlp-extensions.vim'
+Bundle 'spolu/dwm.vim'
 
 nmap bi   :BundleInstall<CR>
 nmap ,bi  :BundleInstall!<CR>
