@@ -26,6 +26,7 @@
 
 [alias]
     sh            = show
+    st            = status
     so            = remote show origin
     ft            = fetch
     rbm           = rebase master         # masterへのrebaseはよく使うのでalias

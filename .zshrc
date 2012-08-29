@@ -179,6 +179,7 @@ WORDCHARS=${WORDCHARS:s,/,,}            # 「/」も単語区切りとみなす�
 #=============================
 alias v='vim'
 alias vi='vim'
+alias g='git'
 alias cp='cp -i'
 alias mv='mv -i'
 alias h='history 25'
