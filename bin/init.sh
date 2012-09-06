@@ -55,7 +55,7 @@ git submodule update
 
 # Bundleinstall 
 git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall! +q
+vim +BundleInstall! +qall
 
 # vimproc make task
 cd ~/.vim/bundle/vimproc/.git/hooks/
