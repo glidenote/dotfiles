@@ -20,6 +20,9 @@
 [http]
     sslVerify     = false
 
+[push]
+	default = upstream
+
 [tig "bind"]
     generic       = g move-first-line
     generic       = G move-last-line
@@ -75,3 +78,4 @@
     # grep関連
     gr            = grep
     gn            = grep -n
+
