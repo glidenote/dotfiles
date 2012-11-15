@@ -11,6 +11,11 @@ bindkey -e
 stty stop undef
 
 #=============================
+# zcompile
+#=============================
+zcompile .zshrc
+
+#=============================
 # path
 #=============================
 PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin/
