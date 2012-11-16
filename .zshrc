@@ -13,7 +13,7 @@ stty stop undef
 #=============================
 # zcompile
 #=============================
-zcompile .zshrc
+zcompile ~/.zshrc
 
 #=============================
 # path
