@@ -328,6 +328,13 @@ zstyle ':completion:*' completer _oldlist _complete
 fi
 
 #=============================
+# source zsh-syntax-highlighting
+#=============================
+if [ -f ~/.zsh/zsh-syntax-highlighting.zsh]; then
+  source ~/.zsh/zsh-syntax-highlighting.zsh
+fi
+
+#=============================
 # sudo.vim   http://blog.monoweb.info/article/2011120320.html
 #=============================
 sudo() {
