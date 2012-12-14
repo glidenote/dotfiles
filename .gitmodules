@@ -5,3 +5,6 @@
 [submodule ".zsh/zsh-completions"]
 	path = .zsh/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
+[submodule "/home/glidenote/.zsh/zsh-syntax-highlighting"]
+	path = /home/glidenote/.zsh/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
