@@ -263,8 +263,7 @@ case "${HOSTNAME}" in
     eval tmux new-window -n "'${server}'" "'ssh $@'"
   }
   function mosh_tmux() {
-  eval server=\${$#}
-  tmux new-window -n $@ "exec ssh $@"
+  tmux new-window -n $@ "exec mosh $@"
 }
 
 ;;
