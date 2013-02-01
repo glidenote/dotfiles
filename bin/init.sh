@@ -27,7 +27,7 @@ bash_completion_tmux.sh
 
 # 必要ディレクトリの作成
 cd ~
-mkdir bin tmp src
+mkdir bin tmp src .tmux
 touch ~/.zsh/`hostname`.zsh
 touch ~/.vimrc.local
 touch ~/.gitconfig.local
