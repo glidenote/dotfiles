@@ -31,9 +31,9 @@ Bundle 'sudo.vim'
 Bundle 'eregex.vim'
 Bundle 'yanktmp.vim'
 Bundle 'YankRing.vim'
-Bundle 'Align'
+Bundle 'h1mesuke/vim-alignta'
 Bundle 'Puppet-Syntax-Highlighting'
-Bundle 'ref.vim'
+Bundle 'thinca/vim-ref'
 Bundle 'ack.vim'
 Bundle 'tpope/vim-rails'
 Bundle 'ruby-matchit'
@@ -55,10 +55,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'glidenote/octoeditor.vim'
 Bundle 'sgur/ctrlp-extensions.vim'
 Bundle 'spolu/dwm.vim'
-
-nmap bi   :BundleInstall<CR>
-nmap ,bi  :BundleInstall!<CR>
-nmap bc   :BundleClean<CR>
+Bundle 'tpope/vim-endwise.git'
+Bundle 'vim-ruby/vim-ruby'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -73,6 +71,10 @@ let g:changelog_username = changelog_user
 " マシン固有の設定は.vimrc.localに用意して読み込む
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
+endif
+" Mac用の設定を用意
+if has('mac')
+  source ~/.vimrc.mac
 endif
 " コマンド、検索パターンを50個まで履歴に残す
 set history=50
@@ -94,7 +96,7 @@ set wrapscan
 " 検索文字列入力時に順次対象文字列にヒットさせない
 set noincsearch
 " Esc連打で検索時にハイライトを消す
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <Esc><Esc> :nohlsearch<CR>
 "-----------------------------------------------------------------------------
 
 """ 装飾関連
@@ -197,14 +199,12 @@ set nobackup
 """ yanktmp
 map <silent> sy :call YanktmpYank()<CR>
 map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>"
+map <silent> sP :call YanktmpPaste_P()<CR>
 "-----------------------------------------------------------------------------
 
 """ autocmd
 "
 if has("autocmd")
-  " プラグインを有効
-  filetype plugin on
   " textファイルのカラムを78に設定
   autocmd FileType text setlocal textwidth=78
   " カーソル位置を記憶しておく
@@ -212,8 +212,6 @@ if has("autocmd")
               \ if line("'\"") > 0 && line("'\"") <= line("$") |
               \   exe "normal g`\"" |
               \ endif
-  "そのファイルタイプにあわせたインデントを利用する
-  filetype indent on
   " これらのftではインデントを無効に
   "autocmd FileType php filetype indent off
 
@@ -230,7 +228,7 @@ if has("autocmd")
   "Perl記述用
   autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
   "perl コンパイラの指定
-  autocmd FileType perl,cgi :compiler perl
+  autocmd FileType perl :compiler perl
 
   "sh記述用
   autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
@@ -279,13 +277,6 @@ endif " has("autocmd")
 "-----------------------------------------------------------------------------
 
 """ プラグイン関連
-" Python
-function! s:Exec()
-  exe "!" . &ft . " %"        
-:endfunction         
-command! Exec call <SID>Exec() 
-map <silent> <C-P> :call <SID>Exec()<CR>
-
 " notime
 augroup InsModeAu
   autocmd!
@@ -312,7 +303,6 @@ imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
 "-----------------------------------------------------------------------------
 
 """ Unite 
@@ -358,9 +348,9 @@ let g:unite_source_file_mru_filename_format = ''
 "-----------------------------------------------------------------------------
 
 """ smartchr
-autocmd FileType php,python inoremap <expr> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 "autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
-autocmd FileType ruby inoremap <expr> > smartchr#one_of(' > ', ' => ', '>')
+autocmd FileType ruby inoremap <expr> <buffer> > smartchr#one_of(' > ', ' => ', '>')
 autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 
@@ -370,11 +360,11 @@ let g:yankring_manual_clipboard_check = 0
 
 """ For memolist.vim
 let g:memolist_qfixgrep = 1
-map <Leader>ml  :MemoList<CR>
-map <Leader>mn  :MemoNew<CR>
-map <Leader>mg  :MemoGrep<CR>
-nmap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
-nmap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
+nnoremap <Leader>ml  :MemoList<CR>
+nnoremap <Leader>mn  :MemoNew<CR>
+nnoremap <Leader>mg  :MemoGrep<CR>
+nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
+nnoremap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
 nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
 "-----------------------------------------------------------------------------
 
@@ -392,13 +382,13 @@ let g:ctrlp_extensions = ['cmdline', 'yankring', 'menu']
 let g:octopress_path = '~/octopress'
 let g:octopress_prompt_categories = 1
 let g:octopress_qfixgrep = 1
-map <Leader>on  :OctopressNew<CR>
-map <Leader>ol  :OctopressList<CR>
-map <Leader>og  :OctopressGrep<CR>
-nmap ,og  :OctopressGenerate<CR>
-nmap ,od  :OctopressDeploy<CR>
-nmap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
-nmap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
+nnoremap <Leader>on  :OctopressNew<CR>
+nnoremap <Leader>ol  :OctopressList<CR>
+nnoremap <Leader>og  :OctopressGrep<CR>
+nnoremap ,og  :OctopressGenerate<CR>
+nnoremap ,od  :OctopressDeploy<CR>
+nnoremap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
+nnoremap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
 "-----------------------------------------------------------------------------
 
 """ For Gist.vim
