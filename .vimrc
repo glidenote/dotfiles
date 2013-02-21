@@ -45,7 +45,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Shougo/vimfiler'
-Bundle 'fuenor/qfixgrep.git'
+Bundle 'fuenor/qfixgrep'
 Bundle 'glidenote/memolist.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -55,8 +55,9 @@ Bundle 'mattn/webapi-vim'
 Bundle 'glidenote/octoeditor.vim'
 Bundle 'sgur/ctrlp-extensions.vim'
 Bundle 'spolu/dwm.vim'
-Bundle 'tpope/vim-endwise.git'
+Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'thinca/vim-template'
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -221,25 +222,6 @@ if has("autocmd")
   " autocmd FileType php :set indentexpr=
   autocmd FileType html :set indentexpr=
   autocmd FileType xhtml :set indentexpr=
-
-  "html記述用
-  autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
-
-  "Perl記述用
-  autocmd BufNewFile *.pl 0r ~/.vim/templates/skel.pl
-  "perl コンパイラの指定
-  autocmd FileType perl :compiler perl
-
-  "sh記述用
-  autocmd BufNewFile *.sh 0r ~/.vim/templates/skel.sh
-
-  "Python記述用
-  autocmd BufNewFile *.py 0r ~/.vim/templates/skel.py
-  autocmd FileType python let g:pydiction_location = '~/.vim/pydiction/complete-dict'
-  autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-
-  "Ruby記述用
-  autocmd BufNewFile *.rb 0r ~/.vim/templates/skel.rb
 
   " Indent
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
