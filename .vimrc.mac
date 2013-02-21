@@ -1,6 +1,7 @@
 Bundle 'restart.vim'
 Bundle 'tyru/open-browser.vim'
 Bundle 'tyru/open-browser-github.vim'
+Bundle 'Shougo/neocomplcache-rsense'
 
 " yankした内容をclipboardに
 set clipboard=unnamed
@@ -27,3 +28,7 @@ let g:quickrun_config.octopress = {
       \ 'args'      : 'Marked',
       \ 'exec'      : '%c %o %a %s',
       \ }
+
+" rsense (brew install rsense)
+let g:neocomplcache#sources#rsense#home_directory =
+      \ "/usr/local/Cellar/rsense/0.3/libexec"
