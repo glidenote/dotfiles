@@ -1,0 +1,29 @@
+Bundle 'restart.vim'
+Bundle 'tyru/open-browser.vim'
+Bundle 'tyru/open-browser-github.vim'
+
+" yankした内容をclipboardに
+set clipboard=unnamed
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_mode_v  = "VISUAL"
+let g:Powerline_mode_V  = "V:LINE"
+let g:Powerline_mode_cv = "V:BLOCK "
+let g:Powerline_mode_s  = "SELECT"
+let g:Powerline_mode_S  = "S:LINE"
+let g:Powerline_mode_cs = "S:BLOCK "
+let g:Powerline_mode_i  = "INSERT"
+let g:Powerline_mode_R  = "REPLACE"
+let g:Powerline_mode_n  = "NORMAL"
+
+" Markdown Preview
+let g:quickrun_config = {}
+let g:quickrun_config.ruby = {'command' : 'ruby'}
+let g:quickrun_config.octopress = {
+      \ 'outputter' : 'null',
+      \ 'command'   : 'open',
+      \ 'cmdopt'    : '-a',
+      \ 'args'      : 'Marked',
+      \ 'exec'      : '%c %o %a %s',
+      \ }

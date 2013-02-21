@@ -9,6 +9,7 @@
 !/.bash_profile
 !/.bashrc
 !/.vimrc
+!/.vimrc.mac
 !/.gvimrc
 !/.vim
 !/.gitignore
