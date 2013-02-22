@@ -54,9 +54,11 @@ cd ~/dotfiles
 git submodule init
 git submodule update
 
-# Bundleinstall 
-git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleInstall! +qall
+# NeoBundleinstall 
+mkdir -p ~/.vim/bundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
+vim +NeoBundleInstall! +qall
 
 # vimproc make task
 cd ~/.vim/bundle/vimproc/.git/hooks/

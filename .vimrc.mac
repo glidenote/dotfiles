@@ -1,7 +1,7 @@
-Bundle 'restart.vim'
-Bundle 'tyru/open-browser.vim'
-Bundle 'tyru/open-browser-github.vim'
-Bundle 'Shougo/neocomplcache-rsense'
+NeoBundle 'restart.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'Shougo/neocomplcache-rsense'
 
 " yankした内容をclipboardに
 set clipboard=unnamed
