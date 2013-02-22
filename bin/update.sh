@@ -7,4 +7,5 @@ if [ ! -e  ~/.vim/bundle/neobundle.vim ]; then
     git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
     perl -p -i -e 's/^Bundle/NeoBundle/g' ~/.vimrc.local
     vim +NeoBundleInstall! +qall
+    vim +NeoBundleClean +qall
 fi
