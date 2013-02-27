@@ -390,10 +390,11 @@ let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
 
 """ minibufexpl
-" 表示をトグル
-nnoremap gbb :TMiniBufExplorer<CR>
-" 表示してフォーカスを一覧にもってくる
-nnoremap gbg :MiniBufExplorer<CR>
-" 勝手に開くバッファ数
-let g:miniBufExplorerMoreThanOne = 0
+let g:miniBufExplorerMoreThanOne=2 " 2個以上bufferを開いたときにタブを開く
+let g:miniBufExplMapWindowNavVim=1 " hjklで移動
+let g:miniBufExplCloseOnSelect = 1 " 選択した後に自動で閉じる
+map <Leader>b :MiniBufExplorer<cr>
+map <Leader>c :CMiniBufExplorer<cr>
+map <Leader>u :UMiniBufExplorer<cr>
+map <Leader>t :TMiniBufExplorer<cr>
 "-----------------------------------------------------------------------------
