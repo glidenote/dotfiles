@@ -57,6 +57,8 @@ NeoBundle 'spolu/dwm.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'thinca/vim-template'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'fholgado/minibufexpl.vim'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -385,4 +387,13 @@ nnoremap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
 
 """ For Gist.vim
 let g:gist_detect_filetype = 1
+"-----------------------------------------------------------------------------
+
+""" minibufexpl
+" 表示をトグル
+nnoremap gbb :TMiniBufExplorer<CR>
+" 表示してフォーカスを一覧にもってくる
+nnoremap gbg :MiniBufExplorer<CR>
+" 勝手に開くバッファ数
+let g:miniBufExplorerMoreThanOne = 0
 "-----------------------------------------------------------------------------
