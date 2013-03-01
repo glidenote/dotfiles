@@ -58,8 +58,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'thinca/vim-template'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'fholgado/minibufexpl.vim'
-
+NeoBundle 'rking/ag.vim'
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
@@ -387,14 +386,4 @@ nnoremap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
 
 """ For Gist.vim
 let g:gist_detect_filetype = 1
-"-----------------------------------------------------------------------------
-
-""" minibufexpl
-let g:miniBufExplorerMoreThanOne=2 " 2個以上bufferを開いたときにタブを開く
-let g:miniBufExplMapWindowNavVim=1 " hjklで移動
-let g:miniBufExplCloseOnSelect = 1 " 選択した後に自動で閉じる
-map <Leader>b :MiniBufExplorer<cr>
-map <Leader>c :CMiniBufExplorer<cr>
-map <Leader>u :UMiniBufExplorer<cr>
-map <Leader>t :TMiniBufExplorer<cr>
 "-----------------------------------------------------------------------------
