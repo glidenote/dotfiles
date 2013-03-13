@@ -57,11 +57,6 @@ git submodule update
 # NeoBundleinstall 
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
+# git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
 vim +NeoBundleInstall! +qall
 
-# vimproc make task
-cd ~/.vim/bundle/vimproc/.git/hooks/
-wget https://gist.github.com/glidenote/2823168/raw/55efc9c72bd9bda4ea6a6af3a37daf253957753f/post-merge
-chmod 755 post-merge
-./post-merge

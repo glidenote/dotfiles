@@ -24,7 +24,14 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'unix' : 'make -f make_unix.mak',
+\   },
+\ }
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
 NeoBundle 'eregex.vim'
