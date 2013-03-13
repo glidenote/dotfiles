@@ -227,13 +227,10 @@ alias tmux="tmux -2"
 alias ta='tmux attach || tmux -f ~/.tmux.conf'
 alias vf='vim +VimFiler'
 
-if [  -x "`which hub 2> /dev/null`" ]; then
-  alias git="hub"
-fi
+if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
+if [[ -f `command -v pry` ]] ; then alias p=pry ; fi
 
-if [  -x "`which pry 2> /dev/null`" ]; then
-  alias p="pry"
-fi
+alias gst='git status -sb'
 
 #=============================
 # SSH
