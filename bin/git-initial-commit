@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -xe
+git init
+git add .
+git commit -m "initial commit"
