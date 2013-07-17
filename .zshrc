@@ -355,18 +355,6 @@ sudo() {
 }
 
 #=============================
-# tmux title (http://izawa.hatenablog.jp/entry/2012/09/18/220106)
-#=============================
-preexec() {
-    mycmd=(${(s: :)${1}})
-    echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):$mycmd[1]\e\\"
-}
-
-precmd() {
-    echo -ne "\ek$(hostname|awk 'BEGIN{FS="."}{print $1}'):idle\e\\"
-}
-
-#=============================
 # mosh completion
 #=============================
 compdef mosh=ssh
