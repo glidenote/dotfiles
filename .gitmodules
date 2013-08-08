@@ -2,6 +2,9 @@
 	path = .vim/vundle.git
 	url = http://github.com/gmarik/vundle.git
 
+[submodule ".zsh.d/zaw"]
+	path = .zsh/zaw
+	url = git://github.com/zsh-users/zaw
 [submodule ".zsh.d/zsh-completions"]
 	path = .zsh/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
