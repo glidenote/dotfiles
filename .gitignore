@@ -25,9 +25,9 @@
 !/.zshrc
 !/.zshenv
 !/bin
-!/.zsh
+!/.zsh.d
 
 # 上記に"無視したくないファイル"としてリスト化した中から、さらに"無視したいファイル"を指定
 /.vim/.netrwhist
 /.vim/bundle
-/.zsh/*.rc
+/.zsh.d/*.zsh
