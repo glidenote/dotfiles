@@ -31,7 +31,7 @@ export LESS='-R'
 # fpath (zsh completion)
 #=============================
 
-fpath=(~/.zsh/zsh-completions $fpath)
+fpath=(~/.zsh.d/zsh-completions $fpath)
 
 #=============================
 # set prompt
@@ -39,51 +39,7 @@ fpath=(~/.zsh/zsh-completions $fpath)
 autoload colors
 colors
 
-autoload -Uz is-at-least
-if is-at-least 4.3.10; then
-  #----------
-  # http://d.hatena.ne.jp/uasi/20091025/1256458798
-  #----------
-  autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
-  function rprompt-git-current-branch {
-  local name st color gitdir action
-  if [[ "$PWD" == '/\.git(/.*)?$' ]]; then
-    return
-  fi
-  name=`git branch 2> /dev/null | grep '^\*' | cut -b 3-`
-  if [[ -z $name ]]; then
-    return
-  fi
-
-  gitdir=`git rev-parse --git-dir 2> /dev/null`
-  action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-
-  st=`git status 2> /dev/null`
-  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=%F{green}
-  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=%F{yellow}
-  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=%B%F{red}
-  else
-    color=%F{red}
-  fi
-
-  echo "$color$name$action%f%b"
-}
-
-# プロンプトが表示されるたびにプロンプト文字列を評価、置換する
-setopt prompt_subst
-RPROMPT='%{${fg[cyan]}%}[`rprompt-git-current-branch`%{${fg[cyan]}%}][%~]%{${reset_color}%}'
-#---------
-else
-  RPROMPT="%{${fg[cyan]}%}[%~]%{${reset_color}%}"
-fi
-
-PROMPT="%{${fg[cyan]}%}[%n@%m]${WINDOW:+"[$WINDOW]"} %(!.#.$) %{${reset_color}%}"
-PROMPT2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
-SPROMPT="%{${fg[red]}%}correct: %R -> %r [nyae]? %{${reset_color}%}"
+source ~/.zsh.d/prompt.zsh
 
 #=============================
 # terminal title
@@ -287,16 +243,16 @@ chpwd() {
 #=============================
 # source zsh
 #=============================
-if [ -f ~/.zsh/`hostname`.zsh ]; then
-  source ~/.zsh/`hostname`.zsh
+if [ -f ~/.zsh.d/`hostname`.zsh ]; then
+  source ~/.zsh.d/`hostname`.zsh
 fi
 
 #=============================
 # source z
 #=============================
-if [ -f ~/.zsh/z.sh ]; then
+if [ -f ~/.zsh.d/z.sh ]; then
   _Z_CMD=z
-  source ~/.zsh/z.sh
+  source ~/.zsh.d/z.sh
   precmd() {
     _z --add "$(pwd -P)"
   }
@@ -305,8 +261,8 @@ fi
 #=============================
 # source zaw.zsh
 #=============================
-if [ -f ~/.zsh/zaw/zaw.zsh ]; then
-  source ~/.zsh/zaw/zaw.zsh
+if [ -f ~/.zsh.d/zaw/zaw.zsh ]; then
+  source ~/.zsh.d/zaw/zaw.zsh
   # bindkey '^Xh' zaw-history
   bindkey '^R' zaw-history
 fi
@@ -314,8 +270,8 @@ fi
 #=============================
 # source auto-fu.zsh
 #=============================
-if [ -f ~/.zsh/auto-fu.zsh ]; then
-  source ~/.zsh/auto-fu.zsh
+if [ -f ~/.zsh.d/auto-fu.zsh ]; then
+  source ~/.zsh.d/auto-fu.zsh
   function zle-line-init () {
   auto-fu-init
 }
@@ -326,8 +282,8 @@ fi
 #=============================
 # source zsh-syntax-highlighting
 #=============================
-if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f ~/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 #=============================

@@ -23,13 +23,13 @@ bash_completion_tmux.sh
 .gemrc
 bash_completion_tmux.sh
 .tmux.conf
-.zsh
+.zsh.d
 "
 
 # 必要ディレクトリの作成
 cd ~
 mkdir bin tmp src .tmux
-touch ~/.zsh/`hostname`.zsh
+touch ~/.zsh.d/`hostname`.zsh
 touch ~/.vimrc.local
 touch ~/.gitconfig.local
 
