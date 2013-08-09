@@ -310,6 +310,23 @@ sudo() {
   esac
 }
 
+
+#=============================
+# sheet
+#=============================
+if [[ -f `command -v sheet` ]] ; then
+  compdef _sheets sheet
+  function _sheets {
+    local -a cmds
+    _files -W  ~/.sheets/ -P '~/.sheets/'
+
+    cmds=('list' 'edit' 'copy')
+    _describe -t commands "subcommand" cmds
+
+    return 1;
+  }
+fi
+
 #=============================
 # mosh completion
 #=============================
