@@ -31,7 +31,7 @@ export LESS='-R'
 # fpath (zsh completion)
 #=============================
 
-fpath=(~/.zsh.d/zsh-completions $fpath)
+fpath=(~/.zsh.d/zsh-completions/src $fpath)
 
 #=============================
 # set prompt
