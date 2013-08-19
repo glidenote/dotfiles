@@ -6,6 +6,15 @@ export LANG=en_US.UTF-8
 bindkey -e
 
 #=============================
+# source OSTYPE file
+#=============================
+case "${OSTYPE}" in
+  darwin*)
+    source ~/.zsh.d/mac.zsh
+    ;;
+esac
+
+#=============================
 # terminal
 #=============================
 stty stop undef
