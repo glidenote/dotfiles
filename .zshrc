@@ -196,6 +196,7 @@ if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 if [[ -f `command -v pry` ]] ; then alias p=pry ; fi
 
 alias gst='git status -sb'
+alias zcompdump_rebuild='rm -f ~/.zcompdump; compinit'
 
 #=============================
 # SSH
