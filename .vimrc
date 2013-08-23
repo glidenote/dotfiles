@@ -296,13 +296,31 @@ highlight CursorIM   guifg=NONE guibg=Red
 highlight CursorLine guifg=NONE guibg=#505050
 
 " 自作snippets用ディレクトリを用意
-let g:NeoComplCache_SnippetsDir = $HOME . '/.vim/snippets'
+let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
 
 " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
 smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
 "-----------------------------------------------------------------------------
 
 """ Unite 
