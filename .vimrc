@@ -412,3 +412,8 @@ nnoremap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
 """ For Gist.vim
 let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
+
+""" edit and sorce .vimrc (:Ev,:Rv)
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
+"-----------------------------------------------------------------------------
