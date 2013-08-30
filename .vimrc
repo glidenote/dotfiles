@@ -47,7 +47,6 @@ NeoBundle 'surround.vim'
 NeoBundle 'smartchr'
 NeoBundle 'tangledhelix/vim-octopress'
 NeoBundle 'matchit.zip'
-" NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
@@ -243,6 +242,7 @@ if has("autocmd")
   autocmd FileType xhtml :set indentexpr=
 
   " Indent
+  autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
@@ -260,7 +260,6 @@ if has("autocmd")
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
