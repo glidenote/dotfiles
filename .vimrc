@@ -66,6 +66,8 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'thinca/vim-template'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'rking/ag.vim'
+NeoBundle 'rhysd/clever-f.vim'
+
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
