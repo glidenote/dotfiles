@@ -118,6 +118,8 @@ set wrapscan
 set noincsearch
 " Esc連打で検索時にハイライトを消す
 nnoremap <Esc><Esc> :nohlsearch<CR>
+" Oで空白行を入れる http://vim-users.jp/2009/08/hack57/
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 "-----------------------------------------------------------------------------
 
 """ 装飾関連
