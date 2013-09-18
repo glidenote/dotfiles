@@ -277,17 +277,17 @@ if [ -f ~/.zsh.d/zaw/zaw.zsh ]; then
   bindkey '^R' zaw-history
 fi
 
-#=============================
-# source auto-fu.zsh
-#=============================
-if [ -f ~/.zsh.d/auto-fu.zsh ]; then
-  source ~/.zsh.d/auto-fu.zsh
-  function zle-line-init () {
-  auto-fu-init
-}
-zle -N zle-line-init
-zstyle ':completion:*' completer _oldlist _complete
-fi
+# #=============================
+# # source auto-fu.zsh
+# #=============================
+# if [ -f ~/.zsh.d/auto-fu.zsh ]; then
+#   source ~/.zsh.d/auto-fu.zsh
+#   function zle-line-init () {
+#   auto-fu-init
+# }
+# zle -N zle-line-init
+# zstyle ':completion:*' completer _oldlist _complete
+# fi
 
 #=============================
 # source zsh-syntax-highlighting
