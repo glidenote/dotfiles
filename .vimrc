@@ -22,14 +22,13 @@ endif
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
-NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'unix' : 'make -f make_unix.mak',
+\     'cygwin'  : 'make -f make_cygwin.mak',
+\     'mac'     : 'make -f make_mac.mak',
+\     'unix'    : 'make -f make_unix.mak',
 \   },
 \ }
 NeoBundle 'thinca/vim-quickrun'
@@ -55,12 +54,9 @@ NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
-NeoBundle 'ctrlp.vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'glidenote/octoeditor.vim'
-NeoBundle 'sgur/ctrlp-extensions.vim'
-NeoBundle 'spolu/dwm.vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'thinca/vim-template'
@@ -79,13 +75,52 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 
+"------------------------------------------
+" for neocomplete and neocomplcache
+"------------------------------------------
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
+  \   'insert' : 1,
+  \ }}
+endif
+
+function! s:meet_neocomplete_requirements()
+  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
+endfunction
+
+if s:meet_neocomplete_requirements()
+  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundleFetch 'Shougo/neocomplcache.vim'
+else
+  NeoBundleFetch 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/neocomplcache.vim'
+endif
+
+if s:meet_neocomplete_requirements()
+  " 新しく追加した neocomplete の設定
+  let g:neocomplete#enable_at_startup = 1
+  imap <C-k> <Plug>(neocomplete#snippets_expand)
+  smap <C-k> <Plug>(neocomplete#snippets_expand)
+  inoremap <expr><C-g>     neocomplcache#undo_completion()
+  inoremap <expr><C-l>     neocomplcache#complete_common_string()
+else
+  " 今までの neocomplcache の設定
+  let g:neocomplcache_enable_at_startup = 1
+  " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
+  imap <C-k> <Plug>(neocomplcache_snippets_expand)
+  smap <C-k> <Plug>(neocomplcache_snippets_expand)
+  inoremap <expr><C-g>     neocomplcache#undo_completion()
+  inoremap <expr><C-l>     neocomplcache#complete_common_string()
+endif
+"-----------------------------------------------------------------------------
+
 filetype plugin indent on
 "-----------------------------------------------------------------------------
 """ changelog
 "
-let changelog_user = system("echo -n ${USER} @ `hostname -s`")
+let changelog_user         = system("echo -n ${USER} @ `hostname -s`")
 let g:changelog_timeformat = "%Y-%m-%d"
-let g:changelog_username = changelog_user
+let g:changelog_username   = changelog_user
 "-----------------------------------------------------------------------------
 
 """ 一般
@@ -118,8 +153,6 @@ set wrapscan
 set noincsearch
 " Esc連打で検索時にハイライトを消す
 nnoremap <Esc><Esc> :nohlsearch<CR>
-" Oで空白行を入れる http://vim-users.jp/2009/08/hack57/
-nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
 "-----------------------------------------------------------------------------
 
 """ 装飾関連
@@ -181,10 +214,10 @@ endif
 " 80文字以上をハイライトhttp://vim-users.jp/2011/05/hack217/
 set textwidth=0
 if exists('&colorcolumn')
-    set colorcolumn=+1
-    " sh,perl,vim,...の部分は自分が使う
-    " プログラミング言語のfiletypeに合わせてください
-    autocmd FileType sh,perl,vim,ruby,python setlocal textwidth=80
+  set colorcolumn=+1
+  " sh,perl,vim,...の部分は自分が使う
+  " プログラミング言語のfiletypeに合わせてください
+  autocmd FileType sh,perl,vim,ruby,python setlocal textwidth=80
 endif
 
 "-----------------------------------------------------------------------------
@@ -281,6 +314,15 @@ endif " has("autocmd")
 "-----------------------------------------------------------------------------
 
 """ プラグイン関連
+
+" highlight 
+highlight Pmenu ctermbg=0
+highlight PmenuSel ctermfg=255 ctermbg=4
+highlight PMenuSbar ctermbg=8
+highlight PmenuThumb ctermbg=5
+" highlight String     ctermfg=brown guifg=Orange cterm=none gui=none
+" highlight MatchParen guifg=Yellow guibg=DarkCyan
+
 " notime
 augroup InsModeAu
   autocmd!
@@ -288,25 +330,8 @@ augroup InsModeAu
   autocmd InsertLeave,CmdwinLeave * set imdisable
 augroup END
 
-""" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-highlight Pmenu ctermbg=4
-highlight PmenuSel ctermbg=1
-highlight PMenuSbar ctermbg=4
-highlight String     ctermfg=brown guifg=Orange cterm=none gui=none
-highlight MatchParen guifg=Yellow guibg=DarkCyan
-highlight SignColumn guibg=#101020
-highlight CursorIM   guifg=NONE guibg=Red
-highlight CursorLine guifg=NONE guibg=#505050
-
 " 自作snippets用ディレクトリを用意
 let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
-
-" <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -315,15 +340,15 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
+  \ "\<Plug>(neosnippet_expand_or_jump)"
+  \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
-    set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=i
 endif
 "-----------------------------------------------------------------------------
 
@@ -332,39 +357,30 @@ endif
 " https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
 " http://mba-hack.blogspot.jp/2013/03/unitevim.html
 nnoremap    [unite]   <Nop>
-nmap    <Leader>f [unite]
+nmap    ,f [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]u  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]l  :<C-u>Unite colorscheme<CR>
+nnoremap <silent> [unite]l  :<C-u>Unite colorscheme -auto-preview<CR>
 nnoremap  [unite]f  :<C-u>Unite source<CR>
+nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
 
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()"{{{
-  " Overwrite settings.
+let g:unite_source_rec_max_cache_files = 5000
+let g:unite_source_file_mru_limit      = 200
 
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
-  imap <buffer> jj      <Plug>(unite_insert_leave)
-  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
-
-  " <C-l>: manual neocomplcache completion.
-  inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
-
-  " Start insert.
-  "let g:unite_enable_start_insert = 1
-endfunction"}}}
-
-let g:unite_source_file_mru_limit = 200
-let g:unite_cursor_line_highlight = 'TabLineSel'
-let g:unite_abbr_highlight = 'TabLine'
+let g:unite_cursor_line_highlight      = 'TabLineSel'
+let g:unite_abbr_highlight             = 'TabLine'
 
 " For vimfiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer     = 1
+let g:vimfiler_safe_mode_by_default    = 0
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
+autocmd FileType vimfiler 
+  \ nnoremap <buffer><silent>/ 
+  \ :<C-u>Unite file -default-action=vimfiler<CR>
 
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
@@ -387,31 +403,24 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
-nnoremap ,mf :exe "CtrlP" g:memolist_path<cr><f5>
 nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
-"-----------------------------------------------------------------------------
-
-""" For ctrlp
-let g:ctrlp_by_filename         = 1
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_working_path_mode   = 2
-let g:ctrlp_highlight_match     = [1, 'IncSearch']
-set wildignore+=*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\.git$\|\.svn$\|\.neocon$'
-let g:ctrlp_extensions = ['cmdline', 'yankring', 'menu']
+let g:memolist_unite = 1
+let g:memolist_unite_source = "file_rec"
+let g:memolist_unite_option = "-auto-preview -start-insert"
+nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
 "-----------------------------------------------------------------------------
 
 """ For ocotoeditor.vim
-let g:octopress_path = '~/octopress'
+let g:octopress_path              = '~/octopress'
 let g:octopress_prompt_categories = 1
-let g:octopress_qfixgrep = 1
+let g:octopress_qfixgrep          = 1
 nnoremap <Leader>on  :OctopressNew<CR>
 nnoremap <Leader>ol  :OctopressList<CR>
 nnoremap <Leader>og  :OctopressGrep<CR>
 nnoremap ,og  :OctopressGenerate<CR>
 nnoremap ,od  :OctopressDeploy<CR>
 nnoremap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
-nnoremap ,of :exe "CtrlP" g:octopress_path . "/source/_posts/"<cr><f5>
+nnoremap <silent> og :<C-u>Unite grep:<C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
 "-----------------------------------------------------------------------------
 
 """ For Gist.vim
