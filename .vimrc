@@ -450,7 +450,7 @@ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrl
 "" 履歴取得数
 let g:yankround_max_history = 50
 ""履歴一覧(kien/ctrlp.vim)
-nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
 "}}}
 
 """ edit and sorce .vimrc (:Ev,:Rv)
