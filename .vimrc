@@ -34,7 +34,6 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
 NeoBundle 'eregex.vim'
-NeoBundle 'yanktmp.vim'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'Puppet-Syntax-Highlighting'
 NeoBundle 'thinca/vim-ref'
@@ -255,12 +254,6 @@ set nobackup
 
 """ マップ定義
 "
-""" yanktmp
-map <silent> sy :call YanktmpYank()<CR>
-map <silent> sp :call YanktmpPaste_p()<CR>
-map <silent> sP :call YanktmpPaste_P()<CR>
-"-----------------------------------------------------------------------------
-
 """ autocmd
 "
 if has("autocmd")
