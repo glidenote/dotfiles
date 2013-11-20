@@ -316,8 +316,7 @@ highlight Pmenu ctermbg=0
 highlight PmenuSel ctermfg=255 ctermbg=4
 highlight PMenuSbar ctermbg=8
 highlight PmenuThumb ctermbg=5
-" highlight String     ctermfg=brown guifg=Orange cterm=none gui=none
-" highlight MatchParen guifg=Yellow guibg=DarkCyan
+highlight CursorLine term=reverse cterm=none ctermbg=4
 
 " notime
 augroup InsModeAu
