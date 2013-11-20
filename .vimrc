@@ -35,7 +35,6 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'sudo.vim'
 NeoBundle 'eregex.vim'
 NeoBundle 'yanktmp.vim'
-NeoBundle 'YankRing.vim'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'Puppet-Syntax-Highlighting'
 NeoBundle 'thinca/vim-ref'
@@ -65,6 +64,8 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'rhysd/clever-f.vim'
 NeoBundle "kien/ctrlp.vim"
 NeoBundle "evanmiller/nginx-vim-syntax"
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'LeafCage/yankround.vim'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -412,8 +413,8 @@ autocmd FileType ruby inoremap <expr> <buffer> > smartchr#one_of(' > ', ' => ', 
 autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 
-""" For yankring.vim
-let g:yankring_manual_clipboard_check = 0
+""" For vim-over
+nnoremap <silent> ,m :OverCommandLine<CR>%s/
 "-----------------------------------------------------------------------------
 
 """ For memolist.vim
@@ -445,6 +446,18 @@ nnoremap <silent> og :<C-u>Unite grep:<C-r>=expand(g:octopress_path."/source/_po
 """ For Gist.vim
 let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
+
+" for yankround.vim {{{
+"" キーマップ
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+"" 履歴取得数
+let g:yankround_max_history = 50
+""履歴一覧(kien/ctrlp.vim)
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+"}}}
 
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
