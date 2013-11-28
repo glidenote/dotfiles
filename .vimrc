@@ -65,6 +65,7 @@ NeoBundle "kien/ctrlp.vim"
 NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
+NeoBundle 'vim-scripts/vim-auto-save'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -416,10 +417,10 @@ nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
 nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
-let g:memolist_unite = 1
-let g:memolist_unite_source = "file_rec"
-let g:memolist_unite_option = "-auto-preview -start-insert"
-nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
+" let g:memolist_unite = 1
+" let g:memolist_unite_source = "file_rec"
+" let g:memolist_unite_option = "-auto-preview -start-insert"
+" nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
 "-----------------------------------------------------------------------------
 
 """ For ocotoeditor.vim
@@ -439,6 +440,9 @@ nnoremap <silent> og :<C-u>Unite grep:<C-r>=expand(g:octopress_path."/source/_po
 let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
 
+""" For vim-auto-save refs http://qiita.com/kentaro/items/833075356d41e9d9bc75
+let g:auto_save = 1
+"-----------------------------------------------------------------------------
 " for yankround.vim {{{
 "" キーマップ
 nmap p <Plug>(yankround-p)
