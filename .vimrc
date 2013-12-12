@@ -419,7 +419,7 @@ nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
 nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
 " let g:memolist_unite = 1
 " let g:memolist_unite_source = "file_rec"
-" let g:memolist_unite_option = "-auto-preview -start-insert"
+" let g:memolist_unite_option = "-start-insert"
 " nnoremap <silent> mg :<C-u>Unite grep:<C-r>=expand(g:memolist_path."/")<CR><CR>
 "-----------------------------------------------------------------------------
 
