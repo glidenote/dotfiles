@@ -23,6 +23,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
