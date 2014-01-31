@@ -371,7 +371,7 @@ let g:ctrlp_prompt_mappings = {
 " https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
 " http://mba-hack.blogspot.jp/2013/03/unitevim.html
 nnoremap    [unite]   <Nop>
-nmap    ,f [unite]
+nmap    <Space>u [unite]
 
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]u  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
