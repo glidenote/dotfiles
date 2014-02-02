@@ -2,7 +2,6 @@
 # rbenv
 #=============================
 if [ -d ${HOME}/.rbenv  ] ; then
-  PATH=${HOME}/.rbenv/bin:${PATH}
-  export PATH
+  export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
   eval "$(rbenv init -)"
 fi
