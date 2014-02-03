@@ -260,13 +260,21 @@ fi
 #=============================
 # source z
 #=============================
-if [ -f ~/.zsh.d/z.sh ]; then
-  _Z_CMD=j
-  source ~/.zsh.d/z.sh
-  precmd() {
-    _z --add "$(pwd -P)"
-  }
-  compctl -U -K _z_zsh_tab_completion "$_Z_CMD"
+# if [ -f ~/.zsh.d/z.sh ]; then
+#   _Z_CMD=j
+#   source ~/.zsh.d/z.sh
+#   precmd() {
+#     _z --add "$(pwd -P)"
+#   }
+#   compctl -U -K _z_zsh_tab_completion "$_Z_CMD"
+# fi
+
+#=============================
+# autojump
+#=============================
+alias j="autojump"
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
 fi
 
 #=============================
