@@ -266,6 +266,7 @@ if [ -f ~/.zsh.d/z.sh ]; then
   precmd() {
     _z --add "$(pwd -P)"
   }
+  compctl -U -K _z_zsh_tab_completion "$_Z_CMD"
 fi
 
 #=============================
