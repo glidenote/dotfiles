@@ -80,6 +80,9 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 
+" check new plugin
+NeoBundleCheck
+
 "------------------------------------------
 " for neocomplete and neocomplcache
 "------------------------------------------
