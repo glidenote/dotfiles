@@ -81,7 +81,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 
 " check new plugin
-NeoBundleCheck
+" NeoBundleCheck
 
 "------------------------------------------
 " for neocomplete and neocomplcache
