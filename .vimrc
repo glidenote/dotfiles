@@ -68,6 +68,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'Shougo/neomru.vim'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
