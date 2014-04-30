@@ -258,24 +258,11 @@ if [ -f ~/.zsh.d/`hostname`.zsh ]; then
 fi
 
 #=============================
-# source z
+# source autojump.zsh
 #=============================
-if [ -f ~/.zsh.d/z.sh ]; then
-  _Z_CMD=j
-  source ~/.zsh.d/z.sh
-  precmd() {
-    _z --add "$(pwd -P)"
-  }
-  compctl -U -K _z_zsh_tab_completion "$_Z_CMD"
+if [ -f ~/.zsh.d/autojump.zsh ]; then
+  source ~/.zsh.d/autojump.zsh
 fi
-
-#=============================
-# autojump
-#=============================
-# alias j="autojump"
-# if [ -f `brew --prefix`/etc/autojump ]; then
-#   . `brew --prefix`/etc/autojump
-# fi
 
 #=============================
 # source zaw.zsh
