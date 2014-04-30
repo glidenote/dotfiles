@@ -1,7 +1,7 @@
 #=============================
 # autojump for centos
 #=============================
-[[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
 
 #=============================
 # autojump for mac
