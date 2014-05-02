@@ -265,25 +265,12 @@ if [ -f ~/.zsh.d/autojump.zsh ]; then
 fi
 
 #=============================
-# source zaw.zsh
+# for percol http://shibayu36.hatenablog.com/entry/2013/10/06/184146
 #=============================
-if [ -f ~/.zsh.d/zaw/zaw.zsh ]; then
-  source ~/.zsh.d/zaw/zaw.zsh
-  # bindkey '^Xh' zaw-history
-  bindkey '^R' zaw-history
+if [[ -f `command -v percol` ]] ; then
+  source ~/.zsh.d/percol.zsh
+  bindkey '^r' percol-select-history
 fi
-
-# #=============================
-# # source auto-fu.zsh
-# #=============================
-# if [ -f ~/.zsh.d/auto-fu.zsh ]; then
-#   source ~/.zsh.d/auto-fu.zsh
-#   function zle-line-init () {
-#   auto-fu-init
-# }
-# zle -N zle-line-init
-# zstyle ':completion:*' completer _oldlist _complete
-# fi
 
 #=============================
 # source zsh-syntax-highlighting
