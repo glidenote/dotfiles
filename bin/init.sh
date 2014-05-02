@@ -24,6 +24,7 @@ bash_completion_tmux.sh
 bash_completion_tmux.sh
 .tmux.conf
 .zsh.d
+.percol.d
 "
 
 # 必要ディレクトリの作成
