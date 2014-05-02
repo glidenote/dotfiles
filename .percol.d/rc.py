@@ -18,3 +18,8 @@ percol.import_keymap({
     "C-j" : lambda percol: percol.finish(),
     "C-g" : lambda percol: percol.cancel(),
 })
+
+percol.view.CANDIDATES_LINE_BASIC     =  ("on_default", "default")
+percol.view.CANDIDATES_LINE_SELECTED  =  ("underline", "on_cyan", "white")
+percol.view.CANDIDATES_LINE_MARKED    =  ("bold", "on_cyan", "black")
+percol.view.CANDIDATES_LINE_QUERY     =  ("yello", "bold")
