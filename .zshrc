@@ -265,6 +265,13 @@ if [ -f ~/.zsh.d/autojump.zsh ]; then
 fi
 
 #=============================
+# source bd.zsh
+#=============================
+if [ -f ~/.zsh.d/bd.zsh ]; then
+  source ~/.zsh.d/bd.zsh
+fi
+
+#=============================
 # for percol http://shibayu36.hatenablog.com/entry/2013/10/06/184146
 #=============================
 if [[ -f `command -v percol` ]] ; then
