@@ -292,6 +292,14 @@ endif " has("autocmd")
 
 """ プラグイン関連
 
+" markdown http://mattn.kaoriya.net/software/vim/20140523124903.htm
+let g:markdown_fenced_languages = [
+\  'erb=eruby',
+\  'json=javascript',
+\  'ruby',
+\  'sh',
+\]
+
 " highlight 
 highlight Pmenu ctermbg=0
 highlight PmenuSel ctermfg=255 ctermbg=4
