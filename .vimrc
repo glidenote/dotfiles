@@ -180,9 +180,10 @@ set showcmd
 set showmatch
 " 補完候補をリスト表示
 set wildmenu
-" 変なファイルが出来ないようにする
-set noundofile
-
+" 7.4以降で変なファイルが出来ないようにする
+if v:version > 740
+  set noundofile
+endif
 " ステータスラインを常に表示
 set laststatus=2
 
