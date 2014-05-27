@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+Pry.config.editor = "vim"
+
 # prompt
 Pry.config.prompt = [
   proc {|target_self, nest_level, pry|
@@ -12,7 +14,6 @@ Pry.config.prompt = [
   }
 ]
 
-
 # awesome_print
 begin
   require 'awesome_print'
@@ -20,7 +21,6 @@ begin
 rescue LoadError => err
   puts "no awesome_print :("
 end
-
 
 # pry-clipboard
 def pbcopy(str)
@@ -42,4 +42,3 @@ end
 Pry.config.commands.command "lastcopy", "Last result copy to clipboard" do
   pbcopy _pry_.last_result.chomp
 end
-
