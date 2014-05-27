@@ -292,6 +292,9 @@ endif " has("autocmd")
 
 """ プラグイン関連
 
+" syntastic with rubocop
+let g:syntastic_ruby_checkers = ['rubocop']
+
 " markdown http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = [
 \  'erb=eruby',
