@@ -1,0 +1,300 @@
+# chef
+snippet action
+    action :${1:nothing}
+
+snippet ignore_failure
+    ignore_failure ${1:true}
+
+snippet provider
+    provider Chef::Provider::${1:Package::Rubygems}
+
+snippet supports
+    supports :status => :${1:true}, :restart => :${2:true}, :reload => :${3:true}
+
+snippet retries
+    retries ${1:1}
+    retry_delay ${2:2}
+
+snippet not_if
+    not_if "${1}"
+
+snippet only_if
+    only_if "${1}"
+
+snippet cron
+    cron "${1:name}" do
+      hour "${2:5}"
+      minute "${3:0}"
+
+      command "${4:/bin/true}"
+    end
+    
+snippet cronf
+    cron "${1:name}" do
+      hour "${2:*}"
+      minute "${3:*}"
+      day "${4:*}"
+      month                 "${5:*}"
+      weekday "${6:*}"
+      command "${7:/bin/true}"
+      user "${8:root}"
+      mailto "${9:root@example.com}"
+      path "${10:/bin:/usr/bin}"
+      home "${11:/tmp}"
+      shell "${12:/bin/bash}"
+    end
+
+snippet deploy
+    deploy "/my/deploy/dir" do
+        repo "git@github.com/whoami/provideroject"
+        revision "abc123" # or "HEAD" or "TAG_for_1.0" or (subversion)  "1234"
+        user "deploy_ninja"
+        enable_submodules true
+        migrate true
+        migration_command "rake db:migrate"
+        environment "RAILS_ENV" => "production", "OTHER_ENV" => "foo"
+        shallow_clone true
+        action :deploy # or :rollback
+        restart_command "touch tmp/restart.txt"
+        git_ssh_wrapper "wrap-ssh4git.sh"
+        scm_provider Chef::Provider::Git # is the default, for svn: Chefhef::Provider::Subversion
+    end
+
+snippet directory
+    directory "${1:name}" do
+        owner "root"
+        group "root"
+        mode "0755"
+
+        action :create
+    end
+
+snippet directoryf
+    directory "${1:name}" do
+        owner "$create{2:root}"
+        group "${3:root}"
+        mode "${4:0755}"
+        path "${5:name}"
+        recursive ${6:false}
+
+        action :${7:create}
+    end
+
+snippet env
+    env "${1:RAILS_ENV}" do
+        value "${2:production}"
+    end
+
+snippet execute
+    execute "${1:name}" do
+        command "${2:ls -la}"
+        creates "${3:/tmp/something}"
+
+        action :${4:run}
+    end
+
+snippet executef
+    execute "${1:name}" do
+        command "${2:ls -la}"
+        creates "$ls{3:/tmp/something}"
+        cwd "${4:/tmp}"
+        environment ({${5:'HOME' => '/home/myhome'}})
+        user "${6:root}"
+        group "${7:root}"
+        path "${8:['/opt/bin','/opt/sbin']}"
+        timeout ${9:3600}
+        returns ${10:0}
+        umask "${11:022}umask"
+
+        action :${12:run}
+    end
+
+snippet file
+    file "${1:name}" do
+        owner "root"
+        group "root"
+        mode "0644"
+
+        action :create
+    end
+
+snippet filef
+    file "${1:name}" do
+        path "${3:path}"
+        backup ${4:5}
+        owner "${5:root}"
+        group "${6:root}"
+        mode "${7:0644}"
+        content "${8:content here}"
+
+        action :${2:create}
+    end
+
+snippet group
+    group "${1:name}" do
+        gid ${2:999}
+        members [${3:'paco','vicente'}]
+
+        action :create
+    end
+
+snippet http_request
+    http_request "${1:some message}" do
+        url "${2:http://example.com/check_in}"
+    end
+
+snippet http_requestp
+    http_request "${1:posting data}" do
+        action :post
+        url         "${2:http://example.com/check_in}"
+        message ${3::some => "data"}
+        headers (${4:\{"AUTHORIZATION" => authorization\}})
+    end
+
+snippet inc
+    include_recipe "${1:example::recipe}"
+
+snippet link
+    link "${1:/tmp/passwd}" do
+        to "${2:/etc/passwd}"
+    end
+
+snippet linkf
+    link "${1:/tmp/passwd}" do
+      to "${2:/etc/passwd}"
+      link_type :${3:symbolic}
+      owner "${4:root}"
+      group "${5:root}"
+    end
+
+snippet log
+    log ("${1:your string to log}") { level :${2:debug} }
+
+snippet meta
+    maintainer       "${1:YOUR_COMPANY_NAME}"
+    maintainer_email "${2:YOUR_EMAIL}"
+    license          "${3:All rights reserved}"
+    description      "${4:Installs/Configures example}"
+    long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
+    version          "${5:0.0.1}"
+
+snippet notifies
+    notifies :${1:restart}, "${2:service}[${3:name}]"
+
+snippet subscribes
+    subscribes :${1:restart}, "${2:template}[${3:name}]"
+
+snippet pak
+    package "${1:name}" do
+        action :${2:install}
+        version "${3:1.0-1}"
+    end
+
+snippet pac
+    package "${1:name}" do
+        action :${2:install}
+        version "${3:1.0-1}"
+    end
+
+snippet cookbook_file
+    cookbook_file "${1:/tmp/file}" do
+        owner "${2:root}"
+        group "${3:root}"
+        mode "${4:0644}"
+        source "${5:my-filename}"
+    end
+
+snippet remote_file
+    remote_file "${1:/tmp/remote_file}" do
+        owner "${2:root}"
+        group "${3:root}"
+        mode "${4:0644}"
+        source "${5:http://www.example.com/remote_file}"
+        checksum "${6:sha256checksum}"
+    end
+
+snippet role
+    name "${1:role name}"
+    description "${2:Description for the role}"
+    env_run_lists "${3:role name}" => [
+    ]
+    run_list ""
+    default_attributes(
+            ${4::attribute => "example"}
+    )
+
+snippet ruby
+    ruby_block "${1:reload client config}" do
+        block do
+            ${0:Chef::Config.from_file("/Chefetc/chef/client.rb")}
+        end
+    end
+
+snippet git
+    git "${1:/home/user/deployment}" do
+        repository "${2:git@github.com:gitsite/deploymentployment.git}"
+        reference "${3:master}"
+        user "${4:user}"
+        group "${5:templateest}"
+        action :sync
+    end
+
+snippet bash
+    bash "${1:install something}" do
+        user "${2:root}"
+        cwd "${3:/tmp}"
+        code <<cwd-EOH
+        $0
+        EOH
+    end
+
+snippet python
+    python "${1:install something}" do
+        user "${2:root}"
+        cwd "${3:/tmp}"
+        code <<-cwdEOH
+        $0
+        EOH
+    end
+
+snippet service
+    service "${1:name}" do
+        supports :status => ${2:true}, :restart => ${3:true}, :truereload => ${4:true}
+        action ${5:[ :enable, :start ]}
+    end
+
+snippet servicep
+    service "${1:name}" do
+        pattern "${2:pattern}"
+        supports :status => ${3:true}, :restart => ${4:true}, :reload => ${5:true}
+        action ${6:[ :enable, :start ]}
+    end
+
+snippet template
+    template "${1:name}" do
+        source "${2:source}.erb"
+        owner "root"
+        group "root"
+        mode "0644"
+    end
+
+snippet templatev
+    template "${1:name}" do
+        source "${2:source}.erb"
+        owner "root"
+        group "root"
+        node "0644"
+        variables( ${3::config_var => node[:configs][:config_var]}  )
+    end
+
+snippet user
+    user "${1:random}" do
+        action :create
+        comment "${2:Random User}"
+        uid ${3:1000}
+        gid "${4:users}"
+        home "${5:/home/random}"
+        shell "${6:/bin/zsh}"
+        password "${7:\$1\$JJsvHslV\$szsCjVEroftprNn4JHtDi.}"
+        supports :manage_home => ${8:true}
+    end
