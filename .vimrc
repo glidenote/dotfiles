@@ -69,6 +69,8 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'glidenote/serverspec-snippets'
+NeoBundle 'glidenote/vim-chef'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -319,7 +321,11 @@ augroup InsModeAu
 augroup END
 
 " 自作snippets用ディレクトリを用意
-let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
+
+let g:neosnippet#snippets_directory = [
+      \'~/.vim/snippets',
+      \'~/.vim/bundle/serverspec-snippets',
+      \]
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -448,6 +454,17 @@ let g:yankround_max_history = 50
 ""履歴一覧(kien/ctrlp.vim)
 nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
 "}}}
+"-----------------------------------------------------------------------------
+
+" for alingta
+vnoremap <silent> => :Align @1 =><CR>
+vnoremap <silent> = :Align @1 =<CR>
+vnoremap <silent> == =
+"-----------------------------------------------------------------------------
+
+" for serverspec-snippets
+command! SS set filetype=ruby.serverspec
+"-----------------------------------------------------------------------------
 
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
