@@ -69,8 +69,10 @@ NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
+NeoBundle 'glidenote/rspec-result-syntax'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
