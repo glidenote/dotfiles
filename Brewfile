@@ -13,12 +13,22 @@ install zsh || true
 install lua || true
 install hub || true
 install tig || true
+install python || true
 install python3 || true
 install rsync || true
 install tree || true
+install lsof || true
 install openssl || true
 install mobile-shell || true
+install zsh-completions || true
 install reattach-to-user-namespace || true
+install rbenv || true
+install ruby-build || true
+install rbenv-default-gems || true
+install rbenv-gem-rehash || true
+install ssh-copy-id || true
+install atool || true
+install jq || true
 
 cask install keyremap4macbook || true
 cask install bartender || true
@@ -38,4 +48,11 @@ cask install iterm2 || true
 cask install appcleaner || true
 cask install bettertouchtool || true
 cask install flux || true
+cask install lastpass-universal || true
+cask install skitch || true
+cask install virtualbox || true
+cask install istat-menus || true
+cask install totalterminal || true
+cask install boot2docker || true
 
+cask alfred link
