@@ -70,6 +70,8 @@ NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
 NeoBundle 'glidenote/rspec-result-syntax'
@@ -457,15 +459,16 @@ let g:yankround_max_history = 50
 nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
 "}}}
 "-----------------------------------------------------------------------------
-
 " for alingta
 vnoremap <silent> => :Align @1 =><CR>
 vnoremap <silent> = :Align @1 =<CR>
 vnoremap <silent> == =
 "-----------------------------------------------------------------------------
-
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
+"-----------------------------------------------------------------------------
+" for NERDTree
+map <C-n> :NERDTreeToggle<CR>
 "-----------------------------------------------------------------------------
 
 """ edit and sorce .vimrc (:Ev,:Rv)
