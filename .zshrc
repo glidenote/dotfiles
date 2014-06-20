@@ -38,7 +38,7 @@ export GOPATH=$HOME
 # fpath (zsh completion)
 #=============================
 
-fpath=(~/.zsh.d/zsh-completions/src $fpath)
+fpath=(~/.zsh.d/zsh-completions/src ~/.zsh.d/custom-completions $fpath)
 
 #=============================
 # set prompt
@@ -275,6 +275,7 @@ fi
 if [[ -f `command -v peco` ]] ; then
   source ~/.zsh.d/peco.zsh
   bindkey '^r' peco-select-history
+  bindkey '^S' peco-src
 fi
 
 #=============================

@@ -50,9 +50,10 @@ do
     ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
 
-# install peco
+# install peco and ghq
 export GOPATH=$HOME
 go get github.com/peco/peco/cmd/peco
+go get github.com/motemen/ghq
 
 # git submodule init & update
 cd ~/dotfiles
