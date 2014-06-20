@@ -325,7 +325,6 @@ augroup InsModeAu
 augroup END
 
 " 自作snippets用ディレクトリを用意
-
 let g:neosnippet#snippets_directory = [
       \'~/.vim/snippets',
       \'~/.vim/bundle/serverspec-snippets',
@@ -366,22 +365,11 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
-
+"-----------------------------------------------------------------------------
 """ Unite 
 " The prefix key.
 " https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
 " http://mba-hack.blogspot.jp/2013/03/unitevim.html
-nnoremap    [unite]   <Nop>
-nmap    <Space>u [unite]
-
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]u  :<C-u>Unite buffer file_mru<CR>
-nnoremap <silent> [unite]b  :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]l  :<C-u>Unite colorscheme -auto-preview<CR>
-nnoremap  [unite]f  :<C-u>Unite source<CR>
-nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
 
 let g:unite_source_rec_max_cache_files = 5000
 let g:unite_source_file_mru_limit      = 200
@@ -389,6 +377,22 @@ let g:unite_source_file_mru_limit      = 200
 let g:unite_cursor_line_highlight      = 'TabLineSel'
 let g:unite_abbr_highlight             = 'TabLine'
 
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+
+nnoremap    [unite]   <Nop>
+nmap    <Space>u [unite]
+
+nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]h  :<C-u>Unite history/yank<CR>
+nnoremap <silent> [unite]u  :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]b  :<C-u>Unite buffer tab<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]l  :<C-u>Unite colorscheme -auto-preview<CR>
+nnoremap <silent> [unite]f  :<C-u>Unite source<CR>
+nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
+
+"-----------------------------------------------------------------------------
 " For vimfiler
 let g:vimfiler_as_default_explorer     = 1
 let g:vimfiler_safe_mode_by_default    = 0
