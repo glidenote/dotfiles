@@ -1,6 +1,7 @@
 tap phinze/homebrew-cask || true
 tap homebrew/versions || true
 tap caskroom/homebrew-versions || true
+tap peco/peco || true
 update || true
 
 install brew-cask || true
@@ -29,6 +30,7 @@ install rbenv-gem-rehash || true
 install ssh-copy-id || true
 install atool || true
 install jq || true
+install peco || true
 
 cask install keyremap4macbook || true
 cask install bartender || true
