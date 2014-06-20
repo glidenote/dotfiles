@@ -24,7 +24,7 @@ bash_completion_tmux.sh
 bash_completion_tmux.sh
 .tmux.conf
 .zsh.d
-.percol.d
+.peco
 "
 
 # 必要ディレクトリの作成
@@ -49,6 +49,10 @@ do
     rm -rf ~/${FILE}
     ln -s ~/dotfiles/${FILE} ~/${FILE}
 done
+
+# install peco
+export GOPATH=$HOME
+go get github.com/peco/peco/cmd/peco
 
 # git submodule init & update
 cd ~/dotfiles

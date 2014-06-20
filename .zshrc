@@ -30,11 +30,9 @@ zcompile ~/.zshrc
 PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin/
 export PATH
 export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
-export PERL_CPANM_OPT="--local-lib=~/extlib"
-export PERL5LIB="$HOME/extlib/lib/perl5:$HOME/extlib/lib/perl5/i386-freebsd-64int:$PERL5LIB"
 export EDITOR=vim
 export LESS='-R'
-
+export GOPATH=$HOME
 
 #=============================
 # fpath (zsh completion)
@@ -272,11 +270,11 @@ if [ -f ~/.zsh.d/bd.zsh ]; then
 fi
 
 #=============================
-# for percol http://shibayu36.hatenablog.com/entry/2013/10/06/184146
+# for peco
 #=============================
-if [[ -f `command -v percol` ]] ; then
-  source ~/.zsh.d/percol.zsh
-  bindkey '^r' percol-select-history
+if [[ -f `command -v peco` ]] ; then
+  source ~/.zsh.d/peco.zsh
+  bindkey '^r' peco-select-history
 fi
 
 #=============================
