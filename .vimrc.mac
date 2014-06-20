@@ -3,20 +3,11 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'Shougo/neocomplcache-rsense'
 
+" http://www.kaoriya.net/blog/2014/03/30/
+set noundofile
+
 " yankした内容をclipboardに
 set clipboard=unnamed
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_mode_v  = "VISUAL"
-let g:Powerline_mode_V  = "V:LINE"
-let g:Powerline_mode_cv = "V:BLOCK "
-let g:Powerline_mode_s  = "SELECT"
-let g:Powerline_mode_S  = "S:LINE"
-let g:Powerline_mode_cs = "S:BLOCK "
-let g:Powerline_mode_i  = "INSERT"
-let g:Powerline_mode_R  = "REPLACE"
-let g:Powerline_mode_n  = "NORMAL"
 
 " Markdown Preview
 let g:quickrun_config = {}
@@ -29,6 +20,7 @@ let g:quickrun_config.octopress = {
       \ 'exec'      : '%c %o %a %s',
       \ }
 
+" Serverspec
 let g:quickrun_config['ruby.serverspec'] = {
       \'command'                  : 'rspec',
       \'cmdopt'                   : '-cfd',
@@ -45,7 +37,3 @@ augroup END
 
 " gist
 let g:gist_open_browser_after_post = 1
-
-" rsense (brew install rsense)
-let g:neocomplcache#sources#rsense#home_directory =
-      \ "/usr/local/Cellar/rsense/0.3/libexec"

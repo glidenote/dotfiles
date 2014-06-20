@@ -86,3 +86,4 @@
 
 [ghq]
     root = ~/src
+    root = ~/repos
