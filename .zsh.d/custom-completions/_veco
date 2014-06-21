@@ -1,0 +1,11 @@
+#compdef veco
+
+function _veco {
+  local -a cmds
+  if (( CURRENT == 2 ));then
+    cmds=('up' 'halt' 'ssh' 'list' 'help')
+    _describe -t commands "subcommand" cmds
+  fi
+ 
+  return 1;
+}

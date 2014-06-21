@@ -1,0 +1,106 @@
+#!/bin/sh
+
+## Functions
+
+    _exit_with() {
+        local message=$1
+
+        echo $message
+        exit 0
+    }
+
+    _is_executable() {
+        local command=$1
+        type $command > /dev/null 2>&1
+    }
+
+    _pecrant() {
+        vagrant global-status | awk '/^[[:alnum:]]{7} /' | peco
+    }
+
+    _pecrant_selected_ids() {
+        _pecrant | awk '{print $1}'
+    }
+
+    _pecrant_list() {
+        _pecrant
+    }
+
+    _pecrant_ssh() {
+        local id=$(_pecrant_selected_ids | awk 'NR == 1')
+
+        [ -z "$id" ] && _exit_with "Machine id is not specified"
+        vagrant ssh $id
+    }
+
+    _pecrant_up() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant up $id
+        done
+    }
+
+    _pecrant_halt() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant halt $id
+        done
+    }
+
+    _pecrant_help() {
+        cat <<EOF
+Usage: pecrant <command>
+
+  up      Start the selected vagrant machine
+  halt    Stop the selected vagrant machine
+  ssh     Connect to machine via SSH
+  list    Show vagrant environments for this user
+  help    Show this message
+EOF
+    }
+
+    pecrant() {
+        local sub=$1
+
+        if _is_executable "_pecrant_$sub" ; then
+            "_pecrant_$sub"
+        else
+            cat <<EOF
+pecrant: no such command \`$sub'
+EOF
+        fi
+    }
+
+## Check required command
+
+    _is_executable peco || {
+        cat <<EOF
+"peco" couldn't be found. Please install or set \$PATH.
+
+See: https://github.com/peco/peco#installation
+EOF
+        exit 1
+    }
+
+    _is_executable vagrant || {
+        cat <<EOF
+"vagrant" couldn't be found. Please install or set \$PATH.
+
+See: http://docs.vagrantup.com/v2/installation/index.html
+EOF
+        exit 1
+    }
+
+## Main routine
+
+    if [ $# -eq 1 ] ; then
+        pecrant "$1"
+    else
+        pecrant help
+    fi
