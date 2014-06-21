@@ -43,6 +43,27 @@
         done
     }
 
+    _pecrant_destroy() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant destroy $id
+        done
+    }
+
+
+    _pecrant_provision() {
+        local ids=$(_pecrant_selected_ids)
+
+        [ -z "$ids" ] && _exit_with "Machine id is not specified"
+
+        for id in $ids ; do
+            vagrant provision $id
+        done
+    }
+
     _pecrant_halt() {
         local ids=$(_pecrant_selected_ids)
 
@@ -57,11 +78,13 @@
         cat <<EOF
 Usage: pecrant <command>
 
-  up      Start the selected vagrant machine
-  halt    Stop the selected vagrant machine
-  ssh     Connect to machine via SSH
-  list    Show vagrant environments for this user
-  help    Show this message
+  up         Start the selected vagrant machine
+  halt       Stop the selected vagrant machine
+  destroy    Destroy the selected vagrant machine
+  ssh        Connect to machine via SSH
+  provision  Provision the selected vagrant machine
+  list       Show vagrant environments for this user
+  help       Show this message
 EOF
     }
 

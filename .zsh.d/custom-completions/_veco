@@ -3,7 +3,7 @@
 function _veco {
   local -a cmds
   if (( CURRENT == 2 ));then
-    cmds=('up' 'halt' 'ssh' 'list' 'help')
+    cmds=('up' 'halt' 'ssh' 'list' 'destroy' 'provision' 'help')
     _describe -t commands "subcommand" cmds
   fi
  
