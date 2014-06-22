@@ -350,13 +350,14 @@ endif
 "-----------------------------------------------------------------------------
 
 """ ctrlp.vim
-let g:ctrlp_use_migemo = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_lazy_update = 0
+let g:ctrlp_use_migemo          = 1
+let g:ctrlp_use_caching         = 1
+let g:ctrlp_lazy_update         = 0
+let g:ctrlp_show_hidden         = 1
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
 let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|.cache)$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|neocon|neocomplcache|neocomplete|cache)$',
   \ 'file': '\v\.(mp3|mp4|jpg|png|pdf|zip|m4a|pkg|gz|ttf|mov|avi|dmg|rar|xls|mobi)$',
   \ }
 let g:ctrlp_prompt_mappings = {
@@ -365,6 +366,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
+let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
 "-----------------------------------------------------------------------------
 """ Unite 
 " The prefix key.
