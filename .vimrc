@@ -366,7 +366,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
-let g:ctrlp_extensions = ['tag', 'quickfix', 'dir', 'line', 'mixed']
+let g:ctrlp_extensions = ['mixed']
 "-----------------------------------------------------------------------------
 """ Unite 
 " The prefix key.
