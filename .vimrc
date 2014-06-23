@@ -70,7 +70,6 @@ NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
@@ -474,10 +473,6 @@ vnoremap <silent> == =
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
 "-----------------------------------------------------------------------------
-" for NERDTree
-map <C-n> :NERDTreeToggle<CR>
-"-----------------------------------------------------------------------------
-
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
