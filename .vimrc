@@ -367,6 +367,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(1)':        [''],
   \ }
 let g:ctrlp_extensions = ['mixed']
+nmap    <Space>m :CtrlPMRU<CR>
 "-----------------------------------------------------------------------------
 """ Unite 
 " The prefix key.
