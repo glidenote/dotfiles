@@ -274,6 +274,7 @@ fi
 #=============================
 if [[ -f `command -v peco` ]] ; then
   source ~/.zsh.d/peco.zsh
+  alias peco='peco --rcfile=~/.config/peco/config.json'
 fi
 
 #=============================
