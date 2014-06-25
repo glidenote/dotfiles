@@ -7,3 +7,4 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
+bindkey '^S' peco-src

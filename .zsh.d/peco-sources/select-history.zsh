@@ -12,3 +12,4 @@ function peco-select-history() {
     zle clear-screen
 }
 zle -N peco-select-history
+bindkey '^r' peco-select-history

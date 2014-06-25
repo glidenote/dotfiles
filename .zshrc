@@ -274,8 +274,6 @@ fi
 #=============================
 if [[ -f `command -v peco` ]] ; then
   source ~/.zsh.d/peco.zsh
-  bindkey '^r' peco-select-history
-  bindkey '^S' peco-src
 fi
 
 #=============================
