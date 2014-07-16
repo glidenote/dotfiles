@@ -5,10 +5,12 @@
         "C-c": "peco.Cancel"
     },
 
-	"Style": {
-		"Basic": ["on_default", "default"],
-		"Selected": ["underline", "on_cyan", "white"],
-		"Query": ["white", "bold"]
-	}
-}
+    "Style": {
+        "Basic": ["on_default", "default"],
+        "SavedSelection": ["bold", "on_yellow", "white"],
+        "Selected": ["undefined", "on_cyan", "white"],
+        "Query": ["white", "bold"],
+        "Matched": ["white", "on_blue"]
+    }
 
+}
