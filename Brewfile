@@ -31,8 +31,10 @@ install ssh-copy-id || true
 install atool || true
 install jq || true
 install peco || true
+install direnv || true
+install autojump || true
 
-cask install keyremap4macbook || true
+cask install karabiner || true
 cask install bartender || true
 cask install macvim-kaoriya || true
 cask install dropbox || true
@@ -56,5 +58,7 @@ cask install virtualbox || true
 cask install istat-menus || true
 cask install totalterminal || true
 cask install boot2docker || true
+cask install coteditor || true
+cask install atom || true
 
 cask alfred link
