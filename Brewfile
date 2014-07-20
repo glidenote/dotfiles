@@ -2,6 +2,7 @@ tap phinze/homebrew-cask || true
 tap homebrew/versions || true
 tap caskroom/homebrew-versions || true
 tap peco/peco || true
+tap motemen/ghq
 update || true
 
 install brew-cask || true
@@ -33,6 +34,7 @@ install jq || true
 install peco || true
 install direnv || true
 install autojump || true
+install ghq || true
 
 cask install karabiner || true
 cask install bartender || true
