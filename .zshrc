@@ -46,7 +46,15 @@ fpath=(~/.zsh.d/zsh-completions/src ~/.zsh.d/custom-completions $fpath)
 autoload colors
 colors
 
-# source ~/.zsh.d/prompt.zsh
+#=============================
+# antigen and prompt
+#=============================
+if [[ -e ~/.zsh.d/antigen.zsh ]] ; then 
+    source ~/.zsh.d/antigen.zsh; 
+  else
+    # antigenが無ければ昔のpromptを使う
+    source ~/.zsh.d/prompt.zsh;
+fi
 
 #=============================
 # terminal title
