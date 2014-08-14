@@ -46,7 +46,7 @@ fpath=(~/.zsh.d/zsh-completions/src ~/.zsh.d/custom-completions $fpath)
 autoload colors
 colors
 
-source ~/.zsh.d/prompt.zsh
+# source ~/.zsh.d/prompt.zsh
 
 #=============================
 # terminal title

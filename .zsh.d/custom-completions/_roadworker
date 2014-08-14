@@ -1,0 +1,42 @@
+#compdef roadwork
+# ------------------------------------------------------------------------------
+# Description
+# -----------
+#
+#  Completion script for roadworker (https://rubygems.org/gems/roadworker)
+#
+# ------------------------------------------------------------------------------
+# Authors
+# -------
+#
+#  * Akira Maeda <https://github.com/glidenote>
+#
+# ------------------------------------------------------------------------------
+# -*- mode: zsh; sh-indentation: 2; indent-tabs-mode: nil; sh-basic-offset: 2; -*-
+# vim: ft=zsh sw=2 ts=2 et
+# ------------------------------------------------------------------------------
+
+local curcontext="$curcontext" state line ret=1
+typeset -A opt_args
+
+_arguments -C \
+  '(-k --access-key)'{-k,--access-key}'[Set Access Key ID]:ACCESS_KEY' \
+  '(-s --secret-key)'{-s,--secret-key}'[Set Secret Access Key]:SECRET_KEY' \
+  '(-a --apply)'{-a,--apply}'[Apply routefile to route53]' \
+  '(-f --file)'{-f,--file}'[Set the filename]:FILE' \
+  '(--dry-run)'--dry-run'[Prints out commands without running them dry run mode]' \
+  '(--force)'--force'[Force apply]' \
+  '(--no-health-check-gc)'--no-health-check-gc'[  ]' \
+  '(-e --export)'{-e,--export}'[Export records]' \
+  '(-o --output)'{-o,--output}'[Output file]:FILE' \
+  '(--split)'--split'[Split files by domain]' \
+  '(--with-soa-ns)'--with-soa-ns'[Without SOA NS Server]'\
+  '(-t --test)'{-t,--test}'[Run test]' \
+  '(--nameservers)'--nameservers'[Set nameservers]:SERVERS' \
+  '(--no-color)'--no-color'[Disable all colored output]' \
+  '(--debug)'--debug'[Disply debug message]' \
+  '(-h --help)'{-h,--help}'[print options help]' \
+  '(-v --version)'{-v,--version}'[print version]' \
+  '*: :_files' && ret=0
+
+return ret
