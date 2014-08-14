@@ -35,8 +35,10 @@ install peco || true
 install direnv || true
 install autojump || true
 install ghq || true
+install httpie || true
 
 cask install karabiner || true
+cask install seil || true
 cask install bartender || true
 cask install macvim-kaoriya || true
 cask install dropbox || true
@@ -62,5 +64,10 @@ cask install totalterminal || true
 cask install boot2docker || true
 cask install coteditor || true
 cask install atom || true
+cask install sqwiggle || true
+cask install caffeine || true
+cask install dash || true
+cask install google-drive || true
+cask install stay || true
 
 cask alfred link
