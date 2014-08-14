@@ -62,7 +62,7 @@ NeoBundle 'thinca/vim-template'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'rhysd/clever-f.vim'
-NeoBundle "kien/ctrlp.vim"
+NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
@@ -74,6 +74,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
 NeoBundle 'glidenote/rspec-result-syntax'
+NeoBundle 'glidenote/roadworker.vim'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
