@@ -75,6 +75,7 @@ NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'glidenote/roadworker.vim'
+NeoBundle 'Yggdroot/indentLine'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -473,6 +474,10 @@ vnoremap <silent> == =
 "-----------------------------------------------------------------------------
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
+"-----------------------------------------------------------------------------
+" for indenteLine
+let g:indentLine_color_term = 239
+let g:indentLine_char = '︙'
 "-----------------------------------------------------------------------------
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
