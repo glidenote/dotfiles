@@ -21,4 +21,4 @@ function peco-bd () {
 }
 zle -N peco-bd
 
-bindkey '^b' peco-bd
+bindkey '^xb' peco-bd
