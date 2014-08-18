@@ -477,7 +477,6 @@ command! SS set filetype=ruby.serverspec
 "-----------------------------------------------------------------------------
 " for indenteLine
 let g:indentLine_color_term = 239
-let g:indentLine_char = '︙'
 "-----------------------------------------------------------------------------
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC

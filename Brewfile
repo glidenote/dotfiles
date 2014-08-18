@@ -36,6 +36,7 @@ install direnv || true
 install autojump || true
 install ghq || true
 install httpie || true
+install brew-pip || true
 
 cask install karabiner || true
 cask install seil || true
@@ -69,5 +70,6 @@ cask install caffeine || true
 cask install dash || true
 cask install google-drive || true
 cask install stay || true
+cask install kobito || true
 
 cask alfred link
