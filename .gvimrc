@@ -16,7 +16,7 @@ set clipboard=unnamed,autoselect
 map ¥ <leader>
 
 " font 
-set guifont=Ricty:h15
+set guifont=Ricty\ for\ Powerline:h15
 
 " window size
 set lines=90 columns=200
