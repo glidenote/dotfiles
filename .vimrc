@@ -76,6 +76,8 @@ NeoBundle 'glidenote/vim-chef'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'glidenote/roadworker.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'sorah/unite-ghq'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
