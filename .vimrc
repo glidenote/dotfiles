@@ -78,6 +78,8 @@ NeoBundle 'glidenote/roadworker.vim'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'sorah/unite-ghq'
+NeoBundle 'mattn/ctrlp-ghq'
+NeoBundle 'kana/vim-smartinput'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -371,6 +373,7 @@ let g:ctrlp_prompt_mappings = {
   \ }
 let g:ctrlp_extensions = ['mixed']
 nmap    <Space>m :CtrlPMRU<CR>
+noremap <leader>g :<c-u>CtrlPGhq<cr>
 "-----------------------------------------------------------------------------
 """ Unite 
 " The prefix key.
@@ -454,6 +457,7 @@ let g:gist_detect_filetype = 1
 
 """ For vim-auto-save refs http://qiita.com/kentaro/items/833075356d41e9d9bc75
 let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
 "-----------------------------------------------------------------------------
 " for yankround.vim {{{
 "" キーマップ
@@ -473,6 +477,7 @@ nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
 vnoremap <silent> => :Align @1 =><CR>
 vnoremap <silent> = :Align @1 =<CR>
 vnoremap <silent> == =
+
 "-----------------------------------------------------------------------------
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
@@ -483,4 +488,33 @@ let g:indentLine_color_term = 239
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+"-----------------------------------------------------------------------------
+" for surround.vim ()http://rcmdnk.github.io/blog/2014/05/03/computer-vim-octopress/)
+nmap <Leader>{ ysiw{
+nmap <Leader>} ysiw}
+nmap <Leader>[ ysiw[
+nmap <Leader>] ysiw]
+nmap <Leader>( ysiw(
+nmap <Leader>) ysiw)
+nmap <Leader>b ysiwb
+nmap <Leader>< ysiw<
+nmap <Leader>> ysiw>
+nmap <Leader>" ysiw"
+nmap <Leader>' ysiw'
+nmap <Leader>` ysiw`
+nmap <Leader>* ysiw*
+nmap <Leader><Leader>* ysiw*wysiw*
+xmap { S{
+xmap } S}
+xmap [ S[
+xmap ] S]
+xmap ( S(
+xmap ) S)
+xmap < S<
+xmap > S>
+xmap " S"
+xmap ' S'
+xmap ` S`
+xmap * S*
+xmap <Leader>* S*gvS*
 "-----------------------------------------------------------------------------
