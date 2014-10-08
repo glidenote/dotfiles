@@ -33,6 +33,10 @@ export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
 export EDITOR=vim
 export LESS='-R'
 export GOPATH=$HOME
+export PERL_CPANM_OPT="--local-lib=~/perl5"
+export PATH=$HOME/perl5/bin:$PATH;
+export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB;
+
 
 #=============================
 # fpath (zsh completion)
@@ -272,6 +276,13 @@ add-zsh-hook chpwd show-current-dir-as-window-name
 #=============================
 if [ -f ~/.zsh.d/`hostname`.zsh ]; then
   source ~/.zsh.d/`hostname`.zsh
+fi
+
+#=============================
+# source private zsh
+#=============================
+if [ -f ~/.zsh.d/private.zsh ]; then
+  source ~/.zsh.d/private.zsh
 fi
 
 #=============================
