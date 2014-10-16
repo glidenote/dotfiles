@@ -1,6 +1,6 @@
 [user]
     name          = Akira Maeda
-    email         = glidenote@gmail.com
+    email         = glidenote@users.noreply.github.com
 
 [include]
     path          = .gitconfig.local
@@ -82,8 +82,12 @@
     diff = diff-highlight | less
 
 [push]
-    default = matching
+    default = current
 
 [ghq]
     root = ~/src
     root = ~/repos
+
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
