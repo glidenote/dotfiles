@@ -17,8 +17,11 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
+call neobundle#end()
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
@@ -80,6 +83,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
 NeoBundle 'kana/vim-smartinput'
+" NeoBundle 'elzr/vim-json'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
