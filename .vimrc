@@ -78,12 +78,10 @@ NeoBundle 'glidenote/serverspec-snippets'
 NeoBundle 'glidenote/vim-chef'
 NeoBundle 'glidenote/rspec-result-syntax'
 NeoBundle 'glidenote/roadworker.vim'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
-NeoBundle 'kana/vim-smartinput'
-" NeoBundle 'elzr/vim-json'
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -462,6 +460,7 @@ let g:gist_detect_filetype = 1
 """ For vim-auto-save refs http://qiita.com/kentaro/items/833075356d41e9d9bc75
 let g:auto_save = 1
 let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
 "-----------------------------------------------------------------------------
 " for yankround.vim {{{
 "" キーマップ
@@ -485,9 +484,6 @@ vnoremap <silent> == =
 "-----------------------------------------------------------------------------
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
-"-----------------------------------------------------------------------------
-" for indenteLine
-let g:indentLine_color_term = 239
 "-----------------------------------------------------------------------------
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
