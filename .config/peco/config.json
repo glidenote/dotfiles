@@ -1,10 +1,4 @@
 {
-    "Keymap": {
-        "C-p": "peco.SelectUp",
-        "C-n": "peco.SelectDown",
-        "C-c": "peco.Cancel"
-    },
-
     "Style": {
         "Basic": ["on_default", "default"],
         "SavedSelection": ["bold", "on_yellow", "white"],
