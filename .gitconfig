@@ -76,6 +76,10 @@
     gr            = grep
     gn            = grep -n
 
+    ignore        = update-index --assume-unchanged
+    unignore      = update-index --no-assume-unchanged
+    ignored       = !git ls-files -v | grep "^[a-z]"
+
 [pager]
     log  = diff-highlight | less
     show = diff-highlight | less
@@ -91,3 +95,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[github]
+	user = glidenote
