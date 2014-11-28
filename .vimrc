@@ -272,33 +272,19 @@ if has("autocmd")
   " Indent
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType aspvbs     setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cpp        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType eruby      setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
-  autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType vb         setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType wsh        setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType xhtml      setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType xml        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType scala      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType puppet     setlocal sw=2 sts=2 ts=2 et
 endif " has("autocmd")
 
 "-----------------------------------------------------------------------------
@@ -314,6 +300,7 @@ let g:markdown_fenced_languages = [
 \  'erb=eruby',
 \  'json=javascript',
 \  'ruby',
+\  'sql',
 \  'sh',
 \]
 
@@ -357,12 +344,17 @@ endif
 "-----------------------------------------------------------------------------
 
 """ ctrlp.vim
-let g:ctrlp_use_migemo          = 1
-let g:ctrlp_use_caching         = 1
+let g:ctrlp_cmd                 = 'CtrlPMRUFiles'
+let g:ctrlp_by_filename         = 1
+" let g:ctrlp_use_migemo          = 1
+let g:ctrlp_use_caching         = 1   " 0が無効/1が有効
 let g:ctrlp_lazy_update         = 0
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
 let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
+let g:ctrlp_working_path_mode   = 'ra'
+" let g:ctrlp_open_new_file       = 'r'
+let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:18'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|neocon|neocomplcache|neocomplete|cache)$',
   \ 'file': '\v\.(mp3|mp4|jpg|png|pdf|zip|m4a|pkg|gz|ttf|mov|avi|dmg|rar|xls|mobi)$',
@@ -373,7 +365,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
-let g:ctrlp_extensions = ['mixed']
+" let g:ctrlp_extensions = ['mixed']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
 "-----------------------------------------------------------------------------
@@ -419,8 +411,8 @@ let g:unite_source_file_mru_filename_format = ''
 """ smartchr
 autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 "autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
-autocmd FileType ruby inoremap <expr> <buffer> > smartchr#one_of(' > ', ' => ', '>')
-autocmd FileType ruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
+autocmd FileType ruby,eruby inoremap <expr> <buffer> > smartchr#one_of(' > ', ' => ', '>')
+autocmd FileType ruby,eruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
 "-----------------------------------------------------------------------------
 
 """ For vim-over
