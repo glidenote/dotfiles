@@ -81,7 +81,7 @@ NeoBundle 'glidenote/roadworker.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
-NeoBundle 'ConradIrwin/vim-bracketed-paste'
+"NeoBundle 'ConradIrwin/vim-bracketed-paste'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -510,3 +510,29 @@ xmap ` S`
 xmap * S*
 xmap <Leader>* S*gvS*
 "-----------------------------------------------------------------------------
+" Vimの便利な画面分割＆タブページ http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s <Nop>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+"-----------------------------------------------------------------------------
+" custom lightline https://github.com/itchyny/lightline.vim
+"-----------------------------------------------------------------------------
+let g:lightline = {
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component': {
+  \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \ },
+  \ 'component_visible_condition': {
+  \   'readonly': '(&filetype!="help"&& &readonly)',
+  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \ },
+  \ 'separator': { 'left': '⮀', 'right': '⮂' },
+  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+  \ }
