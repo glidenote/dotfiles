@@ -515,10 +515,15 @@ nnoremap s <Nop>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap sq :<C-u>q<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sn gt
+nnoremap sp gT
 "-----------------------------------------------------------------------------
 " custom lightline https://github.com/itchyny/lightline.vim
 "-----------------------------------------------------------------------------
 let g:lightline = {
+  \ 'colorscheme': 'wombat',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
