@@ -17,3 +17,6 @@ export PERL_MB_OPT="--install_base "/Users/`whoami`/perl5"";
 export PERL_MM_OPT="INSTALL_BASE=/Users/`whoami`/perl5";
 export PERL5LIB="/Users/`whoami`/perl5/lib/perl5:$PERL5LIB";
 export PATH="/Users/`whoami`/perl5/bin:$PATH";
+
+# http://rcmdnk.github.io/blog/2014/11/22/computer-mac-homebrew/
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
