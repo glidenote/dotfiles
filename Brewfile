@@ -38,38 +38,43 @@ install ghq || true
 install httpie || true
 install brew-pip || true
 
-cask install karabiner || true
-cask install seil || true
-cask install bartender || true
-cask install macvim-kaoriya || true
-cask install dropbox || true
-cask install skype || true
-cask install Chromium || true
-cask install firefox || true
-cask install bartender || true
-cask install github || true
-cask install alfred || true
-cask install sourcetree || true
-cask install google-chrome || true
-cask install vagrant || true
-cask install totalfinder || true
-cask install iterm2 || true
-cask install appcleaner || true
-cask install bettertouchtool || true
-cask install flux || true
-cask install lastpass-universal || true
-cask install skitch || true
-cask install virtualbox || true
-cask install istat-menus || true
-cask install totalterminal || true
-cask install boot2docker || true
-cask install coteditor || true
-cask install atom || true
-cask install sqwiggle || true
-cask install caffeine || true
-cask install dash || true
-cask install google-drive || true
-cask install stay || true
-cask install kobito || true
+cask install Chromium
+cask install alfred
+cask install appcleaner
+cask install atom
+cask install bartender
+cask install bettertouchtool
+cask install boot2docker
+cask install caffeine
+cask install chromium
+cask install coteditor
+cask install dash
+cask install dropbox
+cask install firefox
+cask install flux
+cask install github
+cask install google-chrome
+cask install google-drive
+cask install istat-menus
+cask install iterm2
+cask install jitouch
+cask install karabiner
+cask install kitematic
+cask install kobito
+cask install lastpass-universal
+cask install macvim-kaoriya
+cask install seil
+cask install sequel-pro
+cask install skitch
+cask install skype
+cask install slack
+cask install sourcetree
+cask install sqwiggle
+cask install stay
+cask install totalfinder
+cask install totalterminal
+cask install vagrant
+cask install virtualbox
+cask install witch
 
 cask alfred link
