@@ -261,17 +261,6 @@ chpwd() {
 }
 
 #=============================
-# tmux current dir as window name 
-# http://mint.hateblo.jp/entry/2012/12/17/175553 
-#=============================
-show-current-dir-as-window-name() {
-    tmux set-window-option window-status-format " #I ${PWD:t} " > /dev/null
-}
- 
-show-current-dir-as-window-name
-add-zsh-hook chpwd show-current-dir-as-window-name
-
-#=============================
 # source zsh
 #=============================
 if [ -f ~/.zsh.d/`hostname`.zsh ]; then
@@ -359,3 +348,8 @@ fi
 # mosh completion
 #=============================
 compdef mosh=ssh
+
+
+# The next line enables zsh completion for gcloud.
+export PATH=/Users/glidenote/google-cloud-sdk/bin:$PATH
+source '/Users/glidenote/google-cloud-sdk/completion.zsh.inc'
