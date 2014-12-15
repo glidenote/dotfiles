@@ -349,7 +349,8 @@ fi
 #=============================
 compdef mosh=ssh
 
-
 # The next line enables zsh completion for gcloud.
-export PATH=/Users/glidenote/google-cloud-sdk/bin:$PATH
-source '/Users/glidenote/google-cloud-sdk/completion.zsh.inc'
+if [[ -f ~/google-cloud-sdk/completion.bash.inc ]] ; then
+  source '/Users/glidenote/google-cloud-sdk/completion.zsh.inc'
+  export PATH=/Users/glidenote/google-cloud-sdk/bin:$PATH
+fi
