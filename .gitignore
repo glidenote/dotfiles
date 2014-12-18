@@ -25,6 +25,7 @@
 !/.tscreenrc
 !/.zshrc
 !/.zshenv
+!/.tigrc
 !/bin
 !/.zsh.d
 !/.config
