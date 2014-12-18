@@ -25,6 +25,7 @@ bash_completion_tmux.sh
 .tmux.conf
 .zsh.d
 .config
+.tigrc
 "
 
 # 必要ディレクトリの作成
