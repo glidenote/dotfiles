@@ -1,0 +1,11 @@
+set line-graphics = utf-8       # グラフ描画時の種別
+set tab-size = 8                # TAB 文字の表示幅
+set ignore-space = all          # 空白無視
+set split-view-width = 75%      # 垂直分割時の比率
+set vertical-split = yes
+
+# メインビューの表示設定
+set main-view = id:yes date:local author:full commit-title:graph=yes,refs=yes
+
+# ステータスビューで V 押下すると、差分表示モードでコミットログ入力画面を開く
+bind status V !git commit -v
