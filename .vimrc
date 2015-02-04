@@ -347,12 +347,12 @@ endif
 let g:ctrlp_cmd                 = 'CtrlPMRUFiles'
 let g:ctrlp_by_filename         = 1
 " let g:ctrlp_use_migemo          = 1
-let g:ctrlp_use_caching         = 1   " 0が無効/1が有効
+let g:ctrlp_use_caching         = 0   " 0が無効/1が有効
 let g:ctrlp_lazy_update         = 0
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
 let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
-let g:ctrlp_working_path_mode   = 'ra'
+" let g:ctrlp_working_path_mode   = 'ra'
 " let g:ctrlp_open_new_file       = 'r'
 let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:18'
 let g:ctrlp_custom_ignore = {
@@ -541,3 +541,4 @@ let g:lightline = {
   \ 'separator': { 'left': '⮀', 'right': '⮂' },
   \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
   \ }
+
