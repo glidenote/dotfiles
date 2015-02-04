@@ -8,10 +8,4 @@ nokogiri
 octokit
 awesome_print
 pry-coolline
-rubocop
-knife-solo
-berkshelf
-serverspec
 rake
-roadworker
-git-browse-remote
