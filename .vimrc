@@ -82,6 +82,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
 "NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'vim-terraform'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
