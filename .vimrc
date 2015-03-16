@@ -51,7 +51,6 @@ NeoBundle 'matchit.zip'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Shougo/vimfiler'
 NeoBundle 'fuenor/qfixgrep'
 NeoBundle 'glidenote/memolist.vim'
 NeoBundle 'L9'
@@ -83,6 +82,10 @@ NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
 "NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'vim-terraform'
+NeoBundle 'chef.vim'
+NeoBundle 'justinmk/vim-dirvish'
+NeoBundle 'elzr/vim-json'
+
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -396,19 +399,6 @@ nnoremap <silent> [unite]l  :<C-u>Unite colorscheme -auto-preview<CR>
 nnoremap <silent> [unite]f  :<C-u>Unite source<CR>
 nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
 
-"-----------------------------------------------------------------------------
-" For vimfiler
-let g:vimfiler_as_default_explorer     = 1
-let g:vimfiler_safe_mode_by_default    = 0
-nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
-autocmd FileType vimfiler 
-  \ nnoremap <buffer><silent>/ 
-  \ :<C-u>Unite file -default-action=vimfiler<CR>
-
-" For optimize.
-let g:unite_source_file_mru_filename_format = ''
-"-----------------------------------------------------------------------------
-
 """ smartchr
 autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 "autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
@@ -543,3 +533,11 @@ let g:lightline = {
   \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
   \ }
 
+nnoremap <silent> <leader>cf :ChefFindAny<CR>
+nnoremap <silent> <leader>cs :ChefFindAnySplit<CR>
+nnoremap <silent> <leader>cv :ChefFindAnyVsplit<CR>
+nnoremap <silent> <leader>cr :ChefFindRelated<CR>
+
+"-----------------------------------------------------------------------------
+" for vim-json
+let g:vim_json_syntax_conceal = 0
