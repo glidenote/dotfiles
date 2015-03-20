@@ -68,7 +68,7 @@ NeoBundle "ctrlpvim/ctrlp.vim"
 NeoBundle "evanmiller/nginx-vim-syntax"
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'LeafCage/yankround.vim'
-NeoBundle 'vim-scripts/vim-auto-save'
+" NeoBundle '907th/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'AndrewRadev/switch.vim'
@@ -82,10 +82,9 @@ NeoBundle 'sorah/unite-ghq'
 NeoBundle 'mattn/ctrlp-ghq'
 "NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'vim-terraform'
-NeoBundle 'chef.vim'
+" NeoBundle 'chef.vim'
 NeoBundle 'justinmk/vim-dirvish'
 NeoBundle 'elzr/vim-json'
-
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -298,6 +297,7 @@ endif " has("autocmd")
 
 " syntastic with rubocop
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_check_on_wq = 0
 
 " markdown http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = [
@@ -541,3 +541,11 @@ nnoremap <silent> <leader>cr :ChefFindRelated<CR>
 "-----------------------------------------------------------------------------
 " for vim-json
 let g:vim_json_syntax_conceal = 0
+"-----------------------------------------------------------------------------
+" for golang http://mattn.kaoriya.net/software/vim/20130531000559.htm
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+"-----------------------------------------------------------------------------
