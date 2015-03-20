@@ -548,4 +548,5 @@ set completeopt=menu,preview
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
 endif
+au BufWritePre *.go Fmt
 "-----------------------------------------------------------------------------
