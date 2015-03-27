@@ -85,6 +85,7 @@ NeoBundle 'vim-terraform'
 " NeoBundle 'chef.vim'
 NeoBundle 'justinmk/vim-dirvish'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'vim-jp/vim-go-extra'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -401,6 +402,7 @@ nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
 
 """ smartchr
 autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
+autocmd FileType go inoremap <expr> <buffer> = smartchr#one_of('=', ' := ',  ' == ', ' != ')
 "autocmd FileType ruby inoremap <expr> = smartchr#one_of(' = ', ' == ', '=')
 autocmd FileType ruby,eruby inoremap <expr> <buffer> > smartchr#one_of(' > ', ' => ', '>')
 autocmd FileType ruby,eruby inoremap <expr> <buffer> { smartchr#loop('{', '#{', '{{{')
@@ -548,5 +550,5 @@ set completeopt=menu,preview
 if $GOROOT != ''
   set rtp+=$GOROOT/misc/vim
 endif
-au BufWritePre *.go Fmt
+autocmd BufWritePre *.go Fmt
 "-----------------------------------------------------------------------------
