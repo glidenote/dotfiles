@@ -19,7 +19,7 @@ map ¥ <leader>
 set guifont=Ricty\ for\ Powerline:h15
 
 " window size
-set lines=90 columns=90
+set lines=90 columns=100
 
 " hide toolbar
 set guioptions-=T
@@ -29,3 +29,6 @@ hi Visual guibg=#909090 ctermbg=#808080
 
 " ファイルのディレクトリに移動する
 autocmd BufEnter * execute 'lcd ' fnameescape(expand('%:p:h'))
+
+" colorscheme for MacVim
+colorscheme solarized

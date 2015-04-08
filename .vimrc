@@ -552,3 +552,10 @@ if $GOROOT != ''
 endif
 autocmd BufWritePre *.go Fmt
 "-----------------------------------------------------------------------------
+" ctrlp-ghq https://github.com/mattn/ctrlp-ghq
+let ctrlp_ghq_default_action = 'e'
+let g:ctrlp_ghq_cache_enabled = 1
+let g:ctrlp_ghq_actions = [
+\ {"label": "Open", "action": "e", "path": 1},
+\ {"label": "Look", "action": "!ghq look", "path": 0},
+\]
