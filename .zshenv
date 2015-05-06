@@ -1,7 +1,8 @@
 #=============================
-# rbenv
+# rbenv 
+# http://qiita.com/sonots/items/a309520b9cce1b7631a5
 #=============================
-if [ -d ${HOME}/.rbenv  ] ; then
-  export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
-  eval "$(rbenv init -)"
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init --no-rehash -)"
 fi
