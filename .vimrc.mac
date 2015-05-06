@@ -1,8 +1,3 @@
-NeoBundle 'restart.vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
-NeoBundle 'Shougo/neocomplcache-rsense'
-
 " http://www.kaoriya.net/blog/2014/03/30/
 set noundofile
 

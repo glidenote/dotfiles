@@ -21,7 +21,6 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
@@ -98,6 +97,14 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 
+if has('mac')
+  NeoBundle 'restart.vim'
+  NeoBundle 'tyru/open-browser.vim'
+  NeoBundle 'tyru/open-browser-github.vim'
+  NeoBundle 'Shougo/neocomplcache-rsense'
+endif
+
+
 " check new plugin
 " NeoBundleCheck
 
@@ -139,6 +146,8 @@ else
   inoremap <expr><C-l>     neocomplcache#complete_common_string()
 endif
 "-----------------------------------------------------------------------------
+
+call neobundle#end()
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -554,8 +563,9 @@ autocmd BufWritePre *.go Fmt
 "-----------------------------------------------------------------------------
 " ctrlp-ghq https://github.com/mattn/ctrlp-ghq
 let ctrlp_ghq_default_action = 'e'
-let g:ctrlp_ghq_cache_enabled = 1
+let g:ctrlp_ghq_cache_enabled = 0
 let g:ctrlp_ghq_actions = [
 \ {"label": "Open", "action": "e", "path": 1},
 \ {"label": "Look", "action": "!ghq look", "path": 0},
 \]
+
