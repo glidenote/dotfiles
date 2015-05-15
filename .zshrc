@@ -36,7 +36,7 @@ export GOPATH=$HOME
 export PERL_CPANM_OPT="--local-lib=~/perl5"
 export PATH=$HOME/perl5/bin:$PATH;
 export PERL5LIB=$HOME/perl5/lib/perl5:$PERL5LIB;
-
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 #=============================
 # fpath (zsh completion)
@@ -381,3 +381,24 @@ else
     ssh-add
   fi
 fi
+
+#=============================
+# any-frame http://qiita.com/mollifier/items/81b18c012d7841ab33c3
+#=============================
+bindkey '^r' anyframe-widget-execute-history
+
+bindkey '^xp' anyframe-widget-put-history
+bindkey '^x^p' anyframe-widget-put-history
+
+
+bindkey '^s' anyframe-widget-cd-ghq-repository
+
+bindkey '^xk' anyframe-widget-kill
+bindkey '^x^k' anyframe-widget-kill
+
+bindkey '^xi' anyframe-widget-insert-git-branch
+bindkey '^x^i' anyframe-widget-insert-git-branch
+
+bindkey '^xf' anyframe-widget-insert-filename
+bindkey '^x^f' anyframe-widget-insert-filename
+
