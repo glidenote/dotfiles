@@ -82,7 +82,7 @@ NeoBundle 'mattn/ctrlp-ghq'
 "NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'vim-terraform'
 " NeoBundle 'chef.vim'
-NeoBundle 'justinmk/vim-dirvish'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vim-go-extra'
 
@@ -96,6 +96,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'google/vim-colorscheme-primary'
 
 if has('mac')
   NeoBundle 'restart.vim'
@@ -446,7 +447,10 @@ nnoremap ,od  :OctopressDeploy<CR>
 nnoremap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
 nnoremap <silent> og :<C-u>Unite grep:<C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
 "-----------------------------------------------------------------------------
-
+" for vimfiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+"-----------------------------------------------------------------------------
 """ For Gist.vim
 let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
@@ -482,6 +486,9 @@ command! SS set filetype=ruby.serverspec
 """ edit and sorce .vimrc (:Ev,:Rv)
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+"-----------------------------------------------------------------------------
+" for sudo.vim
+command W w sudo:%
 "-----------------------------------------------------------------------------
 " for surround.vim ()http://rcmdnk.github.io/blog/2014/05/03/computer-vim-octopress/)
 nmap <Leader>{ ysiw{
@@ -568,4 +575,3 @@ let g:ctrlp_ghq_actions = [
 \ {"label": "Open", "action": "e", "path": 1},
 \ {"label": "Look", "action": "!ghq look", "path": 0},
 \]
-
