@@ -96,7 +96,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
-NeoBundle 'google/vim-colorscheme-primary'
 
 if has('mac')
   NeoBundle 'restart.vim'
@@ -319,7 +318,7 @@ let g:markdown_fenced_languages = [
 \  'sh',
 \]
 
-" highlight 
+" highlight
 highlight Pmenu ctermbg=0
 highlight PmenuSel ctermfg=255 ctermbg=4
 highlight PMenuSbar ctermbg=8
@@ -384,7 +383,7 @@ let g:ctrlp_prompt_mappings = {
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
 "-----------------------------------------------------------------------------
-""" Unite 
+""" Unite
 " The prefix key.
 " https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
 " http://mba-hack.blogspot.jp/2013/03/unitevim.html
@@ -489,6 +488,8 @@ command! Rv source $MYVIMRC
 "-----------------------------------------------------------------------------
 " for sudo.vim
 command W w sudo:%
+""" edit /etc/hosts
+command! Eh edit /etc/hosts
 "-----------------------------------------------------------------------------
 " for surround.vim ()http://rcmdnk.github.io/blog/2014/05/03/computer-vim-octopress/)
 nmap <Leader>{ ysiw{
@@ -575,3 +576,5 @@ let g:ctrlp_ghq_actions = [
 \ {"label": "Open", "action": "e", "path": 1},
 \ {"label": "Look", "action": "!ghq look", "path": 0},
 \]
+
+autocmd BufWritePre * :%s/\s\+$//ge
