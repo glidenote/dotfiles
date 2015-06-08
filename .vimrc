@@ -96,6 +96,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
+NeoBundle 'vim-voom/VOoM'
 
 if has('mac')
   NeoBundle 'restart.vim'
@@ -477,7 +478,9 @@ nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
 vnoremap <silent> => :Align @1 =><CR>
 vnoremap <silent> = :Align @1 =<CR>
 vnoremap <silent> == =
-
+"-----------------------------------------------------------------------------
+" for Voom
+nnoremap <silent> <leader>v :Voom markdown<CR>
 "-----------------------------------------------------------------------------
 " for serverspec-snippets
 command! SS set filetype=ruby.serverspec
@@ -577,4 +580,6 @@ let g:ctrlp_ghq_actions = [
 \ {"label": "Look", "action": "!ghq look", "path": 0},
 \]
 
+"-----------------------------------------------------------------------------
+" remove the end of line space
 autocmd BufWritePre * :%s/\s\+$//ge
