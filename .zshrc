@@ -53,8 +53,8 @@ colors
 #=============================
 # antigen and prompt
 #=============================
-if [[ -e ~/.zsh.d/antigen.zsh ]] ; then 
-    source ~/.zsh.d/antigen.zsh; 
+if [[ -e ~/.zsh.d/antigen.zsh ]] ; then
+    source ~/.zsh.d/antigen.zsh;
   else
     # antigenが無ければ昔のpromptを使う
     source ~/.zsh.d/prompt.zsh;
@@ -159,6 +159,7 @@ WORDCHARS=${WORDCHARS:s,/,,}            # 「/」も単語区切りとみなす�
 #=============================
 alias v='vim'
 alias vi='vim'
+alias eh='vim /etc/hosts'
 alias g='git'
 alias cp='cp -i'
 alias mv='mv -i'
