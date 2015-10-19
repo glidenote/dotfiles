@@ -10,7 +10,7 @@ set clipboard=unnamed
 " Markdown Preview
 let g:quickrun_config = {}
 let g:quickrun_config.ruby = {'command' : 'ruby'}
-let g:quickrun_config.octopress = {
+let g:quickrun_config.markdown = {
       \ 'outputter' : 'null',
       \ 'command'   : 'open',
       \ 'cmdopt'    : '-a',
