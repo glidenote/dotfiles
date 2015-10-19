@@ -45,7 +45,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'ruby-matchit'
 NeoBundle 'surround.vim'
 NeoBundle 'smartchr'
-NeoBundle 'tangledhelix/vim-octopress'
+" NeoBundle 'tangledhelix/vim-octopress'
 NeoBundle 'matchit.zip'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/syntastic'
@@ -85,6 +85,9 @@ NeoBundle 'vim-terraform'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'moll/vim-node'
+NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -97,6 +100,7 @@ NeoBundle 'vim-scripts/Wombat'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/rdark'
 NeoBundle 'vim-voom/VOoM'
+NeoBundle 'zenorocha/dracula-theme'
 
 if has('mac')
   NeoBundle 'restart.vim'
@@ -172,6 +176,8 @@ endif
 set history=50
 " 256色化
 set t_Co=256
+" 保存しないでもbuffer切り替えする
+set hidden
 " colorscheme
 colorscheme molokai
 let g:molokai_original = 1
@@ -251,7 +257,6 @@ set shiftwidth=4
 set softtabstop=0
 " タブの入力を空白文字に置き換える
 set expandtab
-
 "-----------------------------------------------------------------------------
 
 """ ファイル関連
@@ -290,7 +295,7 @@ if has("autocmd")
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType html       setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
-  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 noet
+  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType eruby      setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sql        setlocal sw=4 sts=4 ts=4 et
@@ -579,6 +584,10 @@ let g:ctrlp_ghq_actions = [
 \ {"label": "Open", "action": "e", "path": 1},
 \ {"label": "Look", "action": "!ghq look", "path": 0},
 \]
+
+"-----------------------------------------------------------------------------
+" plasticboy/vim-markdown
+let g:vim_markdown_folding_disabled=1
 
 "-----------------------------------------------------------------------------
 " remove the end of line space
