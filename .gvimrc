@@ -15,7 +15,7 @@ set clipboard=unnamed,autoselect
 " leader key setting
 map ¥ <leader>
 
-" font 
+" font
 set guifont=Ricty\ for\ Powerline:h15
 
 " window size
@@ -25,10 +25,12 @@ set lines=90 columns=100
 set guioptions-=T
 let g:molokai_original = 1
 
-hi Visual guibg=#909090 ctermbg=#808080
+" hi Visual guibg=#909090 ctermbg=#808080
 
 " ファイルのディレクトリに移動する
 autocmd BufEnter * execute 'lcd ' fnameescape(expand('%:p:h'))
 
 " colorscheme for MacVim
-colorscheme solarized
+" colorscheme solarized
+" colorscheme wombat
+color Dracula
