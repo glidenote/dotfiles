@@ -81,19 +81,28 @@
     ignored       = !git ls-files -v | grep "^[a-z]"
 
 [pager]
-    log  = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    log           = diff-highlight | less -r
+    show          = diff-highlight | less -r
+    diff          = diff-highlight | less -r
 
 [push]
-    default = current
+    default       = current
 
 [ghq]
-    root = ~/src
-    root = ~/repos
+    root          = ~/src
+    root          = ~/repos
 
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	required      = true
+	clean         = git media clean %f
+	smudge        = git media smudge %f
 [github]
-	user = glidenote
+	user          = glidenote
+[filter "hawser"]
+	clean         = git hawser clean %f
+	smudge        = git hawser smudge %f
+	required      = true
+[filter "lfs"]
+	clean         = git-lfs clean %f
+	smudge        = git-lfs smudge %f
+	required      = true
