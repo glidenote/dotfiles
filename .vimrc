@@ -26,6 +26,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'unite-colorscheme'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
 \     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
@@ -70,6 +71,7 @@ NeoBundle 'LeafCage/yankround.vim'
 " NeoBundle '907th/vim-auto-save'
 NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'glidenote/serverspec-snippets'
@@ -367,14 +369,14 @@ endif
 let g:ctrlp_cmd                 = 'CtrlPMRUFiles'
 let g:ctrlp_by_filename         = 1
 " let g:ctrlp_use_migemo          = 1
-let g:ctrlp_use_caching         = 0   " 0が無効/1が有効
+let g:ctrlp_use_caching         = 1   " 0が無効/1が有効
 let g:ctrlp_lazy_update         = 0
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
 let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 " let g:ctrlp_working_path_mode   = 'ra'
 " let g:ctrlp_open_new_file       = 'r'
-let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:18'
+let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:25'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|neocon|neocomplcache|neocomplete|cache)$',
   \ 'file': '\v\.(mp3|mp4|jpg|png|pdf|zip|m4a|pkg|gz|ttf|mov|avi|dmg|rar|xls|mobi)$',
@@ -385,7 +387,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
-" let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_extensions = ['mixed']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
 "-----------------------------------------------------------------------------
@@ -495,7 +497,7 @@ command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 "-----------------------------------------------------------------------------
 " for sudo.vim
-command W w sudo:%
+command! W w sudo:%
 """ edit /etc/hosts
 command! Eh edit /etc/hosts
 "-----------------------------------------------------------------------------
@@ -592,3 +594,6 @@ let g:vim_markdown_folding_disabled=1
 "-----------------------------------------------------------------------------
 " remove the end of line space
 autocmd BufWritePre * :%s/\s\+$//ge
+
+" NeoBundleInstall!
+command! Nb NeoBundleInstall!
