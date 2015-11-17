@@ -27,7 +27,7 @@ zcompile ~/.zshrc
 #=============================
 # path
 #=============================
-PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin/
+PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin
 export PATH
 export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
 export EDITOR=vim
@@ -163,7 +163,7 @@ alias eh='vim /etc/hosts'
 alias g='git'
 alias cp='cp -i'
 alias mv='mv -i'
-alias h='history 25'
+# alias h='history 25'
 # alias j='jobs -l'
 alias grep='grep --color=auto'
 # alias sudo='sudo -E '
@@ -298,13 +298,6 @@ if [[ -f `command -v peco` ]] ; then
 fi
 
 #=============================
-# source zsh-syntax-highlighting
-#=============================
-if [ -f ~/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-#=============================
 # sudo.vim   http://blog.monoweb.info/article/2011120320.html
 #=============================
 sudo() {
@@ -403,3 +396,5 @@ bindkey '^x^i' anyframe-widget-insert-git-branch
 bindkey '^xf' anyframe-widget-insert-filename
 bindkey '^x^f' anyframe-widget-insert-filename
 
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
