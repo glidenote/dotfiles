@@ -14,6 +14,7 @@
 !/.vim
 !/.gitignore
 !/.gitconfig
+!/.gitconfig.mac
 !/.gitmodules
 !/.git-completion.bash
 !/bash_completion_tmux.sh

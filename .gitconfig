@@ -4,6 +4,7 @@
 
 [include]
     path          = .gitconfig.local
+    path          = .gitconfig.mac
 
 [color]
     diff          = auto
@@ -14,7 +15,6 @@
     grep          = auto
 
 [core]
-    editor        = vim -c \"set fenc=utf-8\"
     autocrlf      = input                 # CRLFを自動変換
 
 [http]
