@@ -11,150 +11,106 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 "
-""" vundle
 set nocompatible
 filetype off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+  set rtp+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-plug',
+        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'unite-colorscheme'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\     'windows' : 'echo "Sorry, cannot update vimproc binary file in Windows."',
-\     'cygwin'  : 'make -f make_cygwin.mak',
-\     'mac'     : 'make -f make_mac.mak',
-\     'unix'    : 'make -f make_unix.mak',
-\   },
-\ }
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'sudo.vim'
-NeoBundle 'eregex.vim'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'Puppet-Syntax-Highlighting'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'ack.vim'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'ruby-matchit'
-NeoBundle 'surround.vim'
-NeoBundle 'smartchr'
-" NeoBundle 'tangledhelix/vim-octopress'
-NeoBundle 'matchit.zip'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'fuenor/qfixgrep'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'glidenote/octoeditor.vim'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'thinca/vim-template'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'rhysd/clever-f.vim'
-NeoBundle "ctrlpvim/ctrlp.vim"
-NeoBundle "evanmiller/nginx-vim-syntax"
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'LeafCage/yankround.vim'
-" NeoBundle '907th/vim-auto-save'
-NeoBundle 'mattn/benchvimrc-vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neoyank.vim'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'glidenote/serverspec-snippets'
-NeoBundle 'glidenote/vim-chef'
-NeoBundle 'glidenote/rspec-result-syntax'
-NeoBundle 'glidenote/roadworker.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'sorah/unite-ghq'
-NeoBundle 'mattn/ctrlp-ghq'
-"NeoBundle 'ConradIrwin/vim-bracketed-paste'
-NeoBundle 'vim-terraform'
-" NeoBundle 'chef.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'vim-jp/vim-go-extra'
-NeoBundle 'moll/vim-node'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'joker1007/vim-markdown-quote-syntax'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/neocomplete'
+Plug 'thinca/vim-quickrun'
+Plug 'sudo.vim'
+Plug 'eregex.vim'
+Plug 'h1mesuke/vim-alignta'
+Plug 'Puppet-Syntax-Highlighting'
+Plug 'thinca/vim-ref'
+Plug 'ack.vim'
+Plug 'tpope/vim-rails'
+Plug 'ruby-matchit'
+Plug 'surround.vim'
+Plug 'smartchr'
+" Plug 'tangledhelix/vim-octopress'
+Plug 'matchit.zip'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'fuenor/qfixgrep'
+Plug 'glidenote/memolist.vim'
+Plug 'L9'
+Plug 'FuzzyFinder'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'glidenote/octoeditor.vim'
+Plug 'tpope/vim-endwise'
+Plug 'vim-ruby/vim-ruby'
+Plug 'thinca/vim-template'
+Plug 'godlygeek/tabular'
+Plug 'rking/ag.vim'
+Plug 'rhysd/clever-f.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'osyo-manga/vim-over'
+Plug 'LeafCage/yankround.vim'
+" Plug '907th/vim-auto-save'
+Plug 'mattn/benchvimrc-vim'
+Plug 'AndrewRadev/switch.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'glidenote/serverspec-snippets'
+Plug 'glidenote/vim-chef'
+Plug 'glidenote/rspec-result-syntax'
+Plug 'glidenote/roadworker.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/ctrlp-ghq'
+" Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'vim-terraform'
+" Plug 'chef.vim'
+Plug 'elzr/vim-json'
+Plug 'vim-jp/vim-go-extra'
+Plug 'moll/vim-node'
+Plug 'rcmdnk/vim-markdown'
+Plug 'joker1007/vim-markdown-quote-syntax'
+Plug 'justinmk/vim-dirvish'
 
 " colorscheme
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
-NeoBundle 'vim-voom/VOoM'
-NeoBundle 'zenorocha/dracula-theme'
+Plug 'nanotech/jellybeans.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'vim-scripts/twilight'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/Wombat'
+Plug 'tomasr/molokai'
+Plug 'vim-scripts/rdark'
+Plug 'vim-voom/VOoM'
+Plug 'zenorocha/dracula-theme'
 
 if has('mac')
-  NeoBundle 'restart.vim'
-  NeoBundle 'tyru/open-browser.vim'
-  NeoBundle 'tyru/open-browser-github.vim'
-  NeoBundle 'Shougo/neocomplcache-rsense'
+  Plug 'restart.vim'
+  Plug 'tyru/open-browser.vim'
+  Plug 'tyru/open-browser-github.vim'
 endif
 
+let g:neocomplete#enable_at_startup = 1
+imap <C-k> <Plug>(neocomplete#snippets_expand)
+smap <C-k> <Plug>(neocomplete#snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" check new plugin
-" NeoBundleCheck
-
-"------------------------------------------
-" for neocomplete and neocomplcache
-"------------------------------------------
-if has("lua")
-  NeoBundleLazy 'Shougo/neocomplete', { 'autoload' : {
-  \   'insert' : 1,
-  \ }}
-endif
-
-function! s:meet_neocomplete_requirements()
-  return has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-endfunction
-
-if s:meet_neocomplete_requirements()
-  NeoBundle 'Shougo/neocomplete.vim'
-  NeoBundleFetch 'Shougo/neocomplcache.vim'
-else
-  NeoBundleFetch 'Shougo/neocomplete.vim'
-  NeoBundle 'Shougo/neocomplcache.vim'
-endif
-
-if s:meet_neocomplete_requirements()
-  " 新しく追加した neocomplete の設定
-  let g:neocomplete#enable_at_startup = 1
-  imap <C-k> <Plug>(neocomplete#snippets_expand)
-  smap <C-k> <Plug>(neocomplete#snippets_expand)
-  inoremap <expr><C-g>     neocomplcache#undo_completion()
-  inoremap <expr><C-l>     neocomplcache#complete_common_string()
-else
-  " 今までの neocomplcache の設定
-  let g:neocomplcache_enable_at_startup = 1
-  " <C-k> にマッピング http://vim-users.jp/2010/11/hack185/
-  imap <C-k> <Plug>(neocomplcache_snippets_expand)
-  smap <C-k> <Plug>(neocomplcache_snippets_expand)
-  inoremap <expr><C-g>     neocomplcache#undo_completion()
-  inoremap <expr><C-l>     neocomplcache#complete_common_string()
-endif
-"-----------------------------------------------------------------------------
-
-call neobundle#end()
+call plug#end()
 
 filetype plugin indent on
 "-----------------------------------------------------------------------------
@@ -391,32 +347,6 @@ let g:ctrlp_extensions = ['mixed']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
 "-----------------------------------------------------------------------------
-""" Unite
-" The prefix key.
-" https://github.com/Shougo/unite.vim/blob/master/doc/unite.jax
-" http://mba-hack.blogspot.jp/2013/03/unitevim.html
-
-let g:unite_source_rec_max_cache_files = 5000
-let g:unite_source_file_mru_limit      = 200
-
-let g:unite_cursor_line_highlight      = 'TabLineSel'
-let g:unite_abbr_highlight             = 'TabLine'
-
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-
-nnoremap    [unite]   <Nop>
-nmap    <Space>u [unite]
-
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]h  :<C-u>Unite history/yank<CR>
-nnoremap <silent> [unite]u  :<C-u>Unite buffer file_mru<CR>
-nnoremap <silent> [unite]b  :<C-u>Unite buffer tab<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> [unite]l  :<C-u>Unite colorscheme -auto-preview<CR>
-nnoremap <silent> [unite]f  :<C-u>Unite source<CR>
-nnoremap <silent> ,e  :<C-u>Unite file_rec/async:! -start-insert<CR>
-
 """ smartchr
 autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
 autocmd FileType go inoremap <expr> <buffer> = smartchr#one_of('=', ' := ',  ' == ', ' != ')
@@ -435,7 +365,6 @@ nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
 nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
-nnoremap <silent> ;ml :Unite file:<C-r>=g:memolist_path."/"<CR><CR>
 " let g:memolist_unite = 1
 " let g:memolist_unite_source = "file_rec"
 " let g:memolist_unite_option = "-start-insert"
@@ -452,11 +381,6 @@ nnoremap <Leader>og  :OctopressGrep<CR>
 nnoremap ,og  :OctopressGenerate<CR>
 nnoremap ,od  :OctopressDeploy<CR>
 nnoremap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
-nnoremap <silent> og :<C-u>Unite grep:<C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
-"-----------------------------------------------------------------------------
-" for vimfiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
 "-----------------------------------------------------------------------------
 """ For Gist.vim
 let g:gist_detect_filetype = 1
