@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# git clone git://github.com/glidenote/dotfiles.git 
+# git clone git://github.com/glidenote/dotfiles.git
 # の後に流し、ホームディレクトリをgithubに置いてあるものに置き換える
 
 # gitで管理するファイルリスト
@@ -61,9 +61,7 @@ cd ~/dotfiles
 git submodule init
 git submodule update
 
-# NeoBundleinstall 
-mkdir -p ~/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-# git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
-vim +NeoBundleInstall! +qall
+# vim-plug
+mkdir -p ~/.vim/plugged/vim-plug
+git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload
 
