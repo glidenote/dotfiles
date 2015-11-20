@@ -12,6 +12,7 @@ bin
 bash_completion_tmux.sh
 .gitignore
 .gitconfig
+.gitconfig.mac
 .screenrc
 .tscreenrc
 .vimrc
