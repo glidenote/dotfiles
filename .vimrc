@@ -27,75 +27,75 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
+Plug 'AndrewRadev/switch.vim'
+" Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'FuzzyFinder'
+Plug 'L9'
+Plug 'LeafCage/yankround.vim'
+Plug 'Puppet-Syntax-Highlighting'
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/neocomplete'
-Plug 'thinca/vim-quickrun'
-Plug 'sudo.vim'
-Plug 'eregex.vim'
-Plug 'h1mesuke/vim-alignta'
-Plug 'Puppet-Syntax-Highlighting'
-Plug 'thinca/vim-ref'
 Plug 'ack.vim'
-Plug 'tpope/vim-rails'
-Plug 'ruby-matchit'
-Plug 'surround.vim'
-Plug 'smartchr'
-" Plug 'tangledhelix/vim-octopress'
-Plug 'matchit.zip'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/syntastic'
-Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'elzr/vim-json'
+Plug 'eregex.vim'
+Plug 'evanmiller/nginx-vim-syntax'
 Plug 'fuenor/qfixgrep'
 Plug 'glidenote/memolist.vim'
-Plug 'L9'
-Plug 'FuzzyFinder'
-Plug 'mattn/gist-vim'
-Plug 'mattn/webapi-vim'
 Plug 'glidenote/octoeditor.vim'
-Plug 'tpope/vim-endwise'
-Plug 'vim-ruby/vim-ruby'
-Plug 'thinca/vim-template'
-Plug 'godlygeek/tabular'
-Plug 'rking/ag.vim'
-Plug 'rhysd/clever-f.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'evanmiller/nginx-vim-syntax'
-Plug 'osyo-manga/vim-over'
-Plug 'LeafCage/yankround.vim'
-" Plug '907th/vim-auto-save'
-Plug 'mattn/benchvimrc-vim'
-Plug 'AndrewRadev/switch.vim'
-Plug 'tomtom/tcomment_vim'
+Plug 'glidenote/roadworker.vim'
+Plug 'glidenote/rspec-result-syntax'
 Plug 'glidenote/serverspec-snippets'
 Plug 'glidenote/vim-chef'
-Plug 'glidenote/rspec-result-syntax'
-Plug 'glidenote/roadworker.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mattn/ctrlp-ghq'
-" Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'vim-terraform'
-" Plug 'chef.vim'
-Plug 'elzr/vim-json'
-Plug 'vim-jp/vim-go-extra'
-Plug 'moll/vim-node'
-Plug 'rcmdnk/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'h1mesuke/vim-alignta'
+Plug 'itchyny/lightline.vim'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'justinmk/vim-dirvish'
+Plug 'junegunn/limelight.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'matchit.zip'
+Plug 'mattn/benchvimrc-vim'
+Plug 'mattn/ctrlp-ghq'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'moll/vim-node'
+Plug 'osyo-manga/vim-over'
+Plug 'rcmdnk/vim-markdown'
+Plug 'rhysd/clever-f.vim'
+Plug 'rking/ag.vim'
+Plug 'ruby-matchit'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'smartchr'
+Plug 'sudo.vim'
+Plug 'surround.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-ref'
+Plug 'thinca/vim-template'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'vim-jp/vim-go-extra'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-terraform'
+Plug 'vim-voom/VOoM'
+" Plug 'chef.vim'
+" Plug 'tangledhelix/vim-octopress'
 
 " colorscheme
-Plug 'nanotech/jellybeans.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'vim-scripts/twilight'
+Plug 'altercation/vim-colors-solarized'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'jpo/vim-railscasts-theme'
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/Wombat'
+Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
+Plug 'vim-scripts/Wombat'
 Plug 'vim-scripts/rdark'
-Plug 'vim-voom/VOoM'
+Plug 'vim-scripts/twilight'
+Plug 'w0ng/vim-hybrid'
 Plug 'zenorocha/dracula-theme'
 
 if has('mac')
@@ -299,7 +299,7 @@ augroup END
 " 自作snippets用ディレクトリを用意
 let g:neosnippet#snippets_directory = [
       \'~/.vim/snippets',
-      \'~/.vim/bundle/serverspec-snippets',
+      \'~/.vim/plugged/serverspec-snippets',
       \]
 
 " Plugin key-mappings.
@@ -514,10 +514,25 @@ let g:ctrlp_ghq_actions = [
 "-----------------------------------------------------------------------------
 " plasticboy/vim-markdown
 let g:vim_markdown_folding_disabled=1
-
 "-----------------------------------------------------------------------------
 " remove the end of line space
 autocmd BufWritePre * :%s/\s\+$//ge
+"-----------------------------------------------------------------------------
+" NERDTree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
-" NeoBundleInstall!
-command! Nb NeoBundleInstall!
+"-----------------------------------------------------------------------------
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+    vmap <expr> <Esc>[200~ XTermPasteBegin("c")
+    cmap <Esc>[200~ <nop>
+    cmap <Esc>[201~ <nop>
+endif

@@ -34,7 +34,6 @@ let g:quickrun_config['coffee'] = {'command' : 'coffee', 'exec' : ['%c -cbp %s']
 " http://d.hatena.ne.jp/hasiduki/20130604/1370332594
 nnoremap <Space>o :only<CR>
 
-
 augroup Serverspec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.serverspec
@@ -43,20 +42,3 @@ augroup END
 " gist
 let g:gist_open_browser_after_post = 1
 let g:gist_post_private = 1
-
-" for kobito http://qiita.com/Linda_pp/items/ec458977a6552050855b
-function! s:open_kobito(...)
-    if a:0 == 0
-        call system('open -a Kobito '.expand('%:p'))
-    else
-        call system('open -a Kobito '.join(a:000, ' '))
-    endif
-endfunction
-
-" 引数のファイル(複数指定可)を Kobitoで開く
-" (引数無しのときはカレントバッファを開く
-command! -nargs=* Kobito call s:open_kobito(<f-args>)
-" Kobito を閉じる
-command! -nargs=0 KobitoClose call system("osascript -e 'tell application \"Kobito\" to quit'")
-" Kobito にフォーカスを移す
-command! -nargs=0 KobitoFocus call system("osascript -e 'tell application \"Kobito\" to activate'")
