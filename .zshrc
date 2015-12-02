@@ -168,11 +168,6 @@ alias mv='mv -i'
 alias grep='grep --color=auto'
 # alias sudo='sudo -E '
 
-# tscreen
-if [ -x /bin/tscreen ]; then
-  alias screen='tscreen'
-fi
-
 # OSによる切り替えを行う
 alias where="command -v"
 
@@ -189,8 +184,6 @@ case "${OSTYPE}" in
     alias dstat-net='dstat -Tclnd'
     alias dstat-disk='dstat -Tcldr'
     ;;
-  solaris*)
-    alias ls='gls -F --color=auto '
 esac
 
 alias la="ls -a"
@@ -210,47 +203,19 @@ alias gst='git status -sb'
 alias zcompdump_rebuild='rm -f ~/.zcompdump; compinit'
 
 #=============================
-# SSH
+# SSH + TMUX
 #=============================
-
-# HOSTNAMEによって切り替えを行う
-# screenとtmuxの判別も行う http://genzou.ath.cx/
-case "${HOSTNAME}" in
-  manage*.jp)
-    function ssh_screen(){
-    eval server=\${$#}
-    screen -t $server sudo ssh "$@"
-  }
-  function ssh_tmux(){
+function ssh_tmux(){
   eval server=\${$#}
-  eval tmux new-window -n "'${server}'" "'sudo ssh $@'"
+  eval tmux new-window -n "'${server}'" "'ssh $@'"
 }
-;;
 
-    *)
-      function ssh_screen(){
-      eval server=\${$#}
-      screen -t $server ssh "$@"
-    }
-    function ssh_tmux(){
-    eval server=\${$#}
-    eval tmux new-window -n "'${server}'" "'ssh $@'"
-  }
-  function mosh_tmux() {
+function mosh_tmux() {
   tmux new-window -n $@ "exec mosh $@"
 }
 
-;;
-esac
-
-if [ x$TERM = xscreen ]; then
-  if [ -e $TMUX ]; then
-    alias ssh=ssh_screen
-  else
-    alias ssh=ssh_tmux
-    alias mosh=mosh_tmux
-  fi
-fi
+alias ssh=ssh_tmux
+alias mosh=mosh_tmux
 
 #=============================
 # use cdd on tmux
@@ -379,6 +344,9 @@ fi
 #=============================
 # any-frame http://qiita.com/mollifier/items/81b18c012d7841ab33c3
 #=============================
+
+zstyle ":anyframe:selector:" use peco
+zstyle ":anyframe:selector:peco:" command 'peco --layout=bottom-up'
 bindkey '^r' anyframe-widget-execute-history
 
 bindkey '^xp' anyframe-widget-put-history
