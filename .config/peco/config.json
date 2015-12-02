@@ -4,8 +4,7 @@
         "SavedSelection": ["bold", "on_yellow", "white"],
         "Selected": ["undefined", "on_cyan", "white"],
         "Query": ["white", "bold"],
-        "Matched": ["white", "on_blue"],
-        "Layout": "bottom-up"
+        "Matched": ["white", "on_blue"]
     }
 
 }

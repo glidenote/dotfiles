@@ -1,5 +1,5 @@
 function peco-ec2ls () {
-    local selected_host=$(ec2ls | expand | peco --layout=bottom-up --query "$LBUFFER" | awk '{print $6}')
+    local selected_host=$(ec2ls | expand | peco --query "$LBUFFER" | awk '{print $6}')
     if [ -n "$selected_host" ]; then
         BUFFER="ssh ${selected_host}"
         zle accept-line

@@ -28,13 +28,12 @@ call plug#begin('~/.vim/plugged')
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 Plug 'AndrewRadev/switch.vim'
-Plug 'ConradIrwin/vim-bracketed-paste'
+" Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'FuzzyFinder'
 Plug 'L9'
 Plug 'LeafCage/yankround.vim'
 Plug 'Puppet-Syntax-Highlighting'
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -55,7 +54,7 @@ Plug 'godlygeek/tabular'
 Plug 'h1mesuke/vim-alignta'
 Plug 'itchyny/lightline.vim'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/limelight.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'matchit.zip'
 Plug 'mattn/benchvimrc-vim'
@@ -80,7 +79,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'ujihisa/neco-look'
 Plug 'vim-jp/vim-go-extra'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-terraform'
@@ -522,8 +520,3 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "-----------------------------------------------------------------------------
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-"-----------------------------------------------------------------------------
-" Vim-plug
-nnoremap <leader>pi :PlugInstall<CR>
-nnoremap <leader>pu :PlugUpdate<CR>
-nnoremap <leader>pc :PlugClean<CR>

@@ -23,7 +23,7 @@ set lines=90 columns=100
 
 " hide toolbar
 set guioptions-=T
-" let g:molokai_original = 1
+let g:molokai_original = 1
 
 " hi Visual guibg=#909090 ctermbg=#808080
 
