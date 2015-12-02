@@ -79,6 +79,7 @@
     ignore        = update-index --assume-unchanged
     unignore      = update-index --no-assume-unchanged
     ignored       = !git ls-files -v | grep "^[a-z]"
+    n             = now --all --stat
 
 [pager]
     log           = diff-highlight | less -r

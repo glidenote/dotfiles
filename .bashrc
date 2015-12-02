@@ -17,12 +17,12 @@ if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
 fi
 
-# bash_completion_tmux.sh 
+# bash_completion_tmux.sh
 if [ -f ~/bash_completion_tmux.sh ]; then
-    source ~/bash_completion_tmux.sh 
+    source ~/bash_completion_tmux.sh
 fi
 
-# tscreenがあればそれを使う 
+# tscreenがあればそれを使う
 if [ -x /bin/tscreen ]; then
     alias screen='tscreen'
 fi
