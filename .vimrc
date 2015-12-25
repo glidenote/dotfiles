@@ -54,7 +54,6 @@ Plug 'godlygeek/tabular'
 Plug 'h1mesuke/vim-alignta'
 Plug 'itchyny/lightline.vim'
 Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'junegunn/limelight.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'matchit.zip'
 Plug 'mattn/benchvimrc-vim'
@@ -325,7 +324,7 @@ endif
 let g:ctrlp_cmd                 = 'CtrlPMRUFiles'
 let g:ctrlp_by_filename         = 1
 " let g:ctrlp_use_migemo          = 1
-let g:ctrlp_use_caching         = 1   " 0が無効/1が有効
+" let g:ctrlp_use_caching         = 1   " 0が無効/1が有効
 let g:ctrlp_lazy_update         = 0
 let g:ctrlp_show_hidden         = 1
 let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
@@ -343,9 +342,15 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(-1)':       [''],
   \ 'PrtHistory(1)':        [''],
   \ }
-let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_extensions = ['mixed', 'quickfix']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
+noremap <leader>q :<c-u>CtrlPQuickfix<cr>
+
+if executable('ag')
+  let g:ctrlp_use_caching=0
+  let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
+endif
 "-----------------------------------------------------------------------------
 """ smartchr
 autocmd FileType php,python inoremap <expr> <buffer> = smartchr#one_of(' = ', ' == ', ' === ', '=')
@@ -520,3 +525,7 @@ autocmd BufWritePre * :%s/\s\+$//ge
 "-----------------------------------------------------------------------------
 " NERDTree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+"-----------------------------------------------------------------------------
+" vim-plug
+nnoremap <silent> <leader>pi :PlugInstall<CR>
+nnoremap <silent> <leader>pu :PlugUpdate<CR>
