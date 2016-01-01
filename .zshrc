@@ -30,7 +30,6 @@ zcompile ~/.zshrc
 PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin
 export PATH
 export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
-export EDITOR=vim
 export LESS='-R'
 export GOPATH=$HOME
 export PERL_CPANM_OPT="--local-lib=~/perl5"
@@ -194,7 +193,6 @@ alias df="df -h"
 alias su="su -l"
 alias tmux="tmux -2"
 alias ta='tmux a -d || tmux -f ~/.tmux.conf'
-alias vf='vim +VimFiler'
 
 if [[ -f `command -v hub` ]] ; then alias git=hub ; fi
 if [[ -f `command -v pry` ]] ; then alias p=pry ; fi
@@ -205,17 +203,19 @@ alias zcompdump_rebuild='rm -f ~/.zcompdump; compinit'
 #=============================
 # SSH + TMUX
 #=============================
-function ssh_tmux(){
-  eval server=\${$#}
-  eval tmux new-window -n "'${server}'" "'ssh $@'"
-}
+if [ -n "$TMUX" ];then
+  function ssh_tmux(){
+    eval server=\${$#}
+    eval tmux new-window -n "'${server}'" "'ssh $@'"
+  }
 
-function mosh_tmux() {
-  tmux new-window -n $@ "exec mosh $@"
-}
+  function mosh_tmux() {
+    tmux new-window -n $@ "exec mosh $@"
+  }
 
-alias ssh=ssh_tmux
-alias mosh=mosh_tmux
+  alias ssh=ssh_tmux
+  alias mosh=mosh_tmux
+fi
 
 #=============================
 # use cdd on tmux
