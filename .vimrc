@@ -32,13 +32,11 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'FuzzyFinder'
 Plug 'L9'
 Plug 'LeafCage/yankround.vim'
-Plug 'Puppet-Syntax-Highlighting'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'eregex.vim'
