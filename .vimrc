@@ -40,9 +40,9 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'elzr/vim-json'
+Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'eregex.vim'
-Plug 'evanmiller/nginx-vim-syntax'
+Plug 'evanmiller/nginx-vim-syntax', { 'for': 'nginx' }
 Plug 'fuenor/qfixgrep'
 Plug 'glidenote/memolist.vim'
 Plug 'glidenote/octoeditor.vim'
@@ -53,34 +53,33 @@ Plug 'glidenote/vim-chef'
 Plug 'godlygeek/tabular'
 Plug 'h1mesuke/vim-alignta'
 Plug 'itchyny/lightline.vim'
-Plug 'joker1007/vim-markdown-quote-syntax'
-Plug 'kchmck/vim-coffee-script'
+Plug 'joker1007/vim-markdown-quote-syntax', { 'for': 'markdown' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'matchit.zip'
 Plug 'mattn/benchvimrc-vim'
 Plug 'mattn/ctrlp-ghq'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
-Plug 'moll/vim-node'
+Plug 'moll/vim-node', { 'for': 'node' }
 Plug 'osyo-manga/vim-over'
 Plug 'rcmdnk/vim-markdown'
 Plug 'rhysd/clever-f.vim'
 Plug 'rking/ag.vim'
-Plug 'ruby-matchit'
-Plug 'scrooloose/nerdtree'
+Plug 'ruby-matchit', { 'for': 'ruby' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'smartchr'
 Plug 'sudo.vim'
 Plug 'surround.vim'
-Plug 'thinca/vim-quickrun'
-Plug 'thinca/vim-ref'
+Plug 'thinca/vim-quickrun', { 'on': 'QuickRun' }
 Plug 'thinca/vim-template'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'vim-jp/vim-go-extra'
-Plug 'vim-ruby/vim-ruby'
-Plug 'vim-terraform'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-jp/vim-go-extra', { 'for' : 'go' }
+Plug 'vim-ruby/vim-ruby', { 'for' : 'ruby' }
+Plug 'hashivim/vim-terraform', { 'for' : 'terraform' }
 Plug 'vim-voom/VOoM'
 " Plug 'chef.vim'
 " Plug 'tangledhelix/vim-octopress'
@@ -98,7 +97,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'zenorocha/dracula-theme'
 
 if has('mac')
-  Plug 'restart.vim'
+  Plug 'restart.vim', { 'on': 'Restart' }
   Plug 'tyru/open-browser.vim'
   Plug 'tyru/open-browser-github.vim'
 endif
@@ -369,7 +368,7 @@ let g:memolist_qfixgrep = 1
 nnoremap <Leader>ml  :MemoList<CR>
 nnoremap <Leader>mn  :MemoNew<CR>
 nnoremap <Leader>mg  :MemoGrep<CR>
-nnoremap mf  :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
+nnoremap mf  :CtrlP <C-r>=expand(g:memolist_path."/")<CR><CR>
 " let g:memolist_unite = 1
 " let g:memolist_unite_source = "file_rec"
 " let g:memolist_unite_option = "-start-insert"
