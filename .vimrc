@@ -24,8 +24,8 @@ if has('vim_starting')
 endif
 
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/vim-plug',
-        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'junegunn/vim-plug',
+      \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 Plug 'AndrewRadev/switch.vim'
 " Plug 'ConradIrwin/vim-bracketed-paste'
@@ -68,11 +68,11 @@ Plug 'rking/ag.vim'
 Plug 'ruby-matchit'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'sgur/ctrlp-extensions.vim'
 Plug 'smartchr'
 Plug 'sudo.vim'
 Plug 'surround.vim'
 Plug 'thinca/vim-quickrun'
-Plug 'thinca/vim-ref'
 Plug 'thinca/vim-template'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-endwise'
@@ -82,6 +82,7 @@ Plug 'vim-jp/vim-go-extra'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-terraform'
 Plug 'vim-voom/VOoM'
+
 " Plug 'chef.vim'
 " Plug 'tangledhelix/vim-octopress'
 
@@ -232,9 +233,9 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
   " カーソル位置を記憶しておく
   autocmd BufReadPost *
-              \ if line("'\"") > 0 && line("'\"") <= line("$") |
-              \   exe "normal g`\"" |
-              \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
   " これらのftではインデントを無効に
   "autocmd FileType php filetype indent off
 
@@ -274,12 +275,12 @@ let g:syntastic_check_on_wq = 0
 
 " markdown http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = [
-\  'erb=eruby',
-\  'json=javascript',
-\  'ruby',
-\  'sql',
-\  'sh',
-\]
+      \  'erb=eruby',
+      \  'json=javascript',
+      \  'ruby',
+      \  'sql',
+      \  'sh',
+      \]
 
 " highlight
 highlight Pmenu ctermbg=0
@@ -308,11 +309,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
@@ -333,15 +334,15 @@ let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 " let g:ctrlp_open_new_file       = 'r'
 let g:ctrlp_match_window        = 'bottom,order:btt,min:1,max:25'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|neocon|neocomplcache|neocomplete|cache)$',
-  \ 'file': '\v\.(mp3|mp4|jpg|png|pdf|zip|m4a|pkg|gz|ttf|mov|avi|dmg|rar|xls|mobi)$',
-  \ }
+      \ 'dir':  '\v[\/]\.(git|hg|svn|neocon|neocomplcache|neocomplete|cache)$',
+      \ 'file': '\v\.(mp3|mp4|jpg|png|pdf|zip|m4a|pkg|gz|ttf|mov|avi|dmg|rar|xls|mobi)$',
+      \ }
 let g:ctrlp_prompt_mappings = {
-  \ 'PrtSelectMove("j")':   ['<c-n>', '<down>','<c-j>'],
-  \ 'PrtSelectMove("k")':   ['<c-p>', '<up>','<c-k>'],
-  \ 'PrtHistory(-1)':       [''],
-  \ 'PrtHistory(1)':        [''],
-  \ }
+      \ 'PrtSelectMove("j")':   ['<c-n>', '<down>','<c-j>'],
+      \ 'PrtSelectMove("k")':   ['<c-p>', '<up>','<c-k>'],
+      \ 'PrtHistory(-1)':       [''],
+      \ 'PrtHistory(1)':        [''],
+      \ }
 let g:ctrlp_extensions = ['mixed', 'quickfix']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
@@ -386,29 +387,27 @@ nnoremap <Leader>og  :OctopressGrep<CR>
 nnoremap ,og  :OctopressGenerate<CR>
 nnoremap ,od  :OctopressDeploy<CR>
 nnoremap of  :FufFile <C-r>=expand(g:octopress_path."/source/_posts/")<CR><CR>
+let g:octopress_bundle_exec = 1
+
 "-----------------------------------------------------------------------------
 """ For Gist.vim
 let g:gist_detect_filetype = 1
 "-----------------------------------------------------------------------------
-
-""" For vim-auto-save refs http://qiita.com/kentaro/items/833075356d41e9d9bc75
-let g:auto_save = 1
-let g:auto_save_in_insert_mode = 0
-let g:auto_save_silent = 1
-"-----------------------------------------------------------------------------
 " for yankround.vim {{{
 "" キーマップ
 nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
+"nmap P <Plug>(yankround-P)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
+"" 履歴取得数
+let g:yankround_max_history = 100
 nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
 nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
-"" 履歴取得数
-let g:yankround_max_history = 50
-""履歴一覧(kien/ctrlp.vim)
-nnoremap <Leader><C-p> :<C-u>CtrlPYankRound<CR>
+nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 "}}}
+"-----------------------------------------------------------------------------
+" for ctrlp-extensions.vim
+nnoremap P :<C-u>CtrlPYankring<CR>
 "-----------------------------------------------------------------------------
 " for alingta
 vnoremap <silent> => :Align @1 =><CR>
@@ -472,24 +471,24 @@ nnoremap sp gT
 " custom lightline https://github.com/itchyny/lightline.vim
 "-----------------------------------------------------------------------------
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component': {
-  \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-  \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-  \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-  \ },
-  \ 'component_visible_condition': {
-  \   'readonly': '(&filetype!="help"&& &readonly)',
-  \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-  \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-  \ },
-  \ 'separator': { 'left': '⮀', 'right': '⮂' },
-  \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
-  \ }
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
 
 nnoremap <silent> <leader>cf :ChefFindAny<CR>
 nnoremap <silent> <leader>cs :ChefFindAnySplit<CR>
@@ -512,9 +511,9 @@ autocmd BufWritePre *.go Fmt
 let ctrlp_ghq_default_action = 'e'
 let g:ctrlp_ghq_cache_enabled = 0
 let g:ctrlp_ghq_actions = [
-\ {"label": "Open", "action": "e", "path": 1},
-\ {"label": "Look", "action": "!ghq look", "path": 0},
-\]
+      \ {"label": "Open", "action": "e", "path": 1},
+      \ {"label": "Look", "action": "!ghq look", "path": 0},
+      \]
 
 "-----------------------------------------------------------------------------
 " plasticboy/vim-markdown
@@ -529,3 +528,14 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " vim-plug
 nnoremap <silent> <leader>pi :PlugInstall<CR>
 nnoremap <silent> <leader>pu :PlugUpdate<CR>
+"-----------------------------------------------------------------------------
+" IndentDoNotMoveTop
+function! IndentDoNotMoveTop()
+  let pos = getpos(".")
+  :execute ":normal gg=G"
+  call setpos('.', pos)
+  :execute ":normal z."
+endfunction
+
+nnoremap <silent> ,gg :call IndentDoNotMoveTop()<CR>
+"-----------------------------------------------------------------------------
