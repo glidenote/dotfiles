@@ -31,6 +31,7 @@ PATH=$PATH:/usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/sbin:/usr/local/bin:/
 export PATH
 export MANPATH=/opt/local/man:/usr/share/man:$MANPATH
 export LESS='-R'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 export GOPATH=$HOME
 export PERL_CPANM_OPT="--local-lib=~/perl5"
 export PATH=$HOME/perl5/bin:$PATH;
@@ -53,10 +54,10 @@ colors
 # antigen and prompt
 #=============================
 if [[ -e ~/.zsh.d/antigen.zsh ]] ; then
-    source ~/.zsh.d/antigen.zsh;
-  else
-    # antigenが無ければ昔のpromptを使う
-    source ~/.zsh.d/prompt.zsh;
+  source ~/.zsh.d/antigen.zsh;
+else
+  # antigenが無ければ昔のpromptを使う
+  source ~/.zsh.d/prompt.zsh;
 fi
 
 #=============================
@@ -157,6 +158,7 @@ WORDCHARS=${WORDCHARS:s,/,,}            # 「/」も単語区切りとみなす�
 # alias
 #=============================
 alias v='vim'
+alias n='nvim'
 alias vi='vim'
 alias eh='vim /etc/hosts'
 alias g='git'
@@ -205,12 +207,12 @@ alias zcompdump_rebuild='rm -f ~/.zcompdump; compinit'
 #=============================
 if [ -n "$TMUX" ];then
   function ssh_tmux(){
-    eval server=\${$#}
-    eval tmux new-window -n "'${server}'" "'ssh $@'"
-  }
+  eval server=\${$#}
+  eval tmux new-window -n "'${server}'" "'ssh $@'"
+}
 
-  function mosh_tmux() {
-    tmux new-window -n $@ "exec mosh $@"
+function mosh_tmux() {
+tmux new-window -n $@ "exec mosh $@"
   }
 
   alias ssh=ssh_tmux
@@ -293,14 +295,14 @@ sudo() {
 if [[ -f `command -v sheet` ]] ; then
   compdef _sheets sheet
   function _sheets {
-    local -a cmds
-    _files -W  ~/.sheets/ -P '~/.sheets/'
+  local -a cmds
+  _files -W  ~/.sheets/ -P '~/.sheets/'
 
-    cmds=('list' 'edit' 'copy')
-    _describe -t commands "subcommand" cmds
+  cmds=('list' 'edit' 'copy')
+  _describe -t commands "subcommand" cmds
 
-    return 1;
-  }
+  return 1;
+}
 fi
 
 #=============================
@@ -310,8 +312,8 @@ compdef mosh=ssh
 
 # The next line enables zsh completion for gcloud.
 if [[ -f ~/google-cloud-sdk/completion.bash.inc ]] ; then
-  source '/Users/glidenote/google-cloud-sdk/completion.zsh.inc'
-  export PATH=/Users/glidenote/google-cloud-sdk/bin:$PATH
+  source $HOME/google-cloud-sdk/completion.zsh.inc
+  export PATH=$HOME/google-cloud-sdk/bin:$PATH
 fi
 
 #=============================
@@ -366,3 +368,12 @@ bindkey '^x^f' anyframe-widget-insert-filename
 
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
+
+
+#=============================
+# http://qiita.com/laiso/items/8a30e3656c980863ccfa
+#=============================
+propen() {
+  local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+  hub browse -- pull/${current_branch_name}
+}
