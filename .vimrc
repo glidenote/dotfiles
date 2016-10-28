@@ -28,7 +28,7 @@ Plug 'junegunn/vim-plug',
       \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
 Plug 'AndrewRadev/switch.vim'
-" Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'FuzzyFinder'
 Plug 'L9'
 Plug 'LeafCage/yankround.vim'
@@ -66,7 +66,7 @@ Plug 'rcmdnk/vim-markdown'
 Plug 'rhysd/clever-f.vim'
 Plug 'rking/ag.vim'
 Plug 'ruby-matchit'
-Plug 'scrooloose/nerdtree'
+Plug 'justinmk/vim-dirvish'
 Plug 'scrooloose/syntastic'
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'smartchr'
@@ -248,6 +248,7 @@ if has("autocmd")
 
   " Indent
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType json       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType apache     setlocal sw=4 sts=4 ts=4 et
   autocmd FileType css        setlocal sw=4 sts=4 ts=4 noet
   autocmd FileType diff       setlocal sw=4 sts=4 ts=4 noet
@@ -264,6 +265,7 @@ if has("autocmd")
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 endif " has("autocmd")
 
+inoremap <silent> jj <ESC>
 "-----------------------------------------------------------------------------
 "-----------------------------------------------------------------------------
 
@@ -347,7 +349,7 @@ let g:ctrlp_extensions = ['mixed', 'quickfix']
 nmap    <Space>m :CtrlPMRU<CR>
 noremap <leader>g :<c-u>CtrlPGhq<cr>
 noremap <leader>q :<c-u>CtrlPQuickfix<cr>
-
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 if executable('ag')
   let g:ctrlp_use_caching=0
   let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
@@ -538,4 +540,7 @@ function! IndentDoNotMoveTop()
 endfunction
 
 nnoremap <silent> ,gg :call IndentDoNotMoveTop()<CR>
+"-----------------------------------------------------------------------------
+" vim-bracketed-paste
+let g:bracketed_paste_tmux_wrap = 1
 "-----------------------------------------------------------------------------
